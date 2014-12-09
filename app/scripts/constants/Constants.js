@@ -1,0 +1,1 @@
+angular.module('jwwebApp').constant('_', window._).constant('ServerUrl', 'http://jwdotcom.herokuapp.com/');

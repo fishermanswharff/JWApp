@@ -8,28 +8,18 @@
  *
  * Main module of the application.
  */
-angular
-  .module('jwwebApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+angular.module('jwwebApp', [
+  'ngAnimate',
+  'ngAria',
+  'ngCookies',
+  'ngMessages',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ngTouch',
+  'MainController'
+]).run(function($rootScope,$location,$http, $window, AuthFactory, PostsFactory){
+  $rootScope.$on('$routeChangeStart', function(event,next){
+    PostsFactory.fetch();
   });
+});
