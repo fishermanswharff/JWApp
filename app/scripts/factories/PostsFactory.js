@@ -5,7 +5,6 @@ angular.module('jwwebApp').factory('PostsFactory',function($http,ServerUrl,trace
   var fetch = function(){
     $http.get(ServerUrl + 'posts').success(function(response){
       angular.copy(response,posts);
-      trace('success');
     }).error(function(data, status, headers, config) {
       trace(data,status,headers,config);
     });
