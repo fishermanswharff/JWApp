@@ -4,4 +4,8 @@
 
 // utilities
 @import "utilities/responsive";
-@import "utilities/grid"
+@import "utilities/grid";
+
+// general styles
+@import "partials/base";
+@import "partials/nav";

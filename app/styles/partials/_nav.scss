@@ -1,0 +1,17 @@
+nav.navbar {
+  ul.nav {
+    @include defaults;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      
+      a {
+
+        &:hover {
+
+        }
+      }
+    }
+  }
+}
