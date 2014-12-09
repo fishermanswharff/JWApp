@@ -8,6 +8,12 @@
 </div>
 
 <div class="row" ng-if="hasImage(post)" ng-repeat="post in posts">
-  <p><img src="{{post.image}}" alt=""></p>
-  <h1>{{post.title}}</h1>
+  <div class="post-thumb">
+    <a ng-href="#/posts/{{post.id}}" title="">
+      <figure>
+        <img src="{{post.image}}" alt="{{post.id}}-image">
+        <figcaption>{{post.title}}</figcaption>
+      </figure>
+    </a>
+  </div>
 </div>

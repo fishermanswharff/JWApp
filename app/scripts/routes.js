@@ -7,6 +7,10 @@ angular.module('jwwebApp')
         templateUrl: 'views/main.html',
         controller: 'HomeController'
       })
+      .when('/posts/:postId',{
+        templateUrl: 'views/post.html',
+        controller: 'PostDetailController'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutController'

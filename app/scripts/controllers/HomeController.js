@@ -5,7 +5,7 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
   $scope.hasImage = function(post){
     var posts = [];
     posts = $scope.posts.filter(function(item){
-      return item.image !== "/images/original/missing.png"
+      return item.image !== '/images/original/missing.png';
     });
     return posts.length > 0;
   };
