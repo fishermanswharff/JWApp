@@ -5,8 +5,8 @@
 Front end web-application that consumes the [JW Api](https://github.com/fishermanswharff/JWApi)
 
 
-[ci-image]: 
-[ci-url]: 
+[ci-image]: https://travis-ci.org/fishermanswharff/JWApp.svg?branch=master
+[ci-url]: https://travis-ci.org/fishermanswharff/JWApp
 
 [cc-climate-image]: https://codeclimate.com/github/fishermanswharff/JWApi/badges/gpa.svg
 [cc-climate-url]: https://codeclimate.com/github/fishermanswharff/JWApi
