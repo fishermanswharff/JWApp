@@ -7,6 +7,8 @@
   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row">
+<div class="row" ng-if="hasImage(post)" ng-repeat="post in posts">
+  <p><img src="{{post.image}}" alt=""></p>
   
+  <h1>{{post.title}}</h1>
 </div>
