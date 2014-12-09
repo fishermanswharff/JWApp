@@ -1,0 +1,21 @@
+@media screen and (max-width: 480px) {
+  nav.navbar {
+    ul.mobile-only {
+      display: block;
+    }
+    ul.nav {
+      display: block;
+      @include defaults;
+      list-style: none;
+      li {
+        display: block;
+        a {
+
+          &:hover {
+
+          }
+        }
+      }
+    }
+  }
+}
