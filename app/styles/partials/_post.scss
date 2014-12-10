@@ -1,7 +1,7 @@
 section.post {
   padding-top: 50px;
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  width: 100%;
 
   div.featured-image {
     position: absolute;
@@ -42,5 +42,4 @@ section.post {
       box-sizing: border-box;
     }  
   }
-  
 }
