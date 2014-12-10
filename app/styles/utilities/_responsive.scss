@@ -1,7 +1,11 @@
 @media only screen and (max-device-width: 480px) {
   nav#nav-toggle {
+    position: fixed;
     display: block;
+    top: 0;
+    left: 0;
     z-index: $z-nav-icon;
+    padding-left: 10px;
     a.menu-icon{
       color: $black;
       float: left;
@@ -13,7 +17,6 @@
       &:after,
       .menu-icon__text {
         background: $black;
-        // color: $black;
         content: '';
         display:block;
         height:4px;
@@ -89,6 +92,16 @@
           }
         }
       }
+    }
+  }
+  div.hero {
+    min-height: 250px;
+    background: url('/images/home/home-bg1-small.jpg') no-repeat;
+    background-size: cover;
+    h1 { 
+      @include defaults;
+      padding-top: 100px;
+      text-align: center;
     }
   }
 }
