@@ -11,7 +11,7 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
   };
 
   $scope.scrollDown = function(eID){
-    // $anchorScroll();
+    $anchorScroll.yOffset = 50;
     $location.hash(eID);
     anchorSmoothScroll.scrollTo(eID);
   };

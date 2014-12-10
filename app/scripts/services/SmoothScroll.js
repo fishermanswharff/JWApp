@@ -1,3 +1,4 @@
+'use strict';
 angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $window){
   var document = $document[0];
   var window = $window;
@@ -16,7 +17,7 @@ angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $win
   function getElementY(document, element) {
     var y = element.offsetTop;
     var node = element;
-    while (node.offsetParent && node.offsetParent != document.body) {
+    while (node.offsetParent && node.offsetParent !== document.body) {
         node = node.offsetParent;
         y += node.offsetTop;
     }
@@ -28,7 +29,7 @@ angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $win
     var step = Math.round(distance / 25);
     var leapY = startY + step;
     for (var i = startY; i < stopY; i += step) {
-      setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+      setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
       leapY += step;
       if (leapY > stopY) leapY = stopY;
       timer++;
@@ -40,7 +41,7 @@ angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $win
     var step = Math.round(distance / 25);
     var leapY = startY - step;
     for (var i = startY; i > stopY; i -= step) {
-      setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+      setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
       leapY -= step;
       if (leapY < stopY) leapY = stopY;
       timer++;

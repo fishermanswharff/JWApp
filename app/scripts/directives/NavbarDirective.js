@@ -8,5 +8,5 @@ angular.module('MainDirective').directive('jwNavbar',function(trace){
         $('nav.navbar').toggleClass('active');
       });
     }
-  }
+  };
 });

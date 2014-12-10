@@ -1,6 +1,11 @@
-div.hero {
+section.hero {
+  position: relative;
   background: url('/images/home/home-bg1-xlarge.jpg') no-repeat;
   height: 100vh;
+  width: 100vw;
+  background-size: cover cover;
+  -webkit-background-size: cover;
+  background-attachment: fixed;
 
   h1 {
     @include defaults;
@@ -12,15 +17,26 @@ div.hero {
     font-size: 1.7em;
     font-weight: $header-heavy;
   }
-  p.lead {
-    text-align: center;
-    a .down-arrow-svg {
-      fill: $black;
-      width: 32px;
+
+  div.hero-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    width: 100%;
+    box-sizing: border-box;
+    p.lead {
+      text-align: center;
+      color: $white;
+      a .down-arrow-svg {
+        fill: $white;
+        width: 32px;
+      }
+      span.cta { font-weight: $body-bold; }
     }
   }
 }
-div#posts {
+section#posts {
   div.posts-row {
     @include defaults;
     div.post-thumb {
