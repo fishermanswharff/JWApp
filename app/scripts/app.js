@@ -21,7 +21,8 @@ angular.module('jwwebApp', [
   'MainDirective'
 ]).run(function($rootScope,$location,$http, $window, AuthFactory, PostsFactory){
   $rootScope.$on('$routeChangeStart', function(event,next){
-    $('nav.navbar').toggleClass('active');
+    $('nav.navbar').removeClass('active');
+    $('a#menu-icon').removeClass('active');
     PostsFactory.fetch();
   });
 });

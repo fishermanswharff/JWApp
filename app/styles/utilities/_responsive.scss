@@ -1,7 +1,7 @@
 @media only screen and (max-device-width: 480px) {
   nav#nav-toggle {
     display: block;
-
+    z-index: $z-nav-icon;
     a.menu-icon{
       color: $black;
       float: left;
