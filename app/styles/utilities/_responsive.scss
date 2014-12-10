@@ -1,13 +1,8 @@
 @media only screen and (max-device-width: 480px) {
   nav#nav-toggle {
-    display: block;
+    // display: block;
   }
   div.hero {
-    // max-height: 350px;
     background: url('/images/home/home-bg1-small.jpg') no-repeat;
-    background-size: cover;
-    h1 { 
-      
-    }
   }
 }
