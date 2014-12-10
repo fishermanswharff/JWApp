@@ -1,4 +1,7 @@
 div.hero {
+  background: url('/images/home/home-bg1-xlarge.jpg') no-repeat;
+  height: 100vh;
+
   h1 {
     @include defaults;
     padding-top: 100px;
@@ -9,20 +12,28 @@ div.hero {
     font-size: 1.7em;
     font-weight: $header-heavy;
   }
-}
-
-div.posts-row {
-  @include defaults;
-  div.post-thumb {
-    padding: 0 10px 20px;
-    border-bottom: 1px dotted $black-50;
-
-    a { @include defaults; text-decoration: none; }
-    figure {
-      @include defaults;
-      img {
-        width: 100%;
-      }
+  p.lead {
+    text-align: center;
+    a .down-arrow-svg {
+      fill: $black;
+      width: 32px;
     }
   }
+}
+div#posts {
+  div.posts-row {
+    @include defaults;
+    div.post-thumb {
+      padding: 0 10px 20px;
+      border-bottom: 1px dotted $black-50;
+
+      a { @include defaults; text-decoration: none; }
+      figure {
+        @include defaults;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }  
 }

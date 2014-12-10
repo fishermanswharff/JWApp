@@ -1,5 +1,5 @@
 nav#nav-toggle {
-  display: none;
+  // display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -66,11 +66,12 @@ nav#nav-toggle {
 }
 nav.navbar {
   @include defaults;
+  overflow-y: scroll;
   position: fixed;
-  top: -100%;
+  top: -150%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: $z-nav;
   background: $black-50;
   @include transition(all,0.25s,ease,0);
@@ -96,7 +97,7 @@ nav.navbar {
         color: white;
         text-decoration: none;
         border-bottom: 1px dotted $black-10;
-
+        box-sizing: border-box;
         &:hover {
 
         }
