@@ -22,7 +22,9 @@ section.post {
   }
   div.post-content {
     top: 400px;
+    padding-bottom: 100px;
     position: relative;
+    clear:both;
     h1 {
       background: $white;
       margin-top: 0;
