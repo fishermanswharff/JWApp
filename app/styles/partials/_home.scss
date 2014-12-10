@@ -26,6 +26,7 @@ section.hero {
     width: 100%;
     box-sizing: border-box;
     p.lead {
+      font-size: $xlarge-font-size;
       text-align: center;
       color: $white;
       a .down-arrow-svg {

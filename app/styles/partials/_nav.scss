@@ -1,13 +1,22 @@
 nav#nav-toggle {
-  // display: none;
   position: fixed;
   top: 0;
   left: 0;
   z-index: $z-nav-icon;
   padding-left: 10px;
+  width: 100%;
+
+  a.home-icon {
+    svg#code-brush {
+      fill: $black;
+      width: 32px;
+      padding-top: 10px;
+    }
+  }
   a.menu-icon{
     color: $black;
-    float: left;
+    float: right;
+    margin-right: 30px;
     display:block;
     width:40px;
     -webkit-transform: translate3d(0,0,0);
