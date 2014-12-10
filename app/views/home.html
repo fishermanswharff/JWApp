@@ -12,10 +12,10 @@
       <figure ng-if="post.image !== '/images/original/missing.png'">
         <img src="{{post.image}}" alt="{{post.id}}-image">
         <figcaption>{{post.title}}</figcaption>
-        <a class="btn btn-default" ng-repeat="category in post.categories">{{category.name}}</a>
       </figure>
       <h2 ng-if="post.image === '/images/original/missing.png'">{{post.title}}</h2>
-
+      <p>{{post.body | truncate }}</p>
+      <a class="btn btn-default" ng-repeat="category in post.categories" ng-href="#">{{category}}</a>
     </a>
   </div>
 </div>

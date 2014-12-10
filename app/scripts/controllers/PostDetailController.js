@@ -5,6 +5,6 @@ angular.module('MainController').controller('PostDetailController',function($sco
     $scope.post = response;
     trace($scope.post);
   }).error(function(data, status, headers, config){
-    trace(data,status,headers,config,"you are so stupid");
+    trace(data,status,headers,config,'you are so stupid');
   });
 });
