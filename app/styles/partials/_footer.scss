@@ -5,4 +5,17 @@ footer {
   width:100%;
   color: $white;
   background: $black-80;
+
+  div {
+    ul.accounts {
+      list-style:none;
+      li.account {
+        display: inline-block;
+        margin: 0 10px;
+        a img{
+          width: 32px;
+        }
+      }
+    }
+  }
 }

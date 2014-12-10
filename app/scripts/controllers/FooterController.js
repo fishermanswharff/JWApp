@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('MainController').controller('FooterController',function($scope){
   $scope.accounts = [
     {
