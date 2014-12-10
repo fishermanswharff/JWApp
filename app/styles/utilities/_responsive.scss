@@ -1,8 +1,7 @@
 @media only screen and (max-device-width: 480px) {
-  nav#nav-toggle {
-    // display: block;
-  }
-  div.hero {
-    background: url('/images/home/home-bg1-small.jpg') no-repeat;
+  section.hero {
+    background: url('/images/home/home-bg1-large.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover cover;
   }
 }
