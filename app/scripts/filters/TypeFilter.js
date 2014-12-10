@@ -1,6 +1,6 @@
 'use strict';
 angular.module('jwwebApp').filter('truncate',function(trace){
   return function(params){
-    trace(params.length);
+    return params.slice(0, 100) + '...';
   };
 });
