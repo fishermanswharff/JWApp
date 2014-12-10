@@ -4,7 +4,7 @@
   <div class="post-content container">
     <div class="grid_12">
       <h1 ng-bind-html="post.title"></h1>
-      <p class=""></p>
+      <p class="date">{{ post.created_at | date }}</p>
     </div>
     <div class="body grid_16" ng-bind-html="post.body"></div>
   </div>
