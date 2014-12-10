@@ -1,7 +1,9 @@
 section.post {
+  position: relative;
   padding-top: 50px;
   height: auto;
   width: 100%;
+  clear:both;
 
   div.featured-image {
     position: absolute;
