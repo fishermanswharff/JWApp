@@ -43,15 +43,21 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/controllers/MainController.js"></script>
+    <script src="scripts/directives/MainDirective.js"></script>
+
     <script src="scripts/app.js"></script>
     <script src="scripts/routes.js"></script>
     <script src="scripts/constants/Constants.js"></script>
     
+    <script src="scripts/directives/NavbarDirective.js"></script>
+
     <!-- services and factories -->
     <script src="scripts/services/TraceService.js"></script>
     <script src="scripts/factories/AuthFactory.js"></script>
@@ -61,10 +67,11 @@
     <script src="scripts/filters/TypeFilter.js"></script>
 
     <!-- controllers -->
+    
     <script src="scripts/controllers/AboutController.js"></script>
     <script src="scripts/controllers/HomeController.js"></script>
     <script src="scripts/controllers/PostDetailController.js"></script>
-    
+
     <!-- endbuild -->
 </body>
 </html>

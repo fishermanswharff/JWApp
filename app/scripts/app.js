@@ -17,9 +17,11 @@ angular.module('jwwebApp', [
   'ngRoute',
   'ngSanitize',
   'ngTouch',
-  'MainController'
+  'MainController',
+  'MainDirective'
 ]).run(function($rootScope,$location,$http, $window, AuthFactory, PostsFactory){
   $rootScope.$on('$routeChangeStart', function(event,next){
+    $('nav.navbar').toggleClass('active');
     PostsFactory.fetch();
   });
 });

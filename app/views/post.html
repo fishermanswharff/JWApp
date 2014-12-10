@@ -1,5 +1,5 @@
 <div class="post">
   <h1 ng-bind-html="post.title"></h1>
   <img ng-if="post.image !== '/images/original/missing.png'" src="{{post.image}}" alt="">
-  <p ng-bind-html="post.body"></p>
+  <div class="body" ng-bind-html="post.body"></div>
 </div>

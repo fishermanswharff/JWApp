@@ -1,1 +1,5 @@
-body { @include defaults; box-sizing: border-box; }
+body { 
+  @include defaults; 
+  box-sizing: border-box; 
+  margin-top: 0px; 
+}
