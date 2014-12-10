@@ -4,4 +4,10 @@
     background-attachment: fixed;
     background-size: cover;
   }
+  section.post {
+    div.post-content {
+      top: 200px;
+      font-size: $large-font-size;
+    }
+  }
 }

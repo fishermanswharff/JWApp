@@ -1,7 +1,11 @@
 <section class="post">
-  <div class="featured-image" style="background: url({{post.images[0]}}) no-repeat center top; background-size:cover;"></div>
-  <div class="post-content">
-    <h1 ng-bind-html="post.title"></h1>
-    <div class="body" ng-bind-html="post.body"></div>
+  <div ng-if="post.image === '/images/medium/missing.png'" class="white-carbon"></div>
+  <div ng-if="post.image !== '/images/medium/missing.png'" class="featured-image" style="background: url({{post.images[0]}}) no-repeat center top; background-size:cover;"></div>
+  <div class="post-content container">
+    <div class="grid_12">
+      <h1 ng-bind-html="post.title"></h1>
+      <p class=""></p>
+    </div>
+    <div class="body grid_16" ng-bind-html="post.body"></div>
   </div>
 </section>
