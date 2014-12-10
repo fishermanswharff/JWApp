@@ -1,0 +1,16 @@
+div.hero {
+
+}
+
+div.posts-row {
+  @include defaults;
+  div.post-thumb {
+    a { @include defaults; }
+    figure {
+      @include defaults;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,4 +1,7 @@
 nav.navbar {
+  ul.mobile-only {
+      display: none;
+    }
   ul.nav {
     @include defaults;
     list-style: none;

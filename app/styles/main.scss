@@ -1,11 +1,12 @@
-// mixins and variables
-@import "modules/mixins";
-@import "modules/variables";
+// general styles
+@import "partials/base";
+@import "partials/nav";
+@import "partials/home";
 
 // utilities
 @import "utilities/responsive";
 @import "utilities/grid";
 
-// general styles
-@import "partials/base";
-@import "partials/nav";
+// mixins and variables
+@import "modules/mixins";
+@import "modules/variables";

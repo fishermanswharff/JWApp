@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+@media only screen and (max-device-width: 480px) {
   nav.navbar {
     ul.mobile-only {
       display: block;
