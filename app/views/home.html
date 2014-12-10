@@ -6,11 +6,11 @@
   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="posts-row" ng-if="hasImage(post)" ng-repeat="post in posts">
+<div class="posts-row" ng-repeat="post in posts">
   <div class="post-thumb">
     <a ng-href="#/posts/{{post.id}}" title="">
       <figure>
-        <img src="{{post.image}}" alt="{{post.id}}-image">
+        <img ng-if="hasImage(post)" src="{{post.image}}" alt="{{post.id}}-image">
         <figcaption>{{post.title}}</figcaption>
       </figure>
     </a>

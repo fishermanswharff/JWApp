@@ -7,6 +7,7 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
     posts = $scope.posts.filter(function(item){
       return item.image !== '/images/original/missing.png';
     });
+    trace(posts.length > 0);
     return posts.length > 0;
   };
 });
