@@ -27,8 +27,14 @@ $white: #ffffff;
 ***************TYPOGRAPHY*****************
 ——————————————————————————————————————————*/
 
-$header-font: Helvetica, Arial, sans-serif;
-$body-font: Helvetica, Arial, sans-serif;
+$header-font: "rooney-sans", Helvetica, Arial, sans-serif;
+$body-font: "chaparral-pro", Georgia, Times, serif;
+
+$header-light: 300;
+$header-heavy: 800;
+
+$body-light: 300;
+$body-bold: 700;
 
 $base-font-size: 14px;
 $large-font-size: 1.2em;

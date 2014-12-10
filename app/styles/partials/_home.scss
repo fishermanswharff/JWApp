@@ -1,11 +1,23 @@
 div.hero {
-
+  h1 {
+    @include defaults;
+    padding-top: 100px;
+    text-align: center;
+    color: $black;
+    text-shadow: 0px 0px 1px #ccc;
+    line-height: 1em;
+    font-size: 1.7em;
+    font-weight: $header-heavy;
+  }
 }
 
 div.posts-row {
   @include defaults;
   div.post-thumb {
-    a { @include defaults; }
+    padding: 0 10px 20px;
+    border-bottom: 1px dotted $black-50;
+
+    a { @include defaults; text-decoration: none; }
     figure {
       @include defaults;
       img {

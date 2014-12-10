@@ -7,9 +7,7 @@
     background: url('/images/home/home-bg1-small.jpg') no-repeat;
     background-size: cover;
     h1 { 
-      @include defaults;
-      padding-top: 100px;
-      text-align: center;
+      
     }
   }
 }

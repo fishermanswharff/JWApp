@@ -82,7 +82,7 @@ nav.navbar {
     @include defaults;
     display: block;
     list-style: none;
-    padding: 60px 0;
+    padding: 60px 0 10px;
     li {
       display: block;
       a {
@@ -101,6 +101,16 @@ nav.navbar {
 
         }
       }
+    }
+  }
+  ul.accounts {
+    @include defaults;
+    padding-left: 20px;
+    list-style: none;
+    li {
+      display: inline-block;
+
+      a img { width: 32px; height: 32px; margin: 0 5px; }
     }
   }
 }

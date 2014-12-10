@@ -1,0 +1,33 @@
+a.btn,
+button.btn {
+  @include button($black-30, $white, 4px);
+  @include transition(all,0.25s,ease,0);
+  &.btn-primary {
+    border: 1px solid $white;
+    border-radius: 4px;
+    color: $white;
+    background-color: $black-30;
+    padding: 6px 10px 8px;
+    cursor: pointer; 
+    &:hover {
+      background-color: $black-80;
+    }
+  }
+  &.btn-success {  }
+  &.btn-warning {  }
+  &.btn-info {  }
+  &.btn-default { 
+    border: 1px solid $black-80;
+    border-radius: 4px;
+    color: $black-80;
+    background-color: $white;
+    padding: 6px 10px 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: $black-80;
+      color: $white;
+    }
+  }
+  &.btn-xs { padding: 4px 6px 5px; }
+  &.btn-large { padding: 15px 25px; }
+}

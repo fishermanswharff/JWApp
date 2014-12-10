@@ -13,7 +13,7 @@
       </figure>
       <h3 ng-bind-html="post.title"></h3>
       <div ng-bind-html="post.body | truncate"></div>
-      <a class="btn btn-default" ng-repeat="category in post.categories" ng-href="#">{{category}}</a>
+      <a class="btn btn-primary btn-large" ng-repeat="category in post.categories" ng-href="#">{{category}}</a>
     </a>
   </div>
 </div>
