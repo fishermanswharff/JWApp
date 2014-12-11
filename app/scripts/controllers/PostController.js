@@ -1,8 +1,4 @@
 'use strict';
-angular.module('MainController').controller('PostController',function($scope,$http,ServerUrl,AmazonBucket,AuthFactory,trace){
-  
+angular.module('MainController').controller('PostController',function(){
 
-  $scope.isLoggedIn = function(){
-    return AuthFactory.isAuthenticated();
-  };
 });
