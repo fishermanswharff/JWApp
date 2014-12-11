@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,PostsFactory,AuthFactory){
+angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,AuthFactory){
   
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
     $scope.post = response;

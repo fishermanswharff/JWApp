@@ -19,7 +19,7 @@ angular.module('jwwebApp', [
   'ngTouch',
   'MainController',
   'MainDirective',
-]).run(function($rootScope,$location,$http, $window, AuthFactory, PostsFactory){
+]).run(function($rootScope,$location,$http, $window,AuthFactory,PostsFactory,AWSFactory){
   $rootScope.$on('$routeChangeStart', function(event,next){
     $('nav.navbar').removeClass('active');
     $('a#menu-icon').removeClass('active');
