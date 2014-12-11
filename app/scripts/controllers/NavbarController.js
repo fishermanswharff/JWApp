@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('NavbarController',function($scope,trace){
+angular.module('MainController').controller('NavbarController',function($scope,trace,$http,$window,$location,ServerUrl,AuthFactory){
   $scope.accounts = [
     {
       'method': 'Email',
@@ -33,34 +33,22 @@ angular.module('MainController').controller('NavbarController',function($scope,t
     }
   ];
 
-  // trace($scope.accounts);
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  };
+
+  $scope.logout = function(){
+    AuthFactory.logout().success(function(response){
+      $location.path('/login');
+      AuthFactory.clearStorage();
+    });
+  };
+
+  $scope.user = function(){
+    return AuthFactory.getUserData();
+  };
+
+  $scope.isLoggedIn = function(){
+    return AuthFactory.isAuthenticated();
+  };
 });
-
-/*
-'contact':{
-    'Email': {
-      'url': 'mailto:fishermanswharff@mac.com',
-      'icon': 'images/email-white.svg'
-    },
-    'Github': {
-      'url': 'https://github.com/fishermanswharff',
-      'icon': 'images/github-white.svg'
-    },
-    'Twitter': {
-      'url': 'https://twitter.com/jasonwharff',
-      'icon': 'images/twitter-white.svg'
-    },
-    'LinkedIn': {
-      'url': 'https://www.linkedin.com/in/jasonwharff',
-      'icon': 'images/linkedin-white.svg'
-    },
-    'Instagram': {
-      'url': 'http://instagram.com/jasonwharff',
-      'icon': 'images/instagram-white.svg'
-    },
-    'Tumblr': {
-      'url': 'http://blog.jasonwharff.com',
-      'icon': 'images/tumblr-white.svg'
-    }
-
-*/

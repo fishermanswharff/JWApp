@@ -5,7 +5,15 @@ nav#nav-toggle {
   z-index: $z-nav-icon;
   padding-left: 10px;
   width: 100%;
-
+  a { display: inline-block; }
+  a.logout {
+    position: relative;
+    top: -10px;
+    margin: 0 20px;
+    font-family: $header-font;
+    font-weight: 800;
+    cursor: pointer;
+  }
   a.home-icon {
     display: inline-block;
     width: 32px;
