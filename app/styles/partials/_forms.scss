@@ -10,7 +10,7 @@ input[type="tel"],
 input[type="url"] {
   height: 30px;
   min-width: 200px;
-  border: 1px solid $charcoal;
+  border: 1px solid $black;
   border-radius: 4px;
   padding: 0 5px;
   font-family: $header-font;
@@ -33,7 +33,7 @@ input[type="submit"] {
       cursor: pointer; 
 
       &:hover {
-        background-color: $charcoal;
+        background-color: $black;
         color: $white;
       }
     }  
