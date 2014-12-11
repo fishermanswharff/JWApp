@@ -4,8 +4,8 @@ angular.module('jwwebApp').factory('AuthFactory',function($http,$window,ServerUr
     return $http.post(ServerUrl + 'login',credentials).success(function(response){
       $.each(response,function(key,value){
         $window.sessionStorage.setItem('jw-'+key,value);
-        $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('jw-token');
       });
+      $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('jw-token');
     });
   };
 

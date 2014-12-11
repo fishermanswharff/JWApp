@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('PostController',function($scope,$q,$http,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
+angular.module('MainController').controller('PostController',function($scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
   
@@ -17,7 +17,8 @@ angular.module('MainController').controller('PostController',function($scope,$q,
     var params = { post: post }
     $http.post(ServerUrl + 'posts',params).success(function(response){
       $q.all(updateCategories(response.id)).then(function(){
-        $location.path('/posts/'+response.id);
+        debugger;
+        // $location.path('/posts/'+response.id);
       });
     });
   };
