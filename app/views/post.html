@@ -26,11 +26,16 @@
         <label for="body">Title</label>
         <textarea name="body" ng-model="post.body" ng-bind-html="post.body"></textarea>
       </div>
-      <div class="form-group">
-        <input type="file" id="file-select" ng-model="post.image"/>
-      </div>
+      
       <button class="btn btn-default" ng-click="clearForm()">Reset</button>
       <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>
+    </form>
+
+    <form role="form" name="imageForm" ng-submit="upsertImage(post)" enctype="multipart/form-data" data-file-upload="options" novalidate>
+      <div class="form-group">
+        <input type="file" id="file-select" ng-model="post.image"/>
+        <button type="button" class="btn btn-primary start" data-ng-click="submit()"><span>Start upload</span></button>
+      </div>
     </form>
   </div>
 </section>
