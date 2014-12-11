@@ -31,11 +31,14 @@
       <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>
     </form>
 
-    <form role="form" name="imageForm" ng-submit="upsertImage(post)" enctype="multipart/form-data" data-file-upload="options" novalidate>
-      <div class="form-group">
-        <input type="file" id="file-select" ng-model="post.image"/>
-        <button type="button" class="btn btn-primary start" data-ng-click="submit()"><span>Start upload</span></button>
-      </div>
+    <form id='imageUpload' action="http://ga_david_example_bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+      <input id='acl' type="hidden" name="acl" value="public-read" />
+      <input id='key' type="hidden" name="key" value="" />
+      <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="" />
+      <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
+      <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
+      File: <input type="file" name="file" accept="image/*"/> <br />
+      <input type="submit" name="submit" value="Upload to Amazon S3" />
     </form>
   </div>
 </section>
