@@ -17,4 +17,8 @@ angular.module('MainController').controller('PostDetailController',function($sco
       });
     }
   };
+
+  $scope.isLoggedIn = function(){
+    return AuthFactory.isAuthenticated();
+  };
 });
