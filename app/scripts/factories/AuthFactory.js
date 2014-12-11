@@ -23,7 +23,7 @@ angular.module('jwwebApp').factory('AuthFactory',function($http,$window,ServerUr
   var clearStorage = function(){
     trace($window.sessionStorage);
     return !!$window.sessionStorage.clear();
-  }
+  };
 
   return {
     login: login,

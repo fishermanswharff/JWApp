@@ -19,7 +19,6 @@ angular.module('jwwebApp', [
   'ngTouch',
   'MainController',
   'MainDirective',
-  'angularFileUpload'
 ]).run(function($rootScope,$location,$http, $window, AuthFactory, PostsFactory){
   $rootScope.$on('$routeChangeStart', function(event,next){
     $('nav.navbar').removeClass('active');

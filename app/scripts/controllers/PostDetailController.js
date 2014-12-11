@@ -1,8 +1,6 @@
 'use strict';
-angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,PostsFactory,AuthFactory,FileUploader){
-  $scope.uploader = new FileUploader({
-    url: ServerUrl + 'posts/' + $routeParams.postId.toString()
-  });
+angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,PostsFactory,AuthFactory){
+  
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
     $scope.post = response;
   }).error(function(data, status, headers, config){
@@ -10,10 +8,10 @@ angular.module('MainController').controller('PostDetailController',function($sco
   });
 
   $scope.upsertPost = function(post){
-    var params = { post: post }
+    var params = { post: post };
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
-        $scope.message = response.status;
+        $scope.message = 'Good job motherfucker, you edited your blog post.';
       });
     }
   };
@@ -22,7 +20,4 @@ angular.module('MainController').controller('PostDetailController',function($sco
     return AuthFactory.isAuthenticated();
   };
 
-  $scope.uploader.onProgressItem = function(fileItem, progress) {
-    console.info('onProgressItem', fileItem, progress);
-  };
 });
