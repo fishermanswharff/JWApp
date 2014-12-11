@@ -3,7 +3,7 @@
     <h1>Create a new post:</h1>
   </header>
   <div class="grid_16">
-    <form role="form" name="postForm" ng-submit="upsertPost(post)" novalidate>
+    <form role="form" name="postForm" ng-submit="upsertPost(post)" enctype="multipart/form-data" novalidate>
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title" ng-bind-html="post.title" ng-model="post.title">
@@ -12,24 +12,30 @@
         <label for="body">Title</label>
         <textarea name="body" ng-model="post.body" ng-bind-html="post.body"></textarea>
       </div>
-      <div class="form-group">
-        <div class="checkbox-group" ng-repeat="category in categories">
-          <label for="{{category.name}}">
-          <input type="checkbox" ng-model="category.checked" name="category.name">{{category.name}}</label>  
+      <div class="form-group clearfix">
+        <div class="grid_4 checkbox-group" ng-repeat="category in categories">
+          <input type="checkbox" ng-model="category.checked" name="category.name">
+          <label for="{{category.name}}">{{category.name}}</label>
         </div>
       </div>
-      <button class="btn btn-default" ng-click="clearForm()">Reset</button>
-      <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>
+
+      <div class="form-group">
+        <input id='acl' type="hidden" name="acl" value="public-read" />
+        <input id='key' type="hidden" name="key" value="" />
+        <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="" />
+        <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
+        <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
+        File: <input type="file" name="file" accept="image/*"/> <br />
+        <input type="submit" name="submit" value="Upload to Amazon S3" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" ng-click="clearForm()">Reset</button>
+        <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>  
+      </div>
     </form>
 
-    <form id='imageUpload' action="http://dubya-blog-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-      <input id='acl' type="hidden" name="acl" value="public-read" />
-      <input id='key' type="hidden" name="key" value="" />
-      <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="" />
-      <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
-      <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
-      File: <input type="file" name="file" accept="image/*"/> <br />
-      <input type="submit" name="submit" value="Upload to Amazon S3" />
+    <form id='imageUpload' ng-submit="" action="http://dubya-blog-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+      
     </form>
   </div>
 </section>

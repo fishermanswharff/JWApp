@@ -4,7 +4,7 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,ServerUrl,AmazonB
   var signKeyResults, imageData, imagePayload;
   var getImageData = function(){
     return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
-      signKeyResults = results;
+      signKeyResults = response;
       imageData = new FormData();
       imagePayload = { 
         image: 

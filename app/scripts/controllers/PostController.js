@@ -9,9 +9,7 @@ angular.module('MainController').controller('PostController',function($scope,$ht
 });
 
 /*
-
-this is the onsubmit script for the image form
-
+//this is the onsubmit script for the image form
 $('#imageUpload')
 .submit(function(event) {
   event.preventDefault();
@@ -21,9 +19,4 @@ $('#imageUpload')
     getImageData(imageFile);
   }
 });
-
-
-
-
-
 */
