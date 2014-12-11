@@ -15,18 +15,18 @@ angular.module('MainController').controller('PostController',function($scope,$q,
 
   var updateImages = function(postId){
     var fileInputs = $('#imageUpload > input[type="file"]');
-    
+
   };
 
   $scope.upsertPost = function(post){
     var params = { post: post }
     $http.post(ServerUrl + 'posts',params).success(function(response){
-      $q.all(updateImages(response.id)).tnen(function(){
-
-      });
-      $q.all(updateCategories(response.id)).then(function(){
+      $q.all(updateImages(response.id), updateCategories(response.id)).then(function(){
         $location.path('/posts/'+response.id);
       });
+      /*$q.all(updateCategories(response.id)).then(function(){
+        
+      });*/
     });
   };
 
