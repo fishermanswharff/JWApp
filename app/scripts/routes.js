@@ -19,6 +19,10 @@ angular.module('jwwebApp')
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })
+      .when('/new-post',{
+        templateUrl: 'views/newPost.html',
+        controller: 'PostController'
+      })
       .otherwise({
         redirectTo: '/'
       });
