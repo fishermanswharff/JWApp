@@ -23,8 +23,8 @@ section.post {
     z-index: $z-featured-image;
   }
   div.post-content {
-    top: 400px;
-    padding-bottom: 100px;
+    // top: 200px;
+    padding: 200px 0 100px;;
     position: relative;
     h1 {
       background: $white;
