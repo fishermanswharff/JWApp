@@ -15,6 +15,10 @@ angular.module('jwwebApp')
         templateUrl: 'views/about.html',
         controller: 'AboutController'
       })
+      .when('/login',{
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
