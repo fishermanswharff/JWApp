@@ -1,6 +1,7 @@
 @media only screen and (max-device-width: 480px) {
   section.hero {
-    background: url('/images/home/home-bg1-large.jpg') no-repeat;
+    background-color: $black-80;
+    background: url('/images/home/home-bg1-large.jpg') no-repeat center center;
     background-attachment: fixed;
     background-size: cover;
   }
@@ -8,6 +9,27 @@
     div.post-content {
       top: 200px;
       font-size: $large-font-size;
+    }
+  }
+}
+
+@media only screen and (min-width : 321px) and (orientation : landscape){
+  section.hero {
+    background-color: $black-80;
+    h1{
+      padding: 30px 0;
+      font-size: $base-font-size;
+    }
+    div.hero-footer{
+      p.lead {
+        font-size: $base-font-size;
+        padding-bottom: 0;
+        a {
+          svg {
+
+          }
+        }
+      }
     }
   }
 }
