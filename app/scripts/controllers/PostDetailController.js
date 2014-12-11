@@ -20,4 +20,8 @@ angular.module('MainController').controller('PostDetailController',function($sco
     return AuthFactory.isAuthenticated();
   };
 
+  $scope.options = {
+    url: ServerUrl + 'posts/' + $routeParams.postId.toString(),
+  };
+
 });
