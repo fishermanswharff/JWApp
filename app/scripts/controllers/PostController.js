@@ -17,8 +17,7 @@ angular.module('MainController').controller('PostController',function($scope,$q,
     var params = { post: post }
     $http.post(ServerUrl + 'posts',params).success(function(response){
       $q.all(updateCategories(response.id)).then(function(){
-        debugger;
-        // $location.path('/posts/'+response.id);
+        $location.path('/posts/'+response.id);
       });
     });
   };

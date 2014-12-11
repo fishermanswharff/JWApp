@@ -1,10 +1,9 @@
 'use strict';
 angular.module('jwwebApp').factory('AuthFactory',function($http,$window,ServerUrl,trace){
   var login = function(credentials){
+    trace(credentials);
     return $http.post(ServerUrl + 'login',credentials).success(function(response){
-      $.each(response,function(key,value){
-        $window.sessionStorage.setItem('jw-'+key,value);
-      });
+      $window.sessionStorage.setItem('jw-token',response.token);
       $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('jw-token');
     });
   };
