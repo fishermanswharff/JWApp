@@ -12,17 +12,11 @@
         <label for="body">Title</label>
         <textarea name="body" ng-model="post.body" ng-bind-html="post.body"></textarea>
       </div>
-
-      <div class="form-group" ng-repeat="category in categories">
-        
-        <!--
-        <div class="skill" ng-repeat="skill in skills">
-          <label for="{{skill.name}}">
-          <input type="checkbox" ng-checked="hasSkill(skill)" ng-model="skill.checked" name="{{skill.name}}">{{skill.name}}
-          </label>
+      <div class="form-group">
+        <div class="checkbox-group" ng-repeat="category in categories">
+          <label for="{{category.name}}">
+          <input type="checkbox" ng-model="category.checked" name="category.name">{{category.name}}</label>  
         </div>
-
-         -->
       </div>
       <button class="btn btn-default" ng-click="clearForm()">Reset</button>
       <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>
