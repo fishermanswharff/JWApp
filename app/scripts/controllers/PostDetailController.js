@@ -1,9 +1,10 @@
 'use strict';
-angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,PostsFactory,AuthFactory){
-  // $scope.postId = $routeParams.postId;
+angular.module('MainController').controller('PostDetailController',function($scope,$http,trace,$window,$routeParams,ServerUrl,PostsFactory,AuthFactory,FileUploader){
+  $scope.uploader = new FileUploader({
+    url: ServerUrl + 'posts/' + $routeParams.postId.toString()
+  });
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
     $scope.post = response;
-    // trace($scope.post);
   }).error(function(data, status, headers, config){
     trace(data,status,headers,config,'you are so stupid');
   });
@@ -19,5 +20,9 @@ angular.module('MainController').controller('PostDetailController',function($sco
 
   $scope.isLoggedIn = function(){
     return AuthFactory.isAuthenticated();
+  };
+
+  $scope.uploader.onProgressItem = function(fileItem, progress) {
+    console.info('onProgressItem', fileItem, progress);
   };
 });
