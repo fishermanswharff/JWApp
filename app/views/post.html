@@ -14,7 +14,7 @@
   </div>
 </section>
 
-<section ng-if="" class="post-edit container clearfix">
+<section ng-if="isLoggedIn()" class="post-edit container clearfix">
   <div class="grid_16">
     <h1>{{message}}</h1>
     <form role="form" name="postForm" ng-submit="upsertPost(post)" novalidate>

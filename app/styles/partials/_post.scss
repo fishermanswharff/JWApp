@@ -46,3 +46,17 @@ section.post {
     }  
   }
 }
+
+section.post-edit {
+  div {
+    h1 {}
+    form{
+      div.form-group {
+        label {}
+        input { width: 100%; }
+        textarea { width: 100%; min-height: 400px;
+        }
+      }
+    }
+  }
+}
