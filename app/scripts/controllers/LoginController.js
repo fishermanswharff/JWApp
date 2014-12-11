@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('LoginCtrl',function($scope,$location,AuthFactory){
+angular.module('MainController').controller('LoginController',function($scope,$location,AuthFactory){
   $scope.createUser = false;
   
   $scope.login = function(credentials){
