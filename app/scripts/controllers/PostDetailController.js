@@ -12,7 +12,6 @@ angular.module('MainController').controller('PostDetailController',function($sco
     var params = { post: post }
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
-        trace(response);
         $scope.message = response.status;
       });
     }
