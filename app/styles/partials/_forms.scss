@@ -1,0 +1,53 @@
+input { 
+  @include transition(all, 0.25s, ease, 0); 
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
+  height: 30px;
+  min-width: 200px;
+  border: 1px solid $charcoal;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-family: $header-font;
+  font-size: 16px;
+
+  &.feed-input {
+    display:block;
+    width: 90%;
+  }
+}
+input[type="file"],
+input[type="submit"] {
+  &.btn {
+    &.btn-default {
+      border: 1px solid $black;
+      border-radius: 4px;
+      color: $black;
+      background-color: $white;
+      padding: 6px 10px 8px;
+      cursor: pointer; 
+
+      &:hover {
+        background-color: $charcoal;
+        color: $white;
+      }
+    }  
+  }
+}
+
+label {
+  font-family: $body-font;
+  display: block;
+}
+
+div.form-group {
+  margin: 0 0 10px;
+}
+div.form-control {
+  margin: 10px auto;
+}
