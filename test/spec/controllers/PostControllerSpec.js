@@ -15,13 +15,7 @@ describe('Controller: PostController', function() {
         $scope: scope
       });
     }));
-
-    it('should create $scope.greeting when calling sayHello', function() {
-        expect(scope.greeting).toBeUndefined();
-        scope.sayHello();
-        expect(scope.greeting).toEqual('Hello Ari');
-    });
-
+    
     it('should get the parameters from the form',function(){
       
     });

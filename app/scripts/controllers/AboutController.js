@@ -14,6 +14,11 @@ angular.module('MainController').controller('AboutController', function($scope,t
       'Karma'
     ];
 
-    $scope.stupidThings = [];
+    $scope.stupidThings = [
+      'FormData .append()',
+      'rain',
+      'another stupid shitty thing',
+      'clouds',
+    ];
     
   });
