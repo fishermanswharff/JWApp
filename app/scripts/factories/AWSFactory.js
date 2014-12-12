@@ -1,21 +1,30 @@
+// .constant('AmazonBucket','http://dubya-blog-bucket.s3.amazonaws.com/');
+
 'use strict';
-angular.module('jwwebApp').factory('AWSFactory',function($http,ServerUrl,AmazonBucket,trace){
+angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,AmazonBucket,trace){
   
   var signKeyResults, imageData, imagePayload;
-  var getImageData = function(){
+
+  var prepareImage = function(imageFile, postId){
     return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
-      signKeyResults = response;
-      imageData = new FormData();
-      imagePayload = { 
-        image: 
-          {
-            postId: postId,
-            url: AmazonBucket+signKeyResults.key
-          }
-        };
+      $q.all(buildKey(response)).then(function(){
+        
+      });
     });
   };
+
+  var buildKey(response){
+    signKeyResults = response;
+    imageData = new FormData();
+    imagePayload = { image: 
+      {
+        url: AmazonBucket+signKeyResults.key
+        postId: postId,
+      }
+    };
+  };
+
   return {
-    getImageData: getImageData
+    prepareImage: prepareImage
   };
 });
