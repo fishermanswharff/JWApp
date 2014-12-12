@@ -3,6 +3,12 @@ angular.module('MainController').controller('PostController',function($scope,$q,
 
   $scope.categories = CategoryFactory.categories;
   
+  $scope.name = 'Ari'
+  $scope.sayHello = function(){
+    $scope.greeting = 'Hello ' + $scope.name;
+  };
+
+
   var updateCategories = function(postId){
     var promises = [];
     _.forEach($scope.categories,function(item){

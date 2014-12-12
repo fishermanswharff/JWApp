@@ -13,5 +13,7 @@ angular.module('MainController').controller('AboutController', function($scope,t
       'AngularJS',
       'Karma'
     ];
-    // trace($scope.awesomeThings);
+
+    $scope.stupidThings = [];
+    
   });
