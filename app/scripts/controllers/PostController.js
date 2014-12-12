@@ -14,10 +14,12 @@ angular.module('MainController').controller('PostController',function($scope,$q,
   };
 
   var updateImages = function(postId){
+    var promises = [];
     var fileInputs = $('#imageUpload > input[type="file"]');
     for (var i = 0, length = fileInputs.length; i < length; i++) {
       var imageFile = fileInputs[i].files[0];
-      AWSFactory.prepareImage(imageFile,postId);
+      debugger;
+      promises.push(AWSFactory.prepareKey(imageFile,postId));
     }
   };
 

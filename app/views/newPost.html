@@ -24,16 +24,12 @@
         <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="" />
         <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
         <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
-        File: <input type="file" name="file" accept="image/*"/> <br />
+        File: <input type="file" ng-model="file" name="file" accept="image/*" /> <br />
       </div>
       <div class="form-group">
         <button class="btn btn-default" ng-click="clearForm()">Reset</button>
         <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>  
       </div>
-    </form>
-
-    <form id='imageUpload' ng-submit="" action="http://dubya-blog-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-      
     </form>
   </div>
 </section>
