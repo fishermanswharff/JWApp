@@ -19,12 +19,14 @@
         </div>
       </div>
       <div id="imageUpload" class="form-group">
-        <input id='acl' type="hidden" name="acl" value="public-read" />
-        <input id='key' type="hidden" name="key" value="" />
-        <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="" />
-        <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
-        <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
-        File: <input type="file" ng-model="file" name="file" accept="image/*" /> <br />
+        <input type="hidden" name="key" value="key">
+        <input type="hidden" name="AWSAccessKeyId" value="access_key"> 
+        <input type="hidden" name="acl" value="public-read"> 
+        <input type="hidden" name="policy" value="policy">
+        <input type="hidden" name="signature" value="signature">
+        <input type="hidden" name="Content-Type" value="image/jpeg">
+        File to upload to S3: 
+        <input name="file" type="file"> 
       </div>
       <div class="form-group">
         <button class="btn btn-default" ng-click="clearForm()">Reset</button>
