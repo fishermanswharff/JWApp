@@ -18,7 +18,6 @@ angular.module('MainController').controller('PostController',function($scope,$q,
     var fileInputs = $('#imageUpload > input[type="file"]');
     for (var i = 0, length = fileInputs.length; i < length; i++) {
       var imageFile = fileInputs[i].files[0];
-      debugger;
       promises.push(AWSFactory.prepareKey(imageFile,postId));
     }
   };

@@ -14,7 +14,8 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
         }
       };
 
-      trace(signKeyResults.access_key);
+      trace(signKeyResults.expiration);
+      
       var data = {
         Policy: signKeyResults.policy,
         Signature: signKeyResults.signature,
@@ -22,6 +23,8 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
         success_action_status: signKeyResults.sas,
         AWSAccessKeyId: signKeyResults.access_key,
         key: signKeyResults.key,
+        Expires: signKeyResults.expiration,
+        file: imageFile
       }
       $q.all(postRails(imagePayload, postId)).then(function(){
         postImageData(data,imageFile);
@@ -35,9 +38,7 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
   };
 
   var postImageData = function(data,imageFile){
-    
-    // debugger;
-    
+    trace(data);
     var req = $http({
       headers: {
         'content-type': false,
@@ -46,9 +47,9 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
       },
       method: 'POST',
       url: AmazonBucket,
-      params: $.param(data),
-      data: imageFile,
-      transformRequest: transformRequest(imageFile),
+      params: data,
+      // data: imageFile,
+      // transformRequest: transformRequest(data),
       cache: false,
       timeout: 5000,
       withCredentials: false
@@ -63,7 +64,6 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
     var fd = new FormData();
     angular.forEach(data, function(value, key) {
       fd.append(key, value);
-      debugger;
     });
     return fd;
   };
