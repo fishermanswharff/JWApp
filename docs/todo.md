@@ -1,3 +1,20 @@
+# Write some posts on your projects
+
+* Gator project:
+  * what i learned
+  * challenges
+  * what would I do differently
+  * what's next?
+
+* eCommerce
+  * what i learned
+  * challenges
+  * what would I do differently
+  * what's next?
+
+
+
+
 # Karma Tests
 
 * AWSFactory
