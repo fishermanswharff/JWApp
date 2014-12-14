@@ -7,4 +7,4 @@
  * # MainCtrl
  * Controller of the jwwebApp
  */
-angular.module('MainController',[]);
+angular.module('MainController',['ngSanitize']);
