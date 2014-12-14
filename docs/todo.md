@@ -55,7 +55,7 @@ project views
 
 sanitize html in the post view
 prettyprint directive to style embedded html
-figure out numbered rows for <pre> and <code> in views
+figure out numbered rows for &lt;pre&gt; and &lt;code&gt; in views
 code styles based on cobalt theme (are these styles somewhere?)
 category checkboxes for post view
 images for posts at 3 sizes:
