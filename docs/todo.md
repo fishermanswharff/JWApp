@@ -75,4 +75,20 @@ Use the 'lookbook' pdf to view
   Stages web design/development
 
 # Responsive Styles
+
+# Responsive Behavior
 get involved with ng-touch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
