@@ -1,11 +1,10 @@
 'use strict';
-angular.module('jwwebApp').factory('PostsFactory',function($http,ServerUrl,trace){
+angular.module('jwwebApp').factory('PostsFactory',function($http,ServerUrl){
   var posts = [];
 
   var fetch = function(){
     $http.get(ServerUrl + 'posts').success(function(response){
       angular.copy(response,posts);
-      trace(response);
     }).error(function(data, status, headers, config) {
       trace(data,status,headers,config);
     });

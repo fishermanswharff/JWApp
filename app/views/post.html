@@ -6,7 +6,7 @@
       <h1 ng-bind-html="post.title"></h1>
       <p class="date">{{ post.created_at | date }}</p>
     </div>
-    <div class="body grid_16" ng-sanitize ng-bind-html="post.body"></div>
+    <div class="body grid_16" ng-bind-html="post.body"></div>
     <div class="meta grid_16">
       <p><a class="btn" ng-repeat="category in post.categories">{{category}}</a></p>
     </div>

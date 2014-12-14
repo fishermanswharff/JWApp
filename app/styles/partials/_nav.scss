@@ -80,9 +80,16 @@ nav#nav-toggle {
       }
     }
   }
-  .indent {
-      margin: 13px auto;
+  a.new-post {
+    position: relative;
+    top: -10px;
+    margin: 0 20px;
+    font-family: $header-font;
+    font-weight: 800;
+    cursor: pointer;
   }
+  .indent { margin: 13px auto; }
+
 }
 nav.navbar {
   @include defaults;
