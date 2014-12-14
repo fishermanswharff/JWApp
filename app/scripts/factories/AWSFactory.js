@@ -1,9 +1,10 @@
 'use strict';
-angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,AmazonBucket,trace){
+angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,ServerUrl,AmazonBucket,trace){
 
-  var signKeyResults;
+  var signKeyResults, postID;
 
   var prepareKey = function(imageFile, postId){
+    postID = postId;
     return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
       signKeyResults = response;
       var imagePayload = {
@@ -40,7 +41,7 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,ServerUrl,Amaz
         'Authorization':'',
       }
     }).success(function(response){
-      trace(response, 'congratulations, hashtag winning');
+      $q.all($location.path('/posts/'+postID));
     }).error(function(data, status, headers, config){
       trace(data, status, headers, config, 'failed posting to AWS');
     });

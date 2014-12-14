@@ -26,7 +26,7 @@ angular.module('MainController').controller('PostController',function($scope,$q,
     var params = { post: post }
     $http.post(ServerUrl + 'posts',params).success(function(response){
       $q.all(updateImages(response.id), updateCategories(response.id)).then(function(){
-        $location.path('/posts/'+response.id);
+        // $location.path('/posts/'+response.id);
       });
     });
   };

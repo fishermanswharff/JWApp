@@ -51,7 +51,7 @@
     <div class="post-thumb">
       <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
         <figure ng-if="post.image !== '/images/medium/missing.png'">
-          <img src="{{post.images[0]}}" alt="{{post.id}}-image">
+          <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
           <figcaption ng-bind-html="post.title"></figcaption>
         </figure>
         <h3 ng-bind-html="post.title"></h3>
