@@ -75,7 +75,6 @@ section#posts {
     overflow: hidden;
     background: $white;
 
-
     a { text-decoration: none; 
       figure {
         @include defaults;
@@ -98,7 +97,7 @@ section#posts {
 
         h3.post-header { margin: 5px 0; }
         div.post-body {  }
-        button {  }
+        button { font-size: .8em; }
       }
     }
 

@@ -56,3 +56,6 @@ Form Controller
 #Project pages
 Use the 'lookbook' pdf to view
   Stages web design/development
+
+# Responsive Styles
+get involved with ng-touch. 
