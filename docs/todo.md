@@ -78,6 +78,8 @@ Use the 'lookbook' pdf to view
 
 # Responsive Styles
 
+post list on the home page:
+
 # Responsive Behavior
 get involved with ng-touch.
 
