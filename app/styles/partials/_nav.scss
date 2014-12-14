@@ -5,7 +5,7 @@ nav#nav-toggle {
   z-index: $z-nav-icon;
   padding-left: 10px;
   width: 100%;
-  a { display: inline-block; }
+  a { display: inline-block; color: $white; }
   a.logout {
     position: relative;
     top: -10px;
@@ -20,12 +20,12 @@ nav#nav-toggle {
     height: 32px;
     margin-top: 15px;
     svg#code-brush {
-      fill: $black;
+      fill: $white;
       width: 32px;
     }
   }
   a.menu-icon{
-    color: $black;
+    color: $white;
     float: right;
     margin-right: 30px;
     display:block;
@@ -35,7 +35,7 @@ nav#nav-toggle {
     &:before,
     &:after,
     .menu-icon__text {
-      background: $black;
+      background: $white;
       content: '';
       display:block;
       height:4px;
