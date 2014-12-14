@@ -9,7 +9,7 @@ angular.module('jwwebApp')
       })
       .when('/posts/:postId',{
         templateUrl: 'views/post.html',
-        controller: 'PostDetailController'
+        controller: 'PostViewController'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -21,7 +21,7 @@ angular.module('jwwebApp')
       })
       .when('/new-post',{
         templateUrl: 'views/newPost.html',
-        controller: 'PostController'
+        controller: 'NewPostController'
       })
       .otherwise({
         redirectTo: '/'

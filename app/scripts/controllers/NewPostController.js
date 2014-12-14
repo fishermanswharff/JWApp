@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('PostController',function($scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
+angular.module('MainController').controller('NewPostController',function($scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
 

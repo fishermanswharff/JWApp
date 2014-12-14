@@ -20,23 +20,23 @@
 * TraceService
 
 # AWS Uploader:
+multiple image uploads
+put this form view into a directive
+Refactor the AWSFactory
 
-Do I need the aws-sdk bower component?
+# Home Page
+new image for hero. 
+artwork for hero image
+animate the icons in the blurb on scroll up
+ng-class on the div.post list (hasImage?)
+responsive styles for the post list
 
-## OnSubmit form
 
-PostController: 
-
-* imageFile as FormData
-* get aws_key
-* post to api db
-* post to aws bucket 
-
-Directive: Get the image from the form element and return formdata. 
-
-Service: Get aws key from API (currently implemented in AWSFactory.prepareKey). Should return a promise of formdata[Stack Overflow](http://stackoverflow.com/questions/19579576/append-files-to-formdata-not-work-in-angularjs)
-
-Service: Post to rails (Currently implemented in AWSFactory.postRails)
-
-Service: Post to AWS
-- calling this factory should look something like this: AWSFactory.postImage(data)
+# Post View
+sanitize html in the post view
+prettyprint directive to style embedded html
+figure out numbered rows for <pre> and <code> in views
+code styles based on cobalt theme (are these styles somewhere?)
+category checkboxes for post view
+images for posts at 3 sizes:
+  these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
