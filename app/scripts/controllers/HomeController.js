@@ -3,11 +3,14 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
   $scope.posts = PostsFactory.posts;
   
   $scope.hasImage = function(post){
-    var posts = [];
+    return post.images.length > 0;
+    /*var posts = [];
     posts = $scope.posts.filter(function(item){
-      return item.image !== '/images/original/missing.png';
+      debugger;
+      return item.images.length > 0;
     });
-    return posts.length > 0;
+    trace(posts.length > 0);
+    return posts.length > 0;*/
   };
 
   $scope.scrollDown = function(eID){

@@ -70,10 +70,45 @@ section#posts {
   div.post {
     @include defaults;
     float:left;
-    width: 25%;
+    width: 50%;
     height:200px;
     overflow: hidden;
     background: $white;
+
+    &.withImage {
+      a { text-decoration: none; 
+        figure {
+          @include defaults;
+          img {
+            width: 100%;
+          }
+        }
+        div.post-info {
+          @include transition(all,0.25s,ease,0);
+          position: absolute;
+          top: 80%;
+          opacity: 0;
+          left: 0;
+          padding: 5px 10px;
+          background: $darkblue;
+          background: rgba(25,53,73,0.7);
+          color: $white;
+          width: 100%;
+          height: 100%;
+
+          h3.post-header { margin: 5px 0; }
+          div.post-body {  }
+          button { font-size: .8em; }
+        }
+      }
+
+      &:hover {
+        div.post-info {
+          top: 0;
+          opacity: 1;
+        }
+      }  
+    }
 
     a { text-decoration: none; 
       figure {
@@ -85,27 +120,23 @@ section#posts {
       div.post-info {
         @include transition(all,0.25s,ease,0);
         position: absolute;
-        top: 80%;
+        top: 0;
         opacity: 1;
         left: 0;
         padding: 5px 10px;
-        background: $black-80;
-        background: rgba(0,0,0,0.7);
+        background: $darkblue;
+        background: rgba(25,53,73,0.7);
         color: $white;
         width: 100%;
         height: 100%;
 
-        h3.post-header { margin: 5px 0; }
+        h3.post-header { margin: 5px 0; font-weight: $header-light; }
         div.post-body {  }
         button { font-size: .8em; }
       }
     }
 
-    &:hover {
-      div.post-info {
-        top: 0;
-        opacity: 1;
-      }
-    }
+    
+
   }
 }

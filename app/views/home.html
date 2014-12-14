@@ -47,7 +47,7 @@
 </section>
 
 <section id="posts">
-  <div class="post" ng-repeat="post in posts">
+  <div ng-repeat="post in posts" ng-class="{withImage: hasImage(post)}" class="post">
     <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
       <figure ng-if="post.images.length > 0">
         <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
