@@ -1,0 +1,21 @@
+<h5>Euismod Aenean Ornare Malesuada Inceptos</h5>
+<pre class="prettyprint linenums"><code>
+<span class="pln">class </span><span class="kwd">BinaryTree</span>
+  <span class="atn">attr_accessor</span> <span class="atv">:value, :right_branch, :left_branch</span>
+
+  <span class="pln">def</span> <span class="typ">initialize(value)</span>
+    <span class="pln">@value = value
+    @left_branch = nil
+    @right_branch = nil
+  end</span>
+  
+  def insert(value)
+    if value > @value
+      @right_branch ? @right_branch.insert(value) : @right_branch = BinaryTree.new(value)
+    elsif value < @value
+      @left_branch ? @left_branch.insert(value) : @left_branch = BinaryTree.new(value)
+    else
+       'world ends'
+    end
+  end
+<span class="kwd">end</span></code></pre>
