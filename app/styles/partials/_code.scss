@@ -1,4 +1,8 @@
-pre, code {
+code, kbd, pre, samp {
+  font-family: $mono-spaced-font;
+}
+
+/* pre, code {
   background: #193549;
   color: #93ffff;
   box-sizing: border-box;
@@ -6,4 +10,4 @@ pre, code {
 }
 pre {
   padding: 20px;
-}
+} */

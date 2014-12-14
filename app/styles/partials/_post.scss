@@ -23,7 +23,6 @@ section.post {
     z-index: $z-featured-image;
   }
   div.post-content {
-    // top: 200px;
     padding: 200px 0 100px;;
     position: relative;
     h1 {
@@ -41,8 +40,7 @@ section.post {
     div.body {
       background: none repeat scroll 0% 0% white;
       min-height: 210px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 20px;
       box-sizing: border-box;
     }  
   }
