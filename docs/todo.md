@@ -40,3 +40,5 @@ code styles based on cobalt theme (are these styles somewhere?)
 category checkboxes for post view
 images for posts at 3 sizes:
   these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
+  image converter script? am i the image converter? photoshop batches is the image converter.
+  
