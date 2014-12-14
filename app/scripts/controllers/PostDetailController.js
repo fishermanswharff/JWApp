@@ -13,7 +13,7 @@ angular.module('MainController').controller('PostDetailController',function($sco
     _.forEach($scope.categories,function(item){
       var isChecked = item.checked;
       if(isChecked){
-        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id))
+        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id));
       }
     });
   };

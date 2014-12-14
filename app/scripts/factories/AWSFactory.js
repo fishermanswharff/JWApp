@@ -32,7 +32,7 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,Serv
     formdata.append('acl','public-read');
     formdata.append('signature',signKeyResults.signature);
     formdata.append('Content-Type','image/jpeg');
-    formdata.append('file',imageFile)
+    formdata.append('file',imageFile);
 
     $http.post(AmazonBucket, formdata, {
       transformRequest: angular.identity,

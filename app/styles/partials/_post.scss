@@ -10,7 +10,7 @@ section.post {
     top: 0;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: 500px;
     z-index: $z-featured-image;
   }
   div.white-carbon {
@@ -40,6 +40,7 @@ section.post {
     }
     div.body {
       background: none repeat scroll 0% 0% white;
+      min-height: 210px;
       padding-left: 20px;
       padding-right: 20px;
       box-sizing: border-box;
