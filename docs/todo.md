@@ -37,9 +37,11 @@
 * TraceService
 
 # AWS Uploader:
+create a standalone seeder form
 multiple image uploads
 put this form view into a directive
 Refactor the AWSFactory
+
 
 # Home Page
 

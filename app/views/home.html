@@ -55,8 +55,8 @@
       </figure>
       <div class="post-info">
         <h3 class="post-header" ng-bind-html="post.title"></h3>
-        <div class="post-body" ng-sanitize-html="post.body | truncate"></div>
-        <button class="btn btn-xs" ng-repeat="category in post.categories" ng-href="#">{{category.name}}</button>
+        <div class="post-body" ng-bind-html="post.body | truncate"></div>
+        <!-- <button class="btn btn-info btn-xs" ng-repeat="category in post.categories" ng-href="#">{{category.name}}</button> -->
       </div>
     </a>
   </div>

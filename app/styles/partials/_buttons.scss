@@ -3,12 +3,12 @@ button.btn {
   @include button($black-30, $white, 4px);
   @include transition(all,0.25s,ease,0);
   margin: 0 5px;
-  border: 1px solid $white;
   border-radius: 4px;
   color: $white;
   background-color: $black-30;
   padding: 6px 10px 8px;
   cursor: pointer; 
+  border: none;
   &:hover {
     background-color: $black-80;
   }
@@ -25,7 +25,10 @@ button.btn {
   }
   &.btn-success {  }
   &.btn-warning {  }
-  &.btn-info {  }
+  &.btn-info {
+    color: $white;
+    background-color: $lightblue;
+  }
   &.btn-default { 
     border: 1px solid $black-80;
     border-radius: 4px;

@@ -4,13 +4,6 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
   
   $scope.hasImage = function(post){
     return post.images.length > 0;
-    /*var posts = [];
-    posts = $scope.posts.filter(function(item){
-      debugger;
-      return item.images.length > 0;
-    });
-    trace(posts.length > 0);
-    return posts.length > 0;*/
   };
 
   $scope.scrollDown = function(eID){

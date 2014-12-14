@@ -1,6 +1,7 @@
 <section class="post clearfix" jw-post>
-  <div ng-if="post.images[0] === nil" class="white-carbon"></div>
-  <div ng-if="post.image !== '/images/medium/missing.png'" class="featured-image" style="background: url({{post.images[0].url}}) no-repeat center top; background-size:cover;"></div>
+  
+  <div ng-if="post.images.length === 0" class="white-carbon"></div>
+  <div ng-if="post.images.length > 0" class="featured-image" style="background: url({{post.images[0].url}}) no-repeat center top; background-size:cover;"></div>
   <div class="post-content clearfix container">
     <div class="grid_12 clearfix">
       <h1 ng-bind-html="post.title"></h1>
