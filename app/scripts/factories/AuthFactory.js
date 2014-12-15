@@ -1,5 +1,5 @@
 'use strict';
-angular.module('jwwebApp').factory('AuthFactory',function($http,$window,ServerUrl,trace){
+angular.module('jwwebApp').factory('AuthFactory',['$http','$window','ServerUrl','trace',function($http,$window,ServerUrl,trace){
   var login = function(credentials){
     trace(credentials);
     return $http.post(ServerUrl + 'login',credentials).success(function(response){
@@ -31,4 +31,4 @@ angular.module('jwwebApp').factory('AuthFactory',function($http,$window,ServerUr
     isAuthenticated: isAuthenticated,
     clearStorage: clearStorage
   };
-});
+}]);
