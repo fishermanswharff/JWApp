@@ -1,5 +1,7 @@
 'use strict';
-angular.module('MainController').controller('PostViewController',function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
+angular.module('MainController')
+  .controller('PostViewController',['$scope','$sce','$q','$http','$route','$routeParams','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
+    function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
 
@@ -75,9 +77,4 @@ angular.module('MainController').controller('PostViewController',function($scope
       $location.path('/');
     });
   };
-});
-
-
-
-
-
+}]);
