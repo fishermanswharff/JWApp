@@ -715,3 +715,18 @@ LH:2
 BRF:0
 BRH:0
 end_of_record
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CODECLIMATE_REPO_TOKEN=3136821d85162d2bf81e784c1e658e956d764de41a70d7aa4169a2b1e60c0c99 codeclimate < lcov.info 
