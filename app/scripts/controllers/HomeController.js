@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('HomeController',function($scope,PostsFactory,trace,$location,$anchorScroll, anchorSmoothScroll){
+angular.module('MainController',['$scope','$location','$anchorScroll','anchorSmoothScroll','PostsFactory','trace',function($scope,PostsFactory,trace,$location,$anchorScroll, anchorSmoothScroll){
   $scope.posts = PostsFactory.posts;
   
   $scope.hasImage = function(post){
@@ -11,4 +11,4 @@ angular.module('MainController').controller('HomeController',function($scope,Pos
     $location.hash(eID);
     anchorSmoothScroll.scrollTo(eID);
   };
-});
+}]);
