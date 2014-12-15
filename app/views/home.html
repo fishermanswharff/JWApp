@@ -1,4 +1,5 @@
-<!-- <section id="hero">
+  <!-- 
+<section id="hero">
   <h1>I'm Jason and I design with code.</h1>
   <p class="lead">Designer, Developer, Professional Tinkerer, Former Chef, Crazy Dog Owner, Grateful Husband, Monster that gobbles up life.</p>
   <div class="hero-footer">
@@ -14,8 +15,46 @@
     </p>
   </div>
 </section>
- -->
-<!-- <section id="blurbs" class="clearfix">
+-->
+<section id="posts" class="clearfix" home-slider>
+  <div class="post about">
+    <div class="post-info">
+      <h3 class="post-header">Hi. I'm Jason and these are the musings of a: </h3>
+      <h5>Designer, Developer, Professional Tinkerer, Former Chef, Crazy Dog Owner, Grateful Husband, Monster that gobbles up life.</h5>
+    </div>
+  </div>
+  <div ng-repeat="post in posts" ng-class="{withImage: hasImage(post)}" class="post">
+    <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
+      <figure ng-if="post.images.length > 0">
+        <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
+        <figcaption ng-bind-html="post.title"></figcaption>
+      </figure>
+      <div class="post-info">
+        <h3 class="post-header" ng-bind-html="post.title"></h3>
+        <div class="post-body" ng-bind-html="post.body | truncate"></div>
+        <p><strong>Filed under: </strong><span ng-repeat="category in post.categories">{{category.name}} </span></p>
+      </div>
+    </a>
+  </div>
+  <div class="post contact-form">
+    <div class="post-info">
+      <form>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <input type="text" name="message">
+        </div>
+        <div class="form-group">
+          <input class="btn btn-default" type="submit" value="Send">
+        </div>
+      </form>  
+    </div>
+  </div>
+</section>
+<section id="blurbs" class="clearfix">
   <div class="container">
     <div class="blurb grid_8">
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -43,26 +82,5 @@
       <h3>Modern Design</h3>
       <p>With one eye on history and the other on the future, my designs are guided by practicality and usability.</p>
     </div>
-  </div>
-</section>
- -->
-<section id="posts" class="clearfix" home-slider>
-  <div class="post about">
-    <div class="post-info">
-      <h3 class="post-header">About me</h3>
-    </div>
-  </div>
-  <div ng-repeat="post in posts" ng-class="{withImage: hasImage(post)}" class="post">
-    <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
-      <figure ng-if="post.images.length > 0">
-        <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
-        <figcaption ng-bind-html="post.title"></figcaption>
-      </figure>
-      <div class="post-info">
-        <h3 class="post-header" ng-bind-html="post.title"></h3>
-        <div class="post-body" ng-bind-html="post.body | truncate"></div>
-        <p><strong>Filed under: </strong><span ng-repeat="category in post.categories">{{category.name}} </span></p>
-      </div>
-    </a>
   </div>
 </section>
