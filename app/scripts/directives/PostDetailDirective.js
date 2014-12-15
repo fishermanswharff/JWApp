@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainDirective').directive('jwPost',function(){
+angular.module('MainDirective').directive('jwPost',[function(){
   return {
     restrict: 'EA',
     link: function($scope,element,attrs){
@@ -8,4 +8,4 @@ angular.module('MainDirective').directive('jwPost',function(){
       },100);
     }
   };
-});
+}]);

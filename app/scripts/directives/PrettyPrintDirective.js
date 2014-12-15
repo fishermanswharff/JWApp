@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainDirective').directive('jwPrettyprint',function(){
+angular.module('MainDirective').directive('jwPrettyprint',[function(){
   return {
     restrict: 'C',
     link:  function postLink($scope,element,attrs){
@@ -11,4 +11,4 @@ angular.module('MainDirective').directive('jwPrettyprint',function(){
       
     },
   };
-});
+}]);
