@@ -1,8 +1,8 @@
-angular.module('MainDirective').directive('homeSlider',function(trace){
+angular.module('MainDirective').directive('homeSlider',['trace',function(trace){
   return {
     restrict: 'EA',
     link: function($scope,element,attrs){
       
     }
   };
-});
+}]);
