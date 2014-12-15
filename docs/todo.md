@@ -1,7 +1,6 @@
 # Grunt build
 * deploy to github pages
 * minify files/js
-* use inline notation for dependency injection
 
 # Write some posts on your projects
 
