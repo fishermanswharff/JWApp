@@ -47,9 +47,8 @@ animate the icons in the blurb on scroll up??
 * prettyprint directive to style embedded html
 * figure out numbered rows for &lt;pre&gt; and &lt;code&gt; in views
 * code styles based on cobalt theme (are these styles somewhere?)
-* category checkboxes for post view
 * images for posts at 3 sizes:
-* these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
+  * these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
 * image converter script? am i the image converter? photoshop batches is the * image converter.
 * Populate posts with notes from lessons
 
