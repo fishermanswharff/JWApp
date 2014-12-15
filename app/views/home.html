@@ -46,7 +46,7 @@
   </div>
 </section>
 
-<section id="posts">
+<section id="posts" class="clearfix">
   <div ng-repeat="post in posts" ng-class="{withImage: hasImage(post)}" class="post">
     <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
       <figure ng-if="post.images.length > 0">

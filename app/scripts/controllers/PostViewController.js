@@ -34,6 +34,7 @@ angular.module('MainController').controller('PostViewController',function($scope
         promises.push();
       }
     });
+    return promises;
   };
 
   var updateImages = function(postId){
@@ -43,6 +44,7 @@ angular.module('MainController').controller('PostViewController',function($scope
       var imageFile = fileInputs[i].files[0];
       if(imageFile) promises.push(AWSFactory.prepareKey(imageFile,postId));
     }
+    return promises;
   };
 
   $scope.upsertPost = function(post){

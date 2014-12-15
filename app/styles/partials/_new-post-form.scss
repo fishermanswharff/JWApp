@@ -1,0 +1,15 @@
+section.post-new {
+  background-color: $black-10;
+  padding-top: 60px;
+  background-color: $black-10;
+  div {
+    h1 {}
+    form{
+      div.form-group {
+        label {}
+        input { width: 100%; }
+        textarea { width: 100%; min-height: 400px; }
+      }
+    }
+  }
+}

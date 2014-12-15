@@ -13,7 +13,7 @@ section.post {
     height: 500px;
     z-index: $z-featured-image;
   }
-  div.white-carbon {
+  div.black-carbon {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSI+CjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzI4MjgyOCI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzIiBjeT0iNC4zIiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjEwLjUiIGN5PSIxMi41IiByPSIxLjgiIGZpbGw9IiMzOTM5MzkiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIxMC41IiBjeT0iMTEuMyIgcj0iMS44IiBmaWxsPSJibGFjayI+PC9jaXJjbGU+Cjwvc3ZnPg==");
     position: absolute;
     top: 0;
@@ -48,14 +48,13 @@ section.post {
 
 section.post-edit {
   padding-top: 60px;
+  background-color: $black-10;
   div {
     h1 {}
     form{
       div.form-group {
         label {}
-        input { width: 100%; }
-        textarea { width: 100%; min-height: 400px;
-        }
+        textarea { width: 100%; min-height: 400px; }
       }
     }
   }

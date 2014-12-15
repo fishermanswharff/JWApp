@@ -13,9 +13,14 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,Serv
           url: AmazonBucket+signKeyResults.key,
         }
       };
-      $q.all(postRails(imagePayload, postId)).then(function(){
+      if(postID){
+        $q.all(postRails(imagePayload, postId)).then(function(){
+          postImageData(imageFile);
+        });
+      } else {
         postImageData(imageFile);
-      });
+      }
+
     });
   };
 
@@ -41,7 +46,9 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,Serv
         'Authorization':'',
       }
     }).success(function(response){
-      $q.all($location.path('/posts/'+postID));
+      $q.all(function(){
+        if(postID) $location.path('/posts/'+postID)
+      });
     }).error(function(data, status, headers, config){
       trace(data, status, headers, config, 'failed posting to AWS');
     });

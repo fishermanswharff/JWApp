@@ -57,3 +57,8 @@ section.post-edit div form div.form-group label {
     display: inline-block;
     width: auto;
 }
+
+div.checkbox-group { 
+  display: inline-block; 
+  label { display: inline-block; margin: 5px 0 5px 15px; }
+}
