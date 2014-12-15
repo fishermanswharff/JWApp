@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('jwwebApp')
   .config(function ($routeProvider) {
     $routeProvider

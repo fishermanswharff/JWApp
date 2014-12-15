@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('jwwebApp', [
+angular.module('jwwebApp',[
   'ngAnimate',
   'ngAria',
   'ngCookies',
@@ -19,9 +19,12 @@ angular.module('jwwebApp', [
   'ngTouch',
   'MainController',
   'MainDirective',
-]).run(function($rootScope,$location,$http,$window,AuthFactory,PostsFactory,CategoryFactory,AWSFactory){
+]).run(function($rootScope,$location,$http,$window,AuthFactory,PostsFactory,CategoryFactory){
   $rootScope.$on('$routeChangeStart', function(event,next){
-    if(AuthFactory.isAuthenticated()) $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+    console.log(event,next);
+    if(AuthFactory.isAuthenticated()) {
+      $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+    }
     $('nav.navbar').removeClass('active');
     $('a#menu-icon').removeClass('active');
     PostsFactory.fetch();
