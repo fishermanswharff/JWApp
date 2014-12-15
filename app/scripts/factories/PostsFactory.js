@@ -1,5 +1,5 @@
 'use strict';
-angular.module('jwwebApp').factory('PostsFactory',function($http,ServerUrl){
+angular.module('jwwebApp').factory('PostsFactory',['$http','ServerUrl',function($http,ServerUrl){
   var posts = [];
 
   var fetch = function(){
@@ -13,4 +13,4 @@ angular.module('jwwebApp').factory('PostsFactory',function($http,ServerUrl){
     fetch: fetch,
     posts: posts
   };
-});
+}]);
