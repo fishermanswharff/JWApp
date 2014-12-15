@@ -1,5 +1,4 @@
 'use strict';
-
 describe('Controller: AboutController', function () {
 
   // load the controller's module

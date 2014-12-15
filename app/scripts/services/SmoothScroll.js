@@ -1,5 +1,5 @@
 'use strict';
-angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $window){
+angular.module('jwwebApp').service('anchorSmoothScroll',['$document','$window',function($document, $window){
   var document = $document[0];
   var window = $window;
 
@@ -74,4 +74,4 @@ angular.module('jwwebApp').service('anchorSmoothScroll',function($document, $win
       }
     }
   };
-});
+}]);
