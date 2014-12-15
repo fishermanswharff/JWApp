@@ -12,9 +12,6 @@
   * what would I do differently
   * what's next?
 
-
-
-
 # Karma Tests
 
 * AWSFactory
@@ -37,25 +34,16 @@
 * TraceService
 
 # AWS Uploader:
-create a standalone seeder form
 multiple image uploads
 put this form view into a directive
 Refactor the AWSFactory
 
-
 # Home Page
 
-new image for hero. 
-artwork for hero image
-animate the icons in the blurb on scroll up
-ng-class on the div.post list (hasImage?)
-responsive styles for the post list
-project views
-  which projects? 3 max?
+animate the icons in the blurb on scroll up??
 
 # Post View
 
-* sanitize html in the post view
 * prettyprint directive to style embedded html
 * figure out numbered rows for &lt;pre&gt; and &lt;code&gt; in views
 * code styles based on cobalt theme (are these styles somewhere?)
@@ -72,15 +60,12 @@ pull over from jw-red
 Form View
 Form Controller
 
-# About Me page?
-
 #Project pages
 Use the 'lookbook' pdf to view
   Stages web design/development
 
 # Responsive Styles
 
-post list on the home page:
 
 # Responsive Behavior
 get involved with ng-touch.

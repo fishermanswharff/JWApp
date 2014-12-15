@@ -12,8 +12,8 @@
       </div>
     </div>
     <div class="meta grid_16">
-      <p>File under: <br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
-      <p class="date">{{ post.created_at | date }}</p>
+      <p ng-if="post.categories.length > 0"><strong>Filed under: </strong><br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
+      <p class="date"><strong>Created on: </strong>{{ post.created_at | date }}</p>
     </div>
   </div>
 </section>

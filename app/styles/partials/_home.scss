@@ -82,18 +82,17 @@ section#posts {
     a { text-decoration: none; }
     
     &.withImage {
-      
-        figure {
-          @include defaults;
-          img {
-            width: 100%;
-          }
+      figure {
+        @include defaults;
+        img {
+          width: 100%;
         }
-        div.post-info {
-          @include transition(all,0.25s,ease,0);
-          top: 80%;
-          opacity: 0;
-        }
+      }
+      div.post-info {
+        @include transition(all,0.25s,ease,0);
+        top: 80%;
+        opacity: 0;
+      }
 
       &:hover {
         div.post-info {

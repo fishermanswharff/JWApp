@@ -23,8 +23,11 @@
   -webkit-transition: $prop $duration $timing $delay;
   -moz-transition: $prop $duration $timing $delay;
   -o-transition: $prop $duration $timing $delay;
-  transition: $prop;
   transition: $prop $duration $timing $delay;
+  transition-property: $prop;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
 }
 
 @mixin notification {
