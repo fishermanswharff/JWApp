@@ -32,17 +32,20 @@ section.post {
       padding: 20px;
       box-sizing: border-box;
     }
-    p.date {
-      margin: 0;
-      padding: 0 20px;
-      background: $white;
-    }
     div.body {
       background: none repeat scroll 0% 0% white;
       min-height: 210px;
       padding: 20px;
       box-sizing: border-box;
-    }  
+      div.post-images {
+        z-index: $z-post-images;
+        img {width: 100%;}
+      }
+    }
+    div.meta {
+      padding: 20px;
+      background: $white;
+    }
   }
 }
 

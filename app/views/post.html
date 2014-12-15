@@ -4,11 +4,16 @@
   <div class="post-content clearfix container">
     <div class="grid_12 clearfix">
       <h1 ng-bind-html="post.title"></h1>
-      <p class="date">{{ post.created_at | date }}</p>
     </div>
-    <div class="body grid_16" ng-bind-html="post.body"></div>
+    <div class="body grid_16">
+      <div class="post-body grid_12" ng-bind-html="::post.body"></div>
+      <div class="post-images grid_4">
+        <img ng-repeat="image in post.images" src="{{image.url}}" alt="{{image.id}}">
+      </div>
+    </div>
     <div class="meta grid_16">
-      <p><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
+      <p>File under: <br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
+      <p class="date">{{ post.created_at | date }}</p>
     </div>
   </div>
 </section>
@@ -43,12 +48,12 @@
           <input name="file" type="file"> 
         </div>
         <div class="form-group">
-          <button class="btn btn-default" ng-click="clearForm()">Reset</button>
-          <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>  
+          
+          <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Save Post</button>  |   <button class="btn btn-primary" type="submit">Delete Post</button>
         </div>
       </form>
       <form role="form" name="postDeleteForm" ng-submit="deletePost(post)" novalidate>
-        <button class="btn btn-primary" type="submit">Delete this post</button>
+        
       </form>
     </div>  
   </div>

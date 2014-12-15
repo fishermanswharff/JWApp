@@ -30,9 +30,7 @@ angular.module('MainController').controller('PostViewController',function($scope
           trace(response);
         }));
       }
-      if(isChecked && wasChecked){
-        promises.push();
-      }
+      if(isChecked && wasChecked){}
     });
     return promises;
   };
@@ -52,6 +50,7 @@ angular.module('MainController').controller('PostViewController',function($scope
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
         $q.all(updateImages(response.id),updateCategories(response.id)).then(function(){
+          $route.reload();
           $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });
@@ -73,7 +72,8 @@ angular.module('MainController').controller('PostViewController',function($scope
   };
 
   $scope.deletePost = function(post){
-    trace('deleting post');
+    trace(ServerUrl+'posts/'+post.id);
+
     $http.delete(ServerUrl+'posts/'+post.id).success(function(){
       $location.path('/');
     });
