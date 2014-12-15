@@ -49,7 +49,7 @@ angular.module('MainController').controller('PostViewController',function($scope
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
         $q.all(updateImages(response.id),updateCategories(response.id)).then(function(){
-          $scope.post = response;
+          $route.reload();
           $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });
