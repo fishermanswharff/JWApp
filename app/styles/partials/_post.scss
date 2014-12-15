@@ -43,6 +43,7 @@ section.post {
       }
     }
     div.meta {
+      box-sizing: padding-box;
       padding: 20px;
       background: $white;
     }

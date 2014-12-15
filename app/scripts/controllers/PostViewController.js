@@ -1,15 +1,14 @@
 'use strict';
-angular.module('MainController').controller('PostViewController',function($scope,$sce,$q,$http,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
+angular.module('MainController').controller('PostViewController',function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
 
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
-    $q.all($scope.post = response).then(function(){
-      _.forEach($scope.categories, function(item) {
-          if ($scope.hasCategory(item)) {
+    $scope.post = response
+    _.forEach($scope.categories, function(item) {
+        if ($scope.hasCategory(item)) {
           item.checked = true;
         }
-      });  
     });
   }).error(function(data, status, headers, config){
     trace(data,status,headers,config,'you are so stupid');
@@ -50,7 +49,7 @@ angular.module('MainController').controller('PostViewController',function($scope
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
         $q.all(updateImages(response.id),updateCategories(response.id)).then(function(){
-          $route.reload();
+          $scope.post = response;
           $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });

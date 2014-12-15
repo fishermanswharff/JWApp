@@ -67,6 +67,10 @@ section#blurbs {
 }
 
 section#posts {
+
+  padding-top: 100px;
+  background: $darkblue;
+
   div.post {
     @include defaults;
     float:left;

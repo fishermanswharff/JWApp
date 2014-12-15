@@ -6,8 +6,6 @@ angular.module('MainDirective').directive('jwPost',function(){
       setTimeout(function(){
         $('.post').css('height',$('.post').height() + $('.post').find('.post-content').height() - $('.post').find('.post-content').offset());
       },100);
-      
-      // trace($scope,element,attrs);
     }
   };
 });
