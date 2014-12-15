@@ -1,4 +1,4 @@
-<!-- <section class="hero">
+<!-- <section id="hero">
   <h1>I'm Jason and I design with code.</h1>
   <p class="lead">Designer, Developer, Professional Tinkerer, Former Chef, Crazy Dog Owner, Grateful Husband, Monster that gobbles up life.</p>
   <div class="hero-footer">
@@ -47,6 +47,11 @@
 </section>
  -->
 <section id="posts" class="clearfix" home-slider>
+  <div class="post about">
+    <div class="post-info">
+      <h3 class="post-header">About me</h3>
+    </div>
+  </div>
   <div ng-repeat="post in posts" ng-class="{withImage: hasImage(post)}" class="post">
     <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
       <figure ng-if="post.images.length > 0">
@@ -56,7 +61,7 @@
       <div class="post-info">
         <h3 class="post-header" ng-bind-html="post.title"></h3>
         <div class="post-body" ng-bind-html="post.body | truncate"></div>
-        <p><strong>Filed under: </strong><span ng-repeat="category in post.categories">{{category.name}}</span></p>
+        <p><strong>Filed under: </strong><span ng-repeat="category in post.categories">{{category.name}} </span></p>
         <!-- <button class="btn btn-info btn-xs" ng-repeat="category in post.categories" ng-href="#">{{category.name}}</button> -->
       </div>
     </a>

@@ -4,7 +4,6 @@ angular.module('jwwebApp').factory('CategoryFactory',function($http,ServerUrl,tr
   var fetch = function(){
     $http.get(ServerUrl + 'categories').success(function(response){
       angular.copy(response,categories);
-      trace(response);
     }).error(function(data, status, headers, config) {
       trace(data,status,headers,config);
     });

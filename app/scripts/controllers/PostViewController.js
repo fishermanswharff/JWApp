@@ -71,8 +71,6 @@ angular.module('MainController').controller('PostViewController',function($scope
   };
 
   $scope.deletePost = function(post){
-    trace(ServerUrl+'posts/'+post.id);
-
     $http.delete(ServerUrl+'posts/'+post.id).success(function(){
       $location.path('/');
     });

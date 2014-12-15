@@ -26,7 +26,7 @@ angular.module('MainController').controller('NewPostController',function($scope,
     var params = { post: post }
     $http.post(ServerUrl + 'posts',params).success(function(response){
       $q.all(updateImages(response.id), updateCategories(response.id)).then(function(){
-        // $location.path('/posts/'+response.id);
+        $location.path('/posts/'+response.id);
       });
     });
   };
@@ -35,7 +35,6 @@ angular.module('MainController').controller('NewPostController',function($scope,
     return AuthFactory.isAuthenticated();
   };
 
-  var clearForm = function(){
-
-  };
+  var clearForm = function(){};
+  
 });

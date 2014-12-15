@@ -3,7 +3,6 @@
 @import "modules/variables";
 
 // utilities
-@import "utilities/responsive";
 @import "utilities/grid";
 
 // general styles
@@ -21,3 +20,6 @@
 
 // global styles
 @import "partials/buttons";
+
+// responsive
+@import "utilities/responsive";

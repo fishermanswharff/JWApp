@@ -1,5 +1,5 @@
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px)  {
-  section.hero {
+@media (min-width : 320px) and (max-width : 480px)  {
+  section#hero {
     background-color: $black-80;
     background: url('/images/home/home-bg1-large.jpg') no-repeat center center;
     background-attachment: fixed;
@@ -20,9 +20,81 @@
       }
     }
   }
-  section.post {
-    div.post-content {
-      font-size: $large-font-size;
+  section#posts {
+    div.post {
+      width: 100%;
+      div.post-content {
+        font-size: $large-font-size;
+      }
     }
   }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+  section#posts {
+    div.post {
+      width: 33%;
+    }  
+  }
+  
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }
