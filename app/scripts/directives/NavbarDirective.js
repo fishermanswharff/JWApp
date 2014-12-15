@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainDirective').directive('jwNavbar',function(trace){
+angular.module('MainDirective').directive('jwNavbar',['trace',function(trace){
   return {
     restrict: 'EA',
     link: function($scope,element,attrs){
@@ -9,4 +9,4 @@ angular.module('MainDirective').directive('jwNavbar',function(trace){
       });
     }
   };
-});
+}]);
