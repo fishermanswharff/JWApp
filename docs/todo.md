@@ -1,5 +1,4 @@
 # Grunt build
-* deploy to github pages
 * Point jasonwharff.com to github pages project
 
 # Write some posts on your projects
