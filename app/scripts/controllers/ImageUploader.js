@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('ImageUploader',function($scope,$http,AWSFactory,AuthFactory){
+angular.module('MainController').controller('ImageUploader',['$scope','$http','AWSFactory','AuthFactory',function($scope,$http,AWSFactory,AuthFactory){
 
   $scope.upsertImage = function(){
     var fileInputs = $('#imageUpload > input[type="file"]');
@@ -12,4 +12,4 @@ angular.module('MainController').controller('ImageUploader',function($scope,$htt
   $scope.isLoggedIn = function(){
     return AuthFactory.isAuthenticated();
   };
-});
+}]);

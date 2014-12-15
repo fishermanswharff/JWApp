@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('NavbarController',function($scope,trace,$http,$window,$location,ServerUrl,AuthFactory){
+angular.module('MainController').controller('NavbarController',['$scope','$http','$window','$location','ServerUrl','AuthFactory','trace',function($scope,$http,$window,$location,ServerUrl,AuthFactory,trace){
   $scope.accounts = [
     {
       'method': 'Email',
@@ -51,4 +51,4 @@ angular.module('MainController').controller('NavbarController',function($scope,t
   $scope.isLoggedIn = function(){
     return AuthFactory.isAuthenticated();
   };
-});
+}]);
