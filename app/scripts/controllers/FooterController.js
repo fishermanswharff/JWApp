@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainController').controller('FooterController',function($scope){
+angular.module('MainController').controller('FooterController',['$scope',function($scope){
   $scope.accounts = [
     {
       'method': 'Email',
@@ -32,4 +32,4 @@ angular.module('MainController').controller('FooterController',function($scope){
       'icon': 'images/icons/tumblr-white.svg'
     }
   ];
-});
+}]);
