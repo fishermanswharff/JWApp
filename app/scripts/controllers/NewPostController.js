@@ -13,6 +13,7 @@ angular.module('MainController')
         promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id))
       }
     });
+    return promises;
   };
 
   var updateImages = function(postId){
@@ -22,6 +23,7 @@ angular.module('MainController')
       var imageFile = fileInputs[i].files[0];
       if(imageFile) promises.push(AWSFactory.prepareKey(imageFile,postId));
     }
+    return promises;
   };
 
   $scope.upsertPost = function(post){
