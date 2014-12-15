@@ -1,5 +1,5 @@
 'use strict';
-angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,ServerUrl,AmazonBucket,trace){
+angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','ServerUrl','AmazonBucket','trace',function($http,$q,$location,ServerUrl,AmazonBucket,trace){
 
   var signKeyResults, postID;
 
@@ -57,4 +57,4 @@ angular.module('jwwebApp').factory('AWSFactory',function($http,$q,$location,Serv
   return {
     prepareKey: prepareKey
   };
-});
+}]);

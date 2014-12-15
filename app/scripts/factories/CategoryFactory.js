@@ -1,5 +1,5 @@
 'use strict';
-angular.module('jwwebApp').factory('CategoryFactory',function($http,ServerUrl,trace){
+angular.module('jwwebApp').factory('CategoryFactory',['$http','ServerUrl','trace',function($http,ServerUrl,trace){
   var categories = [];
   var fetch = function(){
     $http.get(ServerUrl + 'categories').success(function(response){
@@ -13,4 +13,4 @@ angular.module('jwwebApp').factory('CategoryFactory',function($http,ServerUrl,tr
     categories: categories,
     fetch: fetch
   };
-});
+}]);
