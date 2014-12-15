@@ -1,9 +1,8 @@
 # Grunt build
 * deploy to github pages
-* minify files/js
+* Point jasonwharff.com to github pages project
 
 # Write some posts on your projects
-
 * Gator project:
   * what i learned
   * challenges
@@ -41,6 +40,7 @@
 multiple image uploads
 put this form view into a directive
 Refactor the AWSFactory
+get some UI going for feedback on success/error
 
 # Home Page
 
