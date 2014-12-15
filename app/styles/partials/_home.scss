@@ -105,7 +105,11 @@ section#posts {
     }
 
     &.contact-form {
-      
+      div.post-info{
+        padding-top: 20px;
+        background: $white;
+        color: $darkblue;
+      }
     }
 
     figure {

@@ -1,3 +1,8 @@
+# Grunt build
+* deploy to github pages
+* minify files/js
+* use inline notation for dependency injection
+
 # Write some posts on your projects
 
 * Gator project:
@@ -51,6 +56,7 @@ animate the icons in the blurb on scroll up??
   * these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
 * image converter script? am i the image converter? photoshop batches is the * image converter.
 * Populate posts with notes from lessons
+* Create new category in post view
 
 # Resume view
 pull over from jw-red
