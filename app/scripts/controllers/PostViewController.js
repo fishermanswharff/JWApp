@@ -6,7 +6,7 @@ angular.module('MainController')
   $scope.categories = CategoryFactory.categories;
 
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
-    $scope.post = response
+    $scope.post = response;
     _.forEach($scope.categories, function(item) {
         if ($scope.hasCategory(item)) {
           item.checked = true;

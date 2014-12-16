@@ -14,6 +14,10 @@
   * what would I do differently
   * what's next?
 
+Image production for projects
+Seed AWS with images
+Seed Rails with real posts
+
 # Karma Tests
 
 * AWSFactory
