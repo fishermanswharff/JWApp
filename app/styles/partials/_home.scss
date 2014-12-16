@@ -104,14 +104,6 @@ section#posts {
       }  
     }
 
-    &.contact-form {
-      div.post-info{
-        padding-top: 20px;
-        background: $white;
-        color: $darkblue;
-      }
-    }
-
     figure {
       @include defaults;
       img {
@@ -138,6 +130,72 @@ section#posts {
       }
       div.post-body {  }
       button { font-size: .8em; }
+    }
+  }
+}
+
+section.contact {
+  background-color: $darkblue;
+  padding: 100px 0;
+  header {
+    @include defaults; 
+    h2 { 
+      @include defaults; 
+      text-align: center;
+      color: $lightyellow;
+    }
+  }
+  form {
+    form:invalid{ border:none; }
+    form:valid{ border:none; }
+    h5 { color: $lightyellow; }
+    div.form-group {
+      position: relative;
+
+      label {
+        color: $lightyellow;
+        text-align: right;
+        @include transition(all,0.25s,ease-out,0);
+        font-family: $mono-spaced-font;
+        position: absolute;
+        top: 18px;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        height: 40px;
+        opacity: 0.2;
+        font-size: $xlarge-font-size;
+      }
+      input[type="text"],
+      input[type="email"] {
+        outline: solid transparent;
+        width: 100%;
+        height: 40px;
+        font-family: $mono-spaced-font;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        color: $yellow;
+        background: none;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $lightyellow;
+        &:focus + label {
+          top: 100%;
+          left: 50%;
+          font-size: 1em;
+        }
+        &:valid + label {
+          top: 100%;
+          left: 50%;
+          font-size: 1em;
+        }
+
+        &:invalid {
+        }
+      }
     }
   }
 }

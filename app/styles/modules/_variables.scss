@@ -1,9 +1,10 @@
 /*—————————————————————————————————————————
 *****************Z-Index********************
 ——————————————————————————————————————————*/
-$z-body: 0;
 $z-featured-image: -1;
+$z-body: 0;
 $z-post-images: 1;
+$z-contact-form-input: 2;
 $z-nav: 998;
 $z-alerts: 3;
 $z-nav-icon: 999;
@@ -25,7 +26,8 @@ $white: #ffffff;
 
 $darkblue: #193549;
 $lightblue: #0088ff;
-
+$yellow: #3ad900;
+$lightyellow: #80ffbb;
 
 /*——————————————————————————————————————————
 ***************TYPOGRAPHY*****************

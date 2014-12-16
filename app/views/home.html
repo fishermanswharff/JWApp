@@ -36,23 +36,6 @@
       </div>
     </a>
   </div>
-  <div class="post contact-form">
-    <div class="post-info">
-      <form>
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" name="name">
-        </div>
-        <div class="form-group">
-          <label for="message">Your Message</label>
-          <input type="text" name="message">
-        </div>
-        <div class="form-group">
-          <input class="btn btn-default" type="submit" value="Send">
-        </div>
-      </form>  
-    </div>
-  </div>
 </section>
 <section id="blurbs" class="clearfix">
   <div class="container">
@@ -82,5 +65,30 @@
       <h3>Modern Design</h3>
       <p>With one eye on history and the other on the future, my designs are guided by practicality and usability.</p>
     </div>
+  </div>
+</section>
+<section class="contact clearfix" ng-controller="ContactFormController">
+  <header>
+    <h2>Get in touch. </h2>
+  </header>
+  <div class="container">
+    <form class="grid_12 push_2" ng-submit="submitContact(message)" name="contact-form" novalidate>
+      <div class="form-group">
+        <input type="text" name="name" ng-model="message.name" required>
+        <label for="name">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" ng-model="message.email" required>
+        <label for="email">Your Email</label>
+      </div>
+      <div class="form-group">
+        <input type="text" name="body" ng-model="message.body" required>
+        <label for="body">Your Message</label>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-default" type="submit" value="Send" ng-disabled="contact-form.$invalid">
+        <h5>{{success}}</h5>
+      </div>
+    </form>
   </div>
 </section>
