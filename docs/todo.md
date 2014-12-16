@@ -1,14 +1,13 @@
 # Todo
 * Fix svg bugs on grunt build/compile
-* update ServerUrl constant in jwwebApp
+* update ServerUrl constant in jwwebApp before deployment
 * new relic on jwdotcom.herokuapp.com
 * Image production for projects
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
-* tests for api—make them pass so travis will push to heroku
-* progress loaders for async javascript calls 
-* google analytics
+* progress loaders for async javascript calls
+* styles for &lt;pre&gt; & &lt;code&gt;
 
 # Write some posts on your projects
 * Gator project:

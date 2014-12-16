@@ -145,7 +145,7 @@ section.contact {
       color: $lightyellow;
     }
   }
-  form {
+  form.contact-form {
     form:invalid{ border:none; }
     form:valid{ border:none; }
     h5 { color: $lightyellow; }
