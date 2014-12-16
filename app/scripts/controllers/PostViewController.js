@@ -1,20 +1,32 @@
+/*global $:false */
+/*global _:false */
 'use strict';
 angular.module('MainController')
   .controller('PostViewController',['$scope','$sce','$q','$http','$route','$routeParams','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
     function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
+  $scope.post = '';
 
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
-    $scope.post = response;
-    _.forEach($scope.categories, function(item) {
-        if ($scope.hasCategory(item)) {
-          item.checked = true;
-        }
+    $q.all(assignScope(response), parseCategories()).then(function(){
+      trace('done getting post');
     });
   }).error(function(data, status, headers, config){
     trace(data,status,headers,config,'you are so stupid');
   });
+
+  var assignScope = function(object){
+    $scope.post = object;
+  };
+
+  var parseCategories = function(){
+    _.forEach($scope.categories, function(item) {
+      if ($scope.hasCategory(item)) {
+        item.checked = true;
+      }
+    });
+  };
 
   var updateCategories = function(postId){
     var promises = [];
@@ -41,7 +53,9 @@ angular.module('MainController')
     var fileInputs = $('#imageUpload > input[type="file"]');
     for (var i = 0, length = fileInputs.length; i < length; i++) {
       var imageFile = fileInputs[i].files[0];
-      if(imageFile) promises.push(AWSFactory.prepareKey(imageFile,postId));
+      if(imageFile) {
+        promises.push(AWSFactory.prepareKey(imageFile,postId));
+      }
     }
     return promises;
   };

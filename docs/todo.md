@@ -1,4 +1,5 @@
 # Todo
+* Image gallery for post view
 * Fix svg bugs on grunt build/compile
 * update ServerUrl constant in jwwebApp before deployment
 * new relic on jwdotcom.herokuapp.com

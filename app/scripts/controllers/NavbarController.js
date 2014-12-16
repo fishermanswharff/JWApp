@@ -38,7 +38,7 @@ angular.module('MainController').controller('NavbarController',['$scope','$http'
   };
 
   $scope.logout = function(){
-    AuthFactory.logout().success(function(response){
+    AuthFactory.logout().success(function(){
       $location.path('/login');
       AuthFactory.clearStorage();
     });
@@ -51,4 +51,6 @@ angular.module('MainController').controller('NavbarController',['$scope','$http'
   $scope.isLoggedIn = function(){
     return AuthFactory.isAuthenticated();
   };
+
+  trace();
 }]);

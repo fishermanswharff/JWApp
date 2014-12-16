@@ -63,3 +63,95 @@ div.checkbox-group {
   label { display: inline-block; margin: 5px 0 5px 15px; }
 }
 
+form.contact-form {
+  form:invalid{ border:none; }
+  form:valid{ border:none; }
+  h5 { color: $lightyellow; }
+  div.form-group {
+    position: relative;
+
+    label {
+      @include transition(all,0.25s,ease-out,0);
+      z-index: $z-body;
+      color: $lightyellow;
+      text-align: left;
+      font-family: $mono-spaced-font;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      opacity: 0.2;
+      font-size: $xxxlarge-font-size;
+      overflow: hidden;
+    }
+    input[type="text"],
+    input[type="email"] {
+      box-sizing: border-box;
+      position: relative;
+      z-index: $z-contact-form-input;
+      outline: solid transparent;
+      width: 100%;
+      height: 40px;
+      font-family: $mono-spaced-font;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -o-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      color: $yellow;
+      background: none;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid $lightyellow;
+      
+      &:focus + label,
+      &:valid + label {
+        top: 100%;
+        left: 0;
+        font-size: 1em;
+      }
+
+      &:not(:focus) {
+        background: linear-gradient(to top, #000 -15%,transparent 15%);
+      }
+
+      &:not(:focus):invalid + label {
+        &:after {
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 40px;
+          content: ' invalid';  
+        }
+      }
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background: none;
+      color: $lightyellow;
+      border: 1px solid $lightyellow;
+      margin-top: 40px;
+      opacity: 1;
+
+      &:hover {
+        background: $lightyellow;
+        color: $darkblue;
+      }
+
+      &[disabled="disabled"] {
+        cursor: not-allowed;
+        opacity: 0.2;
+
+        &:hover {
+          background: none;
+          color: $lightyellow;
+          border: 1px solid $lightyellow;
+        }
+      }
+    }
+  }
+}

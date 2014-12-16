@@ -5,12 +5,18 @@ angular.module('jwwebApp').service('anchorSmoothScroll',['$document','$window',f
 
   function getCurrentPagePosition(window, document) {
     // Firefox, Chrome, Opera, Safari
-    if (window.pageYOffset) return window.pageYOffset;
+    if (window.pageYOffset) {
+      return window.pageYOffset;
+    }
     // Internet Explorer 6 - standards mode
-    if (document.documentElement && document.documentElement.scrollTop)
-        return document.documentElement.scrollTop;
+    if (document.documentElement && document.documentElement.scrollTop){
+      return document.documentElement.scrollTop;
+    }
+        
     // Internet Explorer 6, 7 and 8
-    if (document.body.scrollTop) return document.body.scrollTop;
+    if (document.body.scrollTop) {
+      return document.body.scrollTop;
+    }
     return 0;
   }
 
@@ -31,7 +37,9 @@ angular.module('jwwebApp').service('anchorSmoothScroll',['$document','$window',f
     for (var i = startY; i < stopY; i += step) {
       setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
       leapY += step;
-      if (leapY > stopY) leapY = stopY;
+      if (leapY > stopY) {
+        leapY = stopY;
+      }
       timer++;
     }
   };
@@ -43,7 +51,9 @@ angular.module('jwwebApp').service('anchorSmoothScroll',['$document','$window',f
     for (var i = startY; i > stopY; i -= step) {
       setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);
       leapY -= step;
-      if (leapY < stopY) leapY = stopY;
+      if (leapY < stopY) {
+        leapY = stopY;
+      }
       timer++;
     }
   };

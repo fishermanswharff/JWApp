@@ -1,3 +1,5 @@
+/*global $:false */
+/*global _:false */
 'use strict';
 angular.module('MainController')
 .controller('NewPostController',['$scope','$q','$http','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
@@ -10,7 +12,7 @@ angular.module('MainController')
     _.forEach($scope.categories,function(item){
       var isChecked = item.checked;
       if(isChecked){
-        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id))
+        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id));
       }
     });
     return promises;
@@ -21,13 +23,15 @@ angular.module('MainController')
     var fileInputs = $('#imageUpload > input[type="file"]');
     for (var i = 0, length = fileInputs.length; i < length; i++) {
       var imageFile = fileInputs[i].files[0];
-      if(imageFile) promises.push(AWSFactory.prepareKey(imageFile,postId));
+      if(imageFile) {
+        promises.push(AWSFactory.prepareKey(imageFile,postId));
+      }
     }
     return promises;
   };
 
   $scope.upsertPost = function(post){
-    var params = { post: post }
+    var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
       $q.all(updateImages(response.id), updateCategories(response.id)).then(function(){
         $location.path('/posts/'+response.id);
@@ -39,6 +43,11 @@ angular.module('MainController')
     return AuthFactory.isAuthenticated();
   };
 
-  var clearForm = function(){};
+  trace();
+  /*
+  var clearForm = function(){
+    
+  };
+  */
   
 }]);

@@ -1,3 +1,4 @@
+/*global $:false */
 'use strict';
 angular.module('jwwebApp').factory('AuthFactory',['$http','$window','ServerUrl','trace',function($http,$window,ServerUrl,trace){
   var login = function(credentials){
@@ -6,13 +7,14 @@ angular.module('jwwebApp').factory('AuthFactory',['$http','$window','ServerUrl',
       $.each(response,function(key,value){
         $window.sessionStorage.setItem('jw-'+key,value);
       });
-      $http.defaults.headers.common['Authorization'] = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+      $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
     });
   };
 
   var logout = function(){
     return $http.get(ServerUrl + 'logout').success(function(response){
       $window.sessionStorage.removeItem('jw-token');
+      trace(response);
     });
   };
 

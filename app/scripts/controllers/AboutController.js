@@ -20,4 +20,6 @@ angular.module('MainController').controller('AboutController',['$scope','trace',
     'another stupid shitty thing',
     'clouds',
   ];
+
+  trace();
 }]);

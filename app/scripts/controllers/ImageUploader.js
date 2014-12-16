@@ -1,3 +1,4 @@
+/*global $:false */
 'use strict';
 angular.module('MainController').controller('ImageUploader',['$scope','$http','AWSFactory','AuthFactory',function($scope,$http,AWSFactory,AuthFactory){
 

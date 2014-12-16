@@ -47,7 +47,10 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
       }
     }).success(function(response){
       $q.all(function(){
-        if(postID) $location.path('/posts/'+postID)
+        if(postID) {
+          $location.path('/posts/'+postID);
+          trace(response);
+        }
       });
     }).error(function(data, status, headers, config){
       trace(data, status, headers, config, 'failed posting to AWS');

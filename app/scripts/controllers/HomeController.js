@@ -11,4 +11,6 @@ angular.module('MainController').controller('HomeController',['$scope','$locatio
     $location.hash(eID);
     anchorSmoothScroll.scrollTo(eID);
   };
+
+  trace();
 }]);
