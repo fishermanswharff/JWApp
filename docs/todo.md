@@ -3,7 +3,7 @@
 * Fix svg bugs on grunt build/compile
 * Put mailer config into production.rb with environment variables
 * update ServerUrl constant in jwwebApp
-
+* new relic on jwdotcom.herokuapp.com
 
 # Write some posts on your projects
 * Gator project:
