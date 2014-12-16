@@ -75,18 +75,18 @@
     <form class="grid_12 push_2" ng-submit="submitContact(message)" name="contact-form" novalidate>
       <div class="form-group">
         <input type="text" name="name" ng-model="message.name" required>
-        <label for="name">Your Name</label>
+        <label for="name">Name</label>
       </div>
       <div class="form-group">
         <input type="email" name="email" ng-model="message.email" required>
-        <label for="email">Your Email</label>
+        <label for="email">Email</label>
       </div>
       <div class="form-group">
         <input type="text" name="body" ng-model="message.body" required>
-        <label for="body">Your Message</label>
+        <label for="body">Message</label>
       </div>
-      <div class="form-group">
-        <input class="btn btn-default" type="submit" value="Send" ng-disabled="contact-form.$invalid">
+      <div class="form-group submit">
+        <input class="btn btn-default" type="submit" value="Send (no trolling)" ng-disabled="contact-form.$invalid">
         <h5>{{success}}</h5>
       </div>
     </form>

@@ -153,22 +153,24 @@ section.contact {
       position: relative;
 
       label {
+        @include transition(all,0.25s,ease-out,0);
         z-index: $z-body;
         color: $lightyellow;
-        text-align: right;
-        @include transition(all,0.25s,ease-out,0);
+        text-align: left;
         font-family: $mono-spaced-font;
         position: absolute;
-        top: 18px;
+        top: 0;
         bottom: 0;
-        left: 50%;
-        width: 50%;
+        left: 0;
+        width: 100%;
         height: 40px;
         opacity: 0.2;
-        font-size: $xlarge-font-size;
+        font-size: $xxxlarge-font-size;
+        overflow: hidden;
       }
       input[type="text"],
       input[type="email"] {
+        box-sizing: border-box;
         position: relative;
         z-index: $z-contact-form-input;
         outline: solid transparent;
@@ -185,19 +187,42 @@ section.contact {
         border: none;
         border-radius: 0;
         border-bottom: 1px solid $lightyellow;
+        
         &:focus + label {
           top: 100%;
-          left: 50%;
+          left: 0;
           font-size: 1em;
         }
         &:valid + label {
           top: 100%;
-          left: 50%;
+          left: 0;
           font-size: 1em;
         }
 
         &:invalid {
         }
+      }
+
+      input[name="name"]:invalid {
+        background:url(../images/invalid.svg);
+        background-position: right center;
+        background-repeat: no-repeat;
+      } 
+
+      input[type="submit"] {
+        width: 100%;
+        background: none;
+        color: $lightyellow;
+        border: 1px solid $lightyellow;
+
+        &:hover {
+          background: $lightyellow;
+          color: $darkblue;
+        }
+      }
+
+      &.submit {
+        margin-top: 40px;
       }
     }
   }
