@@ -1,5 +1,9 @@
-# Grunt build
+# Todo
 * Point jasonwharff.com to github pages project
+* Fix svg bugs on grunt build/compile
+* Put mailer config into production.rb with environment variables
+* update ServerUrl constant in jwwebApp
+
 
 # Write some posts on your projects
 * Gator project:
@@ -29,7 +33,7 @@ Seed Rails with real posts
 * NavbarController
 * PostController
 * PostDetailController
-* MainDirective
+* MainDirective 
 * PostDetailDirective
 * NavbarDirective
 * AuthFactory
@@ -62,10 +66,6 @@ animate the icons in the blurb on scroll up??
 
 # Resume view
 pull over from jw-red
-
-# Contact Form
-Form View
-Form Controller
 
 #Project pages
 Use the 'lookbook' pdf to view
