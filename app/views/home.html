@@ -1,4 +1,4 @@
-  <!-- 
+<!-- 
 <section id="hero">
   <h1>I'm Jason and I design with code.</h1>
   <p class="lead">Designer, Developer, Professional Tinkerer, Former Chef, Crazy Dog Owner, Grateful Husband, Monster that gobbles up life.</p>
@@ -72,7 +72,7 @@
     <h2>Get in touch. </h2>
   </header>
   <div class="container">
-    <form class="grid_12 push_2" ng-submit="submitContact(message)" name="contact-form" novalidate>
+    <form class="grid_12 push_2" ng-submit="submitContact(message)" name="contactForm" novalidate>
       <div class="form-group">
         <input type="text" name="name" ng-model="message.name" required>
         <label for="name">Name</label>
@@ -86,7 +86,7 @@
         <label for="body">Message</label>
       </div>
       <div class="form-group submit">
-        <input class="btn btn-default" type="submit" value="Send (no trolling)" ng-disabled="contact-form.$invalid">
+        <input class="btn btn-default" type="submit" value="Send (no trolling)" ng-disabled="contactForm.$invalid">
         <h5>{{success}}</h5>
       </div>
     </form>
