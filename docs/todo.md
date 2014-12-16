@@ -9,9 +9,8 @@
 * Seed Rails with real posts
 * contact form labels- fix z-index so they're behind the inputs
 * tests for aws factory
-* tests for api
+* tests for api—make them pass so travis will push to heroku
 * progress loaders for async javascript calls 
-
 
 
 
