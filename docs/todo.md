@@ -8,6 +8,11 @@
 * Seed AWS with images
 * Seed Rails with real posts
 * contact form labels- fix z-index so they're behind the inputs
+* tests for aws factory
+* tests for api
+* progress loaders for async javascript calls 
+
+
 
 
 # Write some posts on your projects
