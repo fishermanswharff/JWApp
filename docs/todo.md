@@ -4,6 +4,11 @@
 * Put mailer config into production.rb with environment variables
 * update ServerUrl constant in jwwebApp
 * new relic on jwdotcom.herokuapp.com
+* Image production for projects
+* Seed AWS with images
+* Seed Rails with real posts
+* contact form labels- fix z-index so they're behind the inputs
+
 
 # Write some posts on your projects
 * Gator project:
@@ -18,9 +23,7 @@
   * what would I do differently
   * what's next?
 
-Image production for projects
-Seed AWS with images
-Seed Rails with real posts
+
 
 # Karma Tests
 
