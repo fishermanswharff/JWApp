@@ -278,10 +278,11 @@ module.exports = function (grunt) {
       }
     },
 
+    /* FOR NOW BECAUSE GRUNT IS KILLING MY ICONS*/
     svgmin: {
       dist: {
         files: [{
-          expand: true,
+          expand: false ,
           cwd: '<%= yeoman.app %>/images',
           src: '{,*/}*.svg',
           dest: '<%= yeoman.dist %>/images'
