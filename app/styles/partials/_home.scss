@@ -195,6 +195,10 @@ section.contact {
           font-size: 1em;
         }
 
+        &:not(:focus) {
+          background: linear-gradient(to top, #000 -15%,transparent 15%);
+        }
+
         &:not(:focus):invalid + label {
           &:after {
             position: relative;

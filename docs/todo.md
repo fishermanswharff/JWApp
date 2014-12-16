@@ -1,7 +1,5 @@
 # Todo
-* Point jasonwharff.com to github pages project
 * Fix svg bugs on grunt build/compile
-* Put mailer config into production.rb with environment variables
 * update ServerUrl constant in jwwebApp
 * new relic on jwdotcom.herokuapp.com
 * Image production for projects
@@ -10,8 +8,7 @@
 * tests for aws factory
 * tests for api—make them pass so travis will push to heroku
 * progress loaders for async javascript calls 
-
-
+* google analytics
 
 # Write some posts on your projects
 * Gator project:
@@ -26,10 +23,7 @@
   * what would I do differently
   * what's next?
 
-
-
 # Karma Tests
-
 * AWSFactory
 * AboutController
 * FooterController
