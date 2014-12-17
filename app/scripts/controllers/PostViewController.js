@@ -6,7 +6,7 @@ angular.module('MainController')
     function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
-  $scope.post = '';
+  $scope.post = {};
 
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
     $q.all(assignScope(response), parseCategories()).then(function(){
@@ -35,12 +35,12 @@ angular.module('MainController')
       var wasChecked = typeof _.find($scope.post.categories,{id: item.id}) !== 'undefined';
       if(isChecked && !wasChecked){
         promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id).success(function(response){
-          trace(response);
+          $scope.post = response;
         }));
       }
       if(!isChecked && wasChecked){
         promises.push($http.delete(ServerUrl+'posts/'+postId+'/categories/'+item.id).success(function(response){
-          trace(response);
+          $scope.post = response;
         }));
       }
       if(isChecked && wasChecked){}
