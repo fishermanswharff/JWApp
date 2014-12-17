@@ -4,6 +4,7 @@ angular.module('MainController').controller('ContactFormController',['$scope','$
   $scope.submitContact = function(message){
     $http.post(ServerUrl + 'email/admin',{name: message.name, email: message.email, body: message.body}).success(function(){
       $scope.success = 'Your email was sent successfully.';
+      $scope.message = {};
     }).error(function(){
       
     });

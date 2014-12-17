@@ -66,14 +66,14 @@ div.checkbox-group {
 form.contact-form {
   form:invalid{ border:none; }
   form:valid{ border:none; }
-  h5 { color: $lightyellow; }
+  h5 { color: $lightgreen; }
   div.form-group {
     position: relative;
 
     label {
       @include transition(all,0.25s,ease-out,0);
       z-index: $z-body;
-      color: $lightyellow;
+      color: $lightgreen;
       text-align: left;
       font-family: $mono-spaced-font;
       position: absolute;
@@ -104,13 +104,19 @@ form.contact-form {
       background: none;
       border: none;
       border-radius: 0;
-      border-bottom: 1px solid $lightyellow;
+      border-bottom: 1px solid $lightgreen;
       
       &:focus + label,
       &:valid + label {
         top: 100%;
         left: 0;
         font-size: 1em;
+      }
+      &:not(:focus):valid {
+        background: none;
+      }
+      &:focus:valid {
+        background: none;
       }
 
       &:not(:focus) {
@@ -124,7 +130,8 @@ form.contact-form {
           left: 0;
           width: 100%;
           height: 40px;
-          content: ' invalid';  
+          content: ' invalid';
+          color: $pink;
         }
       }
     }
@@ -132,25 +139,19 @@ form.contact-form {
     input[type="submit"] {
       width: 100%;
       background: none;
-      color: $lightyellow;
-      border: 1px solid $lightyellow;
+      color: $lightgreen;
+      border: 1px solid $lightgreen;
       margin-top: 40px;
       opacity: 1;
 
       &:hover {
-        background: $lightyellow;
+        background: $lightgreen;
         color: $darkblue;
       }
 
       &[disabled="disabled"] {
         cursor: not-allowed;
         opacity: 0.2;
-
-        &:hover {
-          background: none;
-          color: $lightyellow;
-          border: 1px solid $lightyellow;
-        }
       }
     }
   }
