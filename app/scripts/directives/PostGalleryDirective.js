@@ -1,20 +1,18 @@
 /*global $:false */
 'use strict';
-angular.module('MainDirective').directive('postGallery',['trace',function(trace){
+angular.module('MainDirective').directive('postGallery',['trace','$timeout',function(trace,$timeout){
   return {
     restrict: 'EA',
     link: function($scope,element,attrs){
       var images;
-      setTimeout(function(){
-        images = $scope.post.images;
-        setUpGallery(images);
-      }, 100);
       
-      var setUpGallery = function(array){
-        trace(array);
-      };
+      $timeout(function(){
+        setUpGallery();
+      }, 100);
 
-      trace($scope,element,attrs);
+      var setUpGallery = function(array){
+        trace($(element).children());
+      };
     }
   };
 }]);
