@@ -4,13 +4,12 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
   return {
     restrict: 'EA',
     link: function($scope,element,attrs){
-      var images;
-      
+      trace($scope,element,attrs);
       $timeout(function(){
         setUpGallery();
       }, 100);
 
-      var setUpGallery = function(array){
+      var setUpGallery = function(){
         trace($(element).children());
       };
     }
