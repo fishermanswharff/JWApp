@@ -2,11 +2,11 @@
 * Image gallery for post view
 * Fix svg bugs on grunt build/compile
 * update ServerUrl constant in jwwebApp before deployment
-* new relic on jwdotcom.herokuapp.com
 * Image production for projects
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
+* refactor AWSFactory
 * progress loaders for async javascript calls
 * styles for &lt;pre&gt; & &lt;code&gt;
 
