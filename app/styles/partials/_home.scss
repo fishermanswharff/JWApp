@@ -52,13 +52,13 @@ section#hero {
 
 section#blurbs {
   @include defaults;
-  padding: 30px 0;
+  padding-top: 100px;
   background: $darkblue;
   color: $white;
   box-sizing: border-box;
-  
   div.blurb {
     text-align: center;
+    a { text-decoration: none; color: $white; }
     svg {
       width: 64px;
       fill: $white;
@@ -67,12 +67,11 @@ section#blurbs {
 }
 
 section#posts {
-
   padding-top: 100px;
   background: $darkblue;
-
   div.post {
     @include defaults;
+    @include transition(all,0.25s,ease,0);
     float:left;
     width: 50%;
     height:200px;
@@ -130,6 +129,39 @@ section#posts {
       }
       div.post-body {  }
       button { font-size: .8em; }
+    }
+
+    &.ng-enter { 
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    &.ng-ener.ng-enter-active { 
+      transform: scale(1);
+      opacity: 1;
+    }
+    &.ng-leave {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &.ng-leave.ng-leave-active {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    &.ng-hide-add {
+      transform: scale(1);
+      opacity: 1;
+    }
+    &.ng-hide-add.ng-hide-add-active {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    &.ng-hide-remove {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    &.ng-hide-remove.ng-hide-remove-active {
+      transform: scale(0.7);
+      opacity: 1;
     }
   }
 }
