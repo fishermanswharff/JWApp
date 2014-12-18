@@ -94,8 +94,6 @@ section#posts {
     background: $darkblue;
 
     a { text-decoration: none; }
-    
-
 
     &.withImage {
       figure {
@@ -124,6 +122,7 @@ section#posts {
         width: 100%;
       }
     }
+    
     div.post-info {
       @include transition(all,0.25s,ease,0);
       box-sizing: padding-box;
