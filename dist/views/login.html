@@ -1,1 +1,50 @@
-<section class="login-container"> <div class="container clearfix" ng-controller="LoginController"> <div class="grid_8"> <div class="login-form"> <form name="loginForm" ng-submit="login(credentials)" novalidate> <div class="form-control"> <label>Username:</label> <input type="text" ng-model="credentials.username"> </div> <div class="form-control"> <label>Password</label> <input type="password" ng-model="credentials.password"> </div> <div class="form-control"> <input class="btn btn-default" type="submit" ng-disabled="loginForm.$invalid" value="Login"> </div> </form> <button class="btn btn-default" ng-click="newUser()">Create Account</button> </div> </div> <div ng-if="createUser" class="createUserForm grid_8" ng-controller="UserCtrl"> <form role="form" name="createUserForm" ng-submit="upsertUser(user)" novalidate> <div class="form-group"> <label for="first_name">First Name</label> <input type="text" name="first_name" placeholder="first name" ng-model="user.first_name"> </div> <div class="form-group"> <label for="last_name">Last Name</label> <input type="text" name="last_name" placeholder="first name" ng-model="user.last_name"> </div> <div class="form-group"> <label for="email">email</label> <input type="email" name="email" placeholder="email address" ng-model="user.email"> </div> <div class="form-group"> <label>password</label> <input type="password" ng-model="user.password"> </div> <div class="form-group"> <label>password confirmation</label> <input type="password" ng-model="user.password_confirmation"> </div> <div> <button class="btn btn-primary" ng-click="clearForm()">Reset</button> <button class="btn btn-primary" type="submit" ng-disabled="createUserForm.$invalid">Submit</button> </div> </form> </div> </div> </section>
+<section class="login-container">
+  <div class="container clearfix" ng-controller="LoginController">
+    <div class="grid_8">
+      <div class="login-form">
+        <form name="loginForm" ng-submit="login(credentials)" novalidate>
+          <div class="form-control">
+            <label>Username:</label>
+            <input type="text" ng-model="credentials.username">
+          </div>
+          <div class="form-control">
+            <label>Password</label>
+            <input type="password" ng-model="credentials.password">
+          </div>
+          <div class="form-control">
+            <input class="btn btn-default" type="submit" ng-disabled="loginForm.$invalid" value="Login">
+          </div>
+        </form>
+        <button class="btn btn-default" ng-click="newUser()">Create Account</button>
+      </div>
+    </div>
+    <div ng-if="createUser" class="createUserForm grid_8" ng-controller="UserCtrl">
+      <form role="form" name="createUserForm" ng-submit="upsertUser(user)" novalidate>
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" placeholder="first name" ng-model="user.first_name">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" placeholder="first name" ng-model="user.last_name">
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="email" name="email" placeholder="email address" ng-model="user.email">
+        </div>
+        <div class="form-group">
+          <label>password</label>
+          <input type="password" ng-model="user.password">
+        </div> 
+        <div class="form-group">
+          <label>password confirmation</label>
+          <input type="password" ng-model="user.password_confirmation">
+        </div>
+        <div>
+          <button class="btn btn-primary" ng-click="clearForm()">Reset</button>
+          <button class="btn btn-primary" type="submit" ng-disabled="createUserForm.$invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+</section>
