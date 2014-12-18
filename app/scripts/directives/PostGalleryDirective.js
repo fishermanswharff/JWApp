@@ -5,12 +5,15 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     restrict: 'EA',
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
-      // var container, images;
-      // container = element.find('div.slider-container');
       
+      var init = function(){
+        trace($scope.post);
+      };
+
       $timeout(function(){
-        trace($scope,element,attrs);
+        init();
       }, 100);
+
     }
   };
 }]);
