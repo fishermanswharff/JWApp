@@ -1,11 +1,11 @@
 # Todo
 * Image gallery for post view
-* update ServerUrl constant in jwwebApp before deployment
+* Resume View
+* Styles for login view
 * Image production for projects
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
-* refactor AWSFactory
 * progress loaders for async javascript calls
 * styles for &lt;pre&gt; & &lt;code&gt;
 

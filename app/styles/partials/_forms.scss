@@ -116,7 +116,9 @@ input[type="text"]#homeFilter {
   }
 }
 
-form.contact-form {
+form.contact-form,
+form.login-form,
+form.create-user-form {
   form:invalid{ border:none; }
   form:valid{ border:none; }
   h5 { color: $lightgreen; }
@@ -140,7 +142,8 @@ form.contact-form {
       overflow: hidden;
     }
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="password"] {
       box-sizing: border-box;
       position: relative;
       z-index: $z-contact-form-input;
@@ -189,7 +192,9 @@ form.contact-form {
       }
     }
 
-    input[type="submit"] {
+    input[type="submit"],
+    button.btn.btn-primary
+     {
       width: 100%;
       background: none;
       color: $lightgreen;
