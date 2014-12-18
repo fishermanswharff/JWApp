@@ -12,11 +12,11 @@
         </div>
         <div class="form-group">
           <input class="btn btn-default" type="submit" ng-disabled="loginForm.$invalid" value="Login">
+          <button class="btn btn-default" ng-click="newUser()">Create Account</button>
         </div>
       </form>
-      <button class="btn btn-default" ng-click="newUser()">Create Account</button>
     </div>
-    <div ng-if="createUser" class="createUserForm grid_16" ng-controller="UserCtrl">
+    <div ng-if="createUser" class="createUserForm grid_16">
       <form class="create-user-form" role="form" name="createUserForm" ng-submit="upsertUser(user)" novalidate>
         <div class="form-group">
           <input type="text" name="username" ng-model="user.username" required>

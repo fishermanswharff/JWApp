@@ -1,7 +1,6 @@
 # Todo
 * Image gallery for post view
 * Resume View
-* Styles for login view
 * Image production for projects
 * Seed AWS with images
 * Seed Rails with real posts

@@ -12,4 +12,8 @@ angular.module('MainController').controller('LoginController',['$scope','$locati
   $scope.newUser = function(){
     $scope.createUser = true;
   };
+
+  $scope.upsertUser = function(user){
+    trace(user);
+  };
 }]);
