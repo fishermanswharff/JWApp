@@ -91,10 +91,16 @@ section#posts {
     width: 50%;
     height:200px;
     overflow: hidden;
-    background: $white;
+    background: $darkblue;
 
     a { text-decoration: none; }
     
+    &.about {
+      div.post-info {
+        top: 0;
+      }
+    }
+
     &.withImage {
       figure {
         @include defaults;
@@ -105,7 +111,7 @@ section#posts {
       div.post-info {
         @include transition(all,0.25s,ease,0);
         top: 75%;
-        background: rgba(0,0,0,0);
+        background: rgba(25,53,73,0.3);
       }
 
       &:hover {
@@ -126,7 +132,7 @@ section#posts {
       @include transition(all,0.25s,ease,0);
       box-sizing: padding-box;
       position: absolute;
-      top: 0;
+      top: 75%;
       left: 0;
       padding: 0 4%;
       background: $darkblue;
@@ -142,6 +148,13 @@ section#posts {
       }
       div.post-body {  }
       button { font-size: .8em; }
+    }
+
+    &:hover {
+      div.post-info {
+        top: 0;
+        background: rgba(25,53,73,0.8);
+      }
     }
 
     &.ng-enter { 

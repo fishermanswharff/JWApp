@@ -7,6 +7,10 @@ footer {
   background: $lightgreen;
 
   div {
+    p.lead { 
+      font-weight: $body-bold; 
+      color: $darkblue; 
+    }
     ul.accounts {
       @include defaults;
       list-style:none;
