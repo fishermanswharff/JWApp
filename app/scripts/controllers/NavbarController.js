@@ -3,33 +3,27 @@ angular.module('MainController').controller('NavbarController',['$scope','$http'
   $scope.accounts = [
     {
       'method': 'Email',
-      'url': 'mailto:fishermanswharff@mac.com',
-      'icon': 'images/icons/email-white.svg'
+      'url': 'mailto:fishermanswharff@mac.com'
     },
     {
       'method': 'Github',
-      'url': 'https://github.com/fishermanswharff',
-      'icon': 'images/icons/github-white.svg'
+      'url': 'https://github.com/fishermanswharff'
     },
     {
       'method': 'Twitter',
-      'url': 'https://twitter.com/jasonwharff',
-      'icon': 'images/icons/twitter-white.svg'
+      'url': 'https://twitter.com/jasonwharff'
     },
     {
       'method': 'LinkedIn',
-      'url': 'https://www.linkedin.com/in/jasonwharff',
-      'icon': 'images/icons/linkedin-white.svg'
+      'url': 'https://www.linkedin.com/in/jasonwharff'
     },
     {
       'method': 'Instagram',
-      'url': 'http://instagram.com/jasonwharff',
-      'icon': 'images/icons/instagram-white.svg'
+      'url': 'http://instagram.com/jasonwharff'
     },
     {
       'method': 'Tumblr',
-      'url': 'http://blog.jasonwharff.com',
-      'icon': 'images/icons/tumblr-white.svg'
+      'url': 'http://blog.jasonwharff.com'
     }
   ];
 

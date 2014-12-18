@@ -95,11 +95,7 @@ section#posts {
 
     a { text-decoration: none; }
     
-    &.about {
-      div.post-info {
-        top: 0;
-      }
-    }
+
 
     &.withImage {
       figure {
@@ -154,6 +150,14 @@ section#posts {
       div.post-info {
         top: 0;
         background: rgba(25,53,73,0.8);
+      }
+    }
+
+    &.about {
+      div.post-info {
+        box-sizing:border-box;
+        top: 0;
+        & > h3 { font-size: $xlarge-font-size; }
       }
     }
 

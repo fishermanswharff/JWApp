@@ -112,7 +112,7 @@ nav.navbar {
   width: 100%;
   height: 100vh;
   z-index: $z-nav;
-  background: $black-50;
+  background: rgba(255,255,255,0.9);
   @include transition(all,0.25s,ease,0);
 
   &.active {
@@ -133,13 +133,16 @@ nav.navbar {
         display: block;
         font-size: 2em;
         font-weight: bold;
-        color: white;
+        color: $darkblue;
         text-decoration: none;
-        border-bottom: 1px dotted $black-10;
+        border-bottom: 1px dotted $darkblue;
         box-sizing: border-box;
         &:hover {
 
         }
+      }
+      &.active {
+        
       }
     }
   }
@@ -149,8 +152,19 @@ nav.navbar {
     list-style: none;
     li {
       display: inline-block;
+      margin: 0 10px;
 
-      a img { width: 32px; height: 32px; margin: 0 5px; }
+      a {
+          width: 32px;
+          position:relative;
+          display: inline-block;
+          &.Email:after { @include afterIcon("../images/icons/email.svg",32px,32px); }
+          &.Github:after { @include afterIcon("../images/icons/github.svg",32px,32px); }
+          &.Twitter:after { @include afterIcon("../images/icons/twitter.svg",32px,32px); }
+          &.LinkedIn:after { @include afterIcon("../images/icons/linkedin.svg",32px,32px);  }
+          &.Instagram:after { @include afterIcon("../images/icons/instagram.svg",32px,32px); }
+          &.Tumblr:after { @include afterIcon("../images/icons/tumblr.svg",32px,32px); }
+        }
     }
   }
 }
