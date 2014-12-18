@@ -1,4 +1,9 @@
 section.login-container {
   padding-top: 100px;
   background: $darkblue;
+
+  p.lead {
+    font-size: $xxlarge-font-size;
+    color: $lightgreen;
+  }
 }

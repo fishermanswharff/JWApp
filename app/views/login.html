@@ -1,6 +1,7 @@
 <section class="login-container">
   <div class="container clearfix" ng-controller="LoginController">
     <div class="grid_16">
+      <p class="lead">{{message}}</p>
       <form class="login-form" name="loginForm" ng-submit="login(credentials)" novalidate>
         <div class="form-group">
           <input id="username" type="text" name="username" ng-model="credentials.username" required>

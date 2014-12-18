@@ -1,7 +1,7 @@
 'use strict';
-angular.module('MainController').controller('LoginController',['$scope','$location','AuthFactory','trace',function($scope,$location,AuthFactory,trace){
+angular.module('MainController').controller('LoginController',['$scope','$http','$location','AuthFactory','trace',function($scope,$http,$location,AuthFactory,trace){
   $scope.createUser = false;
-  
+  $scope.message = "";
   $scope.login = function(credentials){
     AuthFactory.login(credentials).success(function(response){
       $location.path('/');
@@ -14,6 +14,10 @@ angular.module('MainController').controller('LoginController',['$scope','$locati
   };
 
   $scope.upsertUser = function(user){
-    trace(user);
+    AuthFactory.postNewUser(user).success(function(response){
+      $location.path('/login');
+      $scope.message = "Congratulations, you successfully created an account. Please login to continue.";
+      trace(response);
+    });
   };
 }]);

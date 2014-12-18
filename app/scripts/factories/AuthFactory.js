@@ -4,10 +4,7 @@ angular.module('jwwebApp').factory('AuthFactory',['$http','$window','ServerUrl',
   var login = function(credentials){
     trace(credentials);
     return $http.post(ServerUrl + 'login',credentials).success(function(response){
-      $.each(response,function(key,value){
-        $window.sessionStorage.setItem('jw-'+key,value);
-      });
-      $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+      storeSession(response);
     });
   };
 
@@ -27,10 +24,26 @@ angular.module('jwwebApp').factory('AuthFactory',['$http','$window','ServerUrl',
     return !!$window.sessionStorage.clear();
   };
 
+  var postNewUser = function(user){
+    return $http.post(ServerUrl + 'users',{user: user}).success(function(response){
+      storeSession(response);
+    }).error(function(data, status, headers, config){
+      trace(data,status,headers,config,'you are so stupid, you are doing it wrong');
+    });
+  };
+
+  var storeSession = function(response){
+    $.each(response,function(key,value){
+      $window.sessionStorage.setItem('jw-'+key,value);
+    });
+    $http.defaults.headers.common.Authorization = 'Token token=' + $window.sessionStorage.getItem('jw-token');
+  };
+
   return {
     login: login,
     logout: logout,
     isAuthenticated: isAuthenticated,
-    clearStorage: clearStorage
+    clearStorage: clearStorage,
+    postNewUser: postNewUser
   };
 }]);
