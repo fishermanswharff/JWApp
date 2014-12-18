@@ -23,8 +23,8 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
           $(this).css('left', photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+photoWidth+'px');
         });
+
         $('.slider-photos').css('left','-'+photoWidth+'px');
-        
         currentPanel = $(images).index(images[1]);
         $('.slider-photos').fadeIn(1500);
 
@@ -46,11 +46,11 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
             }
             trace('previous nav clicked');
           } else if ($(this).attr('class') === 'slider-nav next'){
-            if(currentPanel >= images.length){
+            if(currentPanel >= images.length - 1){
               newPhotoPosition = '0px';
               currentPanel = 0;
             } else {
-              newPhotoPosition = ((currentPanel)*distanceToMove)-photoWidth + 'px'; 
+              newPhotoPosition = (currentPanel*distanceToMove)-photoWidth + 'px'; 
               currentPanel++;
             }
             $('.slider-photos').animate({left: newPhotoPosition},1000);
