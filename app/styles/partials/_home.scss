@@ -63,6 +63,12 @@ section#blurbs {
     svg {
       width: 64px;
       fill: $white;
+      @include transform(scale(1));
+      @include transition(all,0.25s,cubic-bezier(0.25, 0.46, 0.45, 0.94),0);
+      #brackets {}
+      &:hover {
+        @include transform(scale(1.25));
+      }
     }
   }
 }
@@ -72,6 +78,7 @@ section#posts {
   background: $darkblue;
   div.post {
     @include defaults;
+    @include transform(translate3d(0,0,0));
     @include transition(all,0.25s,cubic-bezier(0.25, 0.46, 0.45, 0.94),0);
     box-sizing: border-box;
     display: block;
