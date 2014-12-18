@@ -45,6 +45,21 @@ section.post {
       }
     }
   }
+
+  div.slider-container {
+    overflow: hidden;
+    width: 100vw;
+    max-height: 500px;
+
+    div.slider-photos {
+      img.post-image {}
+    }
+    div.slider-captions {
+      div.caption-content {}
+    }
+    div.slider-nav {}
+    div.slider-step {}
+  }
 }
 
 section.post-edit {
