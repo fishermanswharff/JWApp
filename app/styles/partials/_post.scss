@@ -65,6 +65,24 @@ section.post {
     div.slider-step {
       z-index: $z-post-gallery-nav;
       position: absolute;
+      width: 100%;
+
+      a.slider-nav-prev{
+        float: left;
+        margin: 30% 10px;
+        font-size: 34px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+      }
+      a.slider-nav-next {
+        float: right;
+        margin: 30% 10px;
+        font-size: 34px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+      }
     }
   }
 }
