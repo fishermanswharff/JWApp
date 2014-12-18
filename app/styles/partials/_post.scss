@@ -47,18 +47,25 @@ section.post {
   }
 
   div.slider-container {
+    position: relative;
     overflow: hidden;
-    width: 100vw;
-    max-height: 500px;
+    height: 500px;
 
     div.slider-photos {
-      img.post-image {}
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      img.post-image { max-width: 960px; height: auto; }
     }
     div.slider-captions {
       div.caption-content {}
     }
     div.slider-nav {}
-    div.slider-step {}
+    div.slider-step {
+      z-index: $z-post-gallery-nav;
+      position: absolute;
+    }
   }
 }
 

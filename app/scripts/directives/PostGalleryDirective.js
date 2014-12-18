@@ -5,9 +5,20 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     restrict: 'EA',
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
-      
+      var currentPanel, navClicked, distanceToMove, newPhotoPosition, newCaption,photoWidth;
+
+      $('.slider-photos img').each(function(index){
+        var photoPosition = index * photoWidth;
+        $(this).css('left', photoPosition+'px');
+        $('.slider-photos').css('width',photoPosition+photoWidth+'px');
+      });
+
+      $('.slider-photos').css('left','-'+photoWidth+'px');
+
       var init = function(){
         // build the image gallery;
+        photoWidth = element.find('div.slider-container').width();
+        $('.slider-photos').fadeIn(1500);
       };
 
       $timeout(function(){
