@@ -3,17 +3,26 @@ footer {
   bottom:0px;
   height:300px;
   width:100%;
-  color: $white;
-  background: $black-80;
+  color: $darkblue;
+  background: $lightgreen;
 
   div {
     ul.accounts {
+      @include defaults;
       list-style:none;
       li.account {
         display: inline-block;
         margin: 0 10px;
-        a img{
+        a {
           width: 32px;
+          position:relative;
+          display: inline-block;
+          &.Email:after { @include afterIcon("../images/icons/email.svg",32px,32px); }
+          &.Github:after { @include afterIcon("../images/icons/github.svg",32px,32px); }
+          &.Twitter:after { @include afterIcon("../images/icons/twitter.svg",32px,32px); }
+          &.LinkedIn:after { @include afterIcon("../images/icons/linkedin.svg",32px,32px);  }
+          &.Instagram:after { @include afterIcon("../images/icons/instagram.svg",32px,32px); }
+          &.Tumblr:after { @include afterIcon("../images/icons/tumblr.svg",32px,32px); }
         }
       }
     }

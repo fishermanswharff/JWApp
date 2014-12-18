@@ -38,6 +38,17 @@
    transform: $args;
 }
 
+@mixin afterIcon($url,$bgW,$bgH){
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  content: '';
+  width: $bgW;
+  height: $bgH;
+  background: url($url) no-repeat center center;
+}
+
 @mixin animation($name,$propStart,$valStart,$propEnd,$valEnd){
   @-webkit-keyframes $name {
     0%   { $propStart: $valStart; }
