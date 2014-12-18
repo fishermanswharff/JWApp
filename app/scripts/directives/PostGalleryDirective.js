@@ -7,7 +7,7 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     link: function($scope,element,attrs){
       
       var init = function(){
-        trace($scope.post);
+        // build the image gallery;
       };
 
       $timeout(function(){
