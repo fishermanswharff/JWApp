@@ -91,4 +91,6 @@ angular.module('MainController')
       $location.path('/');
     });
   };
+
+  
 }]);

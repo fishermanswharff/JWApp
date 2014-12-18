@@ -67,7 +67,7 @@ section.post {
       position: absolute;
       width: 100%;
 
-      a.slider-nav-prev{
+      a.slider-nav.prev{
         float: left;
         margin: 30% 10px;
         font-size: 34px;
@@ -75,7 +75,7 @@ section.post {
         font-weight: bold;
         color: white;
       }
-      a.slider-nav-next {
+      a.slider-nav.next {
         float: right;
         margin: 30% 10px;
         font-size: 34px;
