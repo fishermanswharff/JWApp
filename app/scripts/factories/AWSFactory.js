@@ -3,7 +3,7 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
 
   var signKeyResults, postID;
 
-  var prepareKey = function(imageFile, postId){
+  var sendToAmazon = function(imageFile, postId){
     postID = postId;
     return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
       signKeyResults = response;
@@ -64,6 +64,6 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   return {
-    prepareKey: prepareKey
+    sendToAmazon: sendToAmazon
   };
 }]);

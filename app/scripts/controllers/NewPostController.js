@@ -24,7 +24,7 @@ angular.module('MainController')
     for (var i = 0, length = fileInputs.length; i < length; i++) {
       var imageFile = fileInputs[i].files[0];
       if(imageFile) {
-        promises.push(AWSFactory.prepareKey(imageFile,postId));
+        promises.push(AWSFactory.sendToAmazon(imageFile,postId));
       }
     }
     return promises;
