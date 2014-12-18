@@ -9,32 +9,11 @@
       <div class="post-body grid_12" ng-bind-html="post.body"></div>
       <div class="post-sidebar grid_4">
         <p class="date"><strong>Created on: </strong>{{ post.created_at | date }}</p>
-        <p ng-if="post.categories.length > 0"><strong>Filed under: </strong><br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
+        <p ng-if="post.categories.length > 0"><strong>Categories: </strong><br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
       </div>
-      <!-- 
-      <div class="post-images" >
-        <img class="post-image" ng-repeat="image in post.images" src="{{image.url}}" alt="{{image.id}}">
-      </div>
-       -->
-      <!-- slider container  -->
-      
-      
-      <!-- <div class="slider-container autoplay">
-        <div class="slider-photos"></div>
-        <div class="slider-captions container">
-          <div class="caption-content"></div>
-        </div>
-        <div class="slider-nav"></div>
-        <div class="slider-step">
-          
-          <a href="#" title="" class="slider-nav-prev"><span class="prev">&lt;</span></a>
-          <a href="#" title="" class="slider-nav-next"><span class="next">&gt;</span></a>
-        </div>
-      </div> -->
     </div>
   </div>
   <post-gallery></post-gallery>
-  
 </section>
 <section ng-if="isLoggedIn()" class="post-edit clearfix">
   <div class="container">
@@ -68,7 +47,6 @@
           <input name="file" type="file"> 
         </div>
         <div class="form-group">
-          
           <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Save Post</button>  |   <button class="btn btn-primary" ng-click="deletePost(post)" type="submit">Delete Post</button>
         </div>
       </form>
