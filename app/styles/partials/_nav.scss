@@ -13,7 +13,7 @@ nav#nav-toggle {
     li {
       @include defaults;
       display: inline-block;
-      margin: 10px 20px;
+      margin: 0 20px;
       &.nav-left { float: left; }
       &.nav-right { float: right; }
       &.text-only { padding-top: 20px; }

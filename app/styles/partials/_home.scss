@@ -66,15 +66,20 @@ section#blurbs {
       @include transform(scale(1));
       @include transition(all,0.25s,cubic-bezier(0.25, 0.46, 0.45, 0.94),0);
       #brackets {}
-      &:hover {
-        @include transform(scale(1.25));
+      #vector {}
+      &:hover { @include transform(scale(1.25)); }
+      &:hover > #brush {
+        @include transform(translate3d(0,0,0));
+        @include animation(brush,transform,scale(0.7),transform,scale(1.2));
+        @include implementAnim(brush,1s,infinite);
       }
     }
+    h1 { font-weight: $header-light; }
   }
 }
 
 section#posts {
-  padding-top: 100px;
+  padding-top: 70px;
   background: $darkblue;
   div.post {
     @include defaults;
