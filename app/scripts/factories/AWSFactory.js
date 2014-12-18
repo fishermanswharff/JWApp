@@ -33,16 +33,7 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   var postImageData = function(imageFile){
-    var formdata = new FormData();
-    formdata.append('key',signKeyResults.key);
-    formdata.append('AWSAccessKeyId',signKeyResults.access_key);
-    formdata.append('policy',signKeyResults.policy);
-    formdata.append('acl','public-read');
-    formdata.append('signature',signKeyResults.signature);
-    formdata.append('Content-Type','image/jpeg');
-    formdata.append('file',imageFile);
-
-    $http.post(AmazonBucket, formdata, {
+    $http.post(AmazonBucket, buildFormData(imageFile), {
       transformRequest: angular.identity,
       headers: {
         'Content-Type': undefined,
@@ -58,6 +49,18 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
     }).error(function(data, status, headers, config){
       trace(data, status, headers, config, 'failed posting to AWS');
     });
+  };
+
+  var buildFormData = function(imageFile){
+    var formdata = new FormData();
+    formdata.append('key',signKeyResults.key);
+    formdata.append('AWSAccessKeyId',signKeyResults.access_key);
+    formdata.append('policy',signKeyResults.policy);
+    formdata.append('acl','public-read');
+    formdata.append('signature',signKeyResults.signature);
+    formdata.append('Content-Type','image/jpeg');
+    formdata.append('file',imageFile);
+    return formdata;
   };
 
   return {
