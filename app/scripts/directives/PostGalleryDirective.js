@@ -10,19 +10,22 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
       
       var init = function(){
         // build the image gallery;
-        // get the photowidth
+        
+        // get the width of the slider container to calc the width of the images
         photoWidth = element.find('div.slider-container').width();
+        // assign the images to an array
         images = $('.slider-photos img');
-
-        // loop through the images, dynamically set css based on photo width 
+        
+        // loop through the images, dynamically set css based on containerwidth 
         $(images).each(function(index){
           var photoPosition = index * photoWidth;
+          $(this).css('width',photoWidth+'px');
           $(this).css('left', photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+photoWidth+'px');
         });
 
         $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
-        $('.slider-photos img:nth-child(2)').clone().insertAfter('.slider-photos img:last-child');
+        $('.slider-photos img:nth-child(1)').clone().insertAfter('.slider-photos img:last-child');
         $('.slider-photos').css('left','-'+photoWidth+'px');
         
         currentPanel = $(images).index(images[1]);
@@ -43,8 +46,8 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
             newPhotoPosition = '0px';
             currentPanel = 0;
           } else {
-            newPhotoPosition = ((currentPanel+1)*distanceToMove)-photoWidth + 'px'; 
-            currentPanel++;  
+            newPhotoPosition = ((currentPanel)*distanceToMove)-photoWidth + 'px'; 
+            currentPanel++;
           }
           $('.slider-photos').animate({left: newPhotoPosition},1000);
           trace(currentPanel);

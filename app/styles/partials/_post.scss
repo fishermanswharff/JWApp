@@ -50,13 +50,15 @@ section.post {
     position: relative;
     overflow: hidden;
     height: 500px;
+    width: 100%;
 
     div.slider-photos {
       position: absolute;
+      width: 100%;
       top: 0;
       left: 0;
       display: none;
-      img.post-image { width: 960px; height: auto; }
+      img.post-image { height: auto; }
     }
     div.slider-captions {
       div.caption-content {}
