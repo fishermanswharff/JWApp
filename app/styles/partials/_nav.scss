@@ -70,6 +70,7 @@ nav#nav-toggle {
           }
           &.active {
             &:before {
+              background: $darkblue;
               -webkit-transform: rotate(45deg) translate3d(5px,10px,0);
               -moz-transform: rotate(45deg) translate3d(5px,10px,0);
               -o-transform: rotate(45deg) translate3d(5px,10px,0);
@@ -78,10 +79,11 @@ nav#nav-toggle {
             }
 
             .menu-icon__text {
-                opacity: 0;
+              opacity: 0;
             }
 
             &:after {
+              background: $darkblue;
               -webkit-transform: rotate(-45deg) translate3d(5px,-10px,0);
               -moz-transform: rotate(-45deg) translate3d(5px,-10px,0);
               -o-transform: rotate(-45deg) translate3d(5px,-10px,0);
@@ -142,7 +144,7 @@ nav.navbar {
         }
       }
       &.active {
-        
+
       }
     }
   }
