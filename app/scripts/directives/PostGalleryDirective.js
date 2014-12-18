@@ -13,24 +13,30 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
         
         // get the width of the slider container to calc the width of the images
         photoWidth = element.find('div.slider-container').width();
+
         // assign the images to an array
         images = $('.slider-photos img');
-        
+        resizeImages(images,photoWidth);
+        $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
+        $('.slider-photos img:nth-child(2)').clone().insertAfter('.slider-photos img:last-child');
+
         // loop through the images, dynamically set css based on containerwidth 
         $(images).each(function(index){
           var photoPosition = index * photoWidth;
-          $(this).css('width',photoWidth+'px');
           $(this).css('left', photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+photoWidth+'px');
         });
-
-        $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
-        $('.slider-photos img:nth-child(1)').clone().insertAfter('.slider-photos img:last-child');
         $('.slider-photos').css('left','-'+photoWidth+'px');
         
         currentPanel = $(images).index(images[1]);
         $('.slider-photos').fadeIn(1500);
 
+      };
+
+      var resizeImages = function(array,width){
+        $(array).each(function(index){
+          $(this).css('width',width+'px');
+        });
       };
       
       $(element).on('click','a',function(e){
