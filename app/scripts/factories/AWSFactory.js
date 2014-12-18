@@ -7,21 +7,24 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
     postID = postId;
     return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
       signKeyResults = response;
-      var imagePayload = {
-        image: {
-          post_id: postId,
-          url: AmazonBucket+signKeyResults.key,
-        }
-      };
       if(postID){
-        $q.all(postRails(imagePayload, postId)).then(function(){
+        $q.all(postRails(makePayload(postId), postId)).then(function(){
           postImageData(imageFile);
         });
       } else {
         postImageData(imageFile);
       }
-
     });
+  };
+
+  var makePayload = function(postId){
+    var imagePayload = {
+      image: {
+        post_id: postId,
+        url: AmazonBucket+signKeyResults.key,
+      }
+    };
+    return imagePayload;
   };
 
   var postRails = function(params,postId){

@@ -1,7 +1,7 @@
 <section class="post clearfix">
   <div ng-if="post.images.length === 0" class="black-carbon"></div>
   <div ng-if="post.images.length > 0" class="featured-image" style="background: url({{post.images[0].url}}) no-repeat center top; background-size:cover;"></div>
-  <div class="post-content clearfix container" post-gallery>
+  <div class="post-content clearfix container">
     <div class="grid_12 clearfix">
       <h1 ng-bind-html="post.title"></h1>
     </div>
@@ -11,26 +11,29 @@
         <p class="date"><strong>Created on: </strong>{{ post.created_at | date }}</p>
         <p ng-if="post.categories.length > 0"><strong>Filed under: </strong><br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>
       </div>
+      <!-- 
       <div class="post-images" >
         <img class="post-image" ng-repeat="image in post.images" src="{{image.url}}" alt="{{image.id}}">
       </div>
+       -->
       <!-- slider container  -->
-      <div class="slider-container autoplay">
+      
+      
+      <!-- <div class="slider-container autoplay">
         <div class="slider-photos"></div>
         <div class="slider-captions container">
           <div class="caption-content"></div>
         </div>
         <div class="slider-nav"></div>
         <div class="slider-step">
-          <!-- 
+          
           <a href="#" title="" class="slider-nav-prev"><span class="prev">&lt;</span></a>
           <a href="#" title="" class="slider-nav-next"><span class="next">&gt;</span></a>
-          -->
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
-
+  <post-gallery></post-gallery>
   
 </section>
 
