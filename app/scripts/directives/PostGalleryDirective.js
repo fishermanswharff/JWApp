@@ -6,28 +6,24 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
       
-      var currentPanel, navClicked, distanceToMove, newPhotoPosition, newCaption, photoWidth, images;
+      var currentPanel,totalPanels,navClicked,distanceToMove,newPhotoPosition,newCaption,photoWidth,images;
       
       var init = function(){
-        // build the image gallery;
-        
-        // get the width of the slider container to calc the width of the images
+        totalPanels = $('.slider-photos img').length;
         photoWidth = element.find('div.slider-container').width();
         $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
         $('.slider-photos img:nth-child(2)').clone().insertAfter('.slider-photos img:last-child');
         images = $('.slider-photos img');
         resizeImages(images,photoWidth);
-
         $(images).each(function(index){
           var photoPosition = index * photoWidth;
           $(this).css('left', photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+photoWidth+'px');
         });
-
         $('.slider-photos').css('left','-'+photoWidth+'px');
         currentPanel = $(images).index(images[1]);
         $('.slider-photos').fadeIn(1500);
-
+        /* debug */ $('.totalPanels').html('totalPanels = '+totalPanels); //.......................
       };
 
       var resizeImages = function(array,width){
@@ -39,12 +35,11 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
       var clickHandler = function(e){
         $(element).on('click','a',function(e){
           distanceToMove = photoWidth*(-1);
-          
           if($(this).attr('class') === 'slider-nav prev'){
             if(currentPanel == 1){
 
             }
-            trace('previous nav clicked');
+            // trace('previous nav clicked');
           } else if ($(this).attr('class') === 'slider-nav next'){
             if(currentPanel >= images.length - 1){
               newPhotoPosition = '0px';
@@ -53,148 +48,52 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
               newPhotoPosition = (currentPanel*distanceToMove)-photoWidth + 'px'; 
               currentPanel++;
             }
-            $('.slider-photos').animate({left: newPhotoPosition},1000);
-            trace(currentPanel);
+            $('.slider-photos').animate({left: newPhotoPosition},500);
           }
+          /* debug */ $('.currentPanel').html('currentPanel = '+currentPanel);  //.....................
         });
       };
-
       $timeout(function(){
         init();
         clickHandler();
       }, 100);
-
     }
   };
 }]);
 
 /*
-var ready;
-ready = function(){
-
-  function trace() {for(var i = 0, count = arguments.length; i < count; i++){console.log(arguments[i]);}};
-
-  window.photoWidth = $('.slider-container').width();
-  var currentPanel, navClicked, distanceToMove, newPhotoPosition, newCaption;
-
-  // autoplay
-  $('.slider-container').hover(
-    function(){
-      window.autoPlay = false;
-      $(this).removeClass('autoplay');
-    },
-    function(){
-      window.autoPlay = true;
-      window.timePassed = 0;
-      $(this).addClass('autoplay')
-    }
-  );
-
-  $('.slide').each(function(index){
-    $('.slider-nav').append('<a class="slider-nav-item" >'+(index+1)+'</a>');
-  });
-
-  $('img.featured-image').each(function(index){
-    $('.slider-photos').append('<img class="slider-photo" src="'+$(this).attr('src')+'" alt="'+$(this).attr('alt')+'" />');
-  });
-
-  $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
-  $('.slider-photos img:nth-child(2)').clone().insertAfter('.slider-photos img:last-child');
-
-  $('.slider-photos img').each(function(index){
-    var photoPosition = index * window.photoWidth;
-    $(this).css('left', photoPosition+'px');
-    $('.slider-photos').css('width',photoPosition+window.photoWidth+'px');
-  });
-
-  $('.slider-photos').css('left','-'+window.photoWidth+'px');
-
-  $('.slider-nav a.slider-nav-item').click(function(test){
-    $('.slider-nav a.slider-nav-item').removeClass('selected');
-    $(this).addClass('selected');
-    $('.slider-captions').animate({opacity: 0}, 100);
-    navClicked = $(this).index();
-    distanceToMove = window.photoWidth*(-1);
-    newPhotoPosition = (navClicked*distanceToMove)-window.photoWidth + 'px';
-    newCaption = $('.slide-caption').get(navClicked);
-    
-    if(window.currentPanel == window.totalPanels && navClicked == 0){
-      newPhotoPosition = (window.photoWidth*(window.totalPanels+1)* -1)+'px';
-      $('.slider-photos').animate({left: newPhotoPosition},1000,function(){
-        $('.slider-photos').css('left','-'+window.photoWidth+'px');
-      });
-    } else if (window.currentPanel == 1 && navClicked == (window.totalPanels-1)) {
-      newPhotoPosition = '0px';
-      $('.slider-photos').animate({left: newPhotoPosition}, 1000, function(){
-        $('.slider-photos').css('left','-'+(window.photoWidth*window.totalPanels)+'px');
-      });
-    } else {
-      $('.slider-photos').animate({left: newPhotoPosition},1000);
-    }
-    window.currentPanel = navClicked + 1;
-    $('.currentPanel').html('currentPanel = '+window.currentPanel);
-
-    $('.slider-captions').animate({opacity: 1},500,function(){
-      var newHTML = $(newCaption).html();
-      $('.caption-content').html(newHTML);
-      setCaption();
-    });
-
-  });
-
-  $('.slider-step').on("click", "a", function(){
-    if ($(this).attr("class") == 'slider-nav-prev' ) {
+// Set up Navigation Links
+$('.marquee_nav a.marquee_nav_item').click(function(test){
+  // Set the navigation state
+  $('.marquee_nav a.marquee_nav_item').removeClass('selected');
+  $(this).addClass('selected');
+  var navClicked = $(this).index();
+  var distanceToMove = window.photoWidth*(-1);
+  var newPhotoPosition = (navClicked*distanceToMove)-window.photoWidth + 'px';  //NEW subtract window.width
+  var newCaption = $('.marquee_panel_caption').get(navClicked);
       
-    } else if ($(this).attr("class") == 'slider-nav-next' ) {
-
-    }
-  });
-
-  $('.slides img').imgpreload(function(){
-    initializeSlider();
-  });
-
-  function initializeSlider(){
-    $('.caption-content').html(
-      $('.slides .slide:first .slide-caption').html()
-    );
-    $('.slider-nav a.slider-nav-item:first').addClass('selected');
-    $('.slider-photos').fadeIn(1500);
+  // Animate photos
+  if( window.currentPanel == window.totalPanels && navClicked == 0){
+    newPhotoPosition = (window.photoWidth*(window.totalPanels+1)*-1)+'px';
+    $('.marquee_photos').animate({left: newPhotoPosition}, 1000, function(){
+      $('.marquee_photos').css('left','-'+window.photoWidth+'px');
+    });
+  }else if( window.currentPanel == 1 && navClicked == (window.totalPanels-1)){
+    newPhotoPosition = '0px';
+    $('.marquee_photos').animate({left: newPhotoPosition}, 1000, function(){
+      $('.marquee_photos').css('left','-'+(window.photoWidth*window.totalPanels)+'px');
+    });
+  }else{
+    $('.marquee_photos').animate({left: newPhotoPosition}, 1000);
+  }
+  
+  window.currentPanel = navClicked + 1;
+  $('.currentPanel').html('currentPanel = '+window.currentPanel);  //.....................
+  
+  // Animate the caption
+  $('.marquee_caption').animate({top: '340px'}, 500, function(){
+    var newHTML = $(newCaption).html();
+    $('.marquee_caption_content').html(newHTML);
     setCaption();
-  }
-
-  function setCaption(){
-    var captionHeight = $('.slider-captions').height();
-    var sliderHeight = $('.slider-container').height();
-    var newCaptionTop = sliderHeight - captionHeight - 200;
-
-    $('.slider-captions').delay(100).animate({
-      // top: newCaptionTop,
-      opacity: 1
-    }, 500);
-  }
-
-  $(window).resize(function(){
   });
-
-};
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
