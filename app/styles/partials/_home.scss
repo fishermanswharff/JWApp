@@ -52,6 +52,7 @@ section#hero {
 
 section#blurbs {
   @include defaults;
+  @include transition(all,0.25s,ease,0);
   padding-top: 100px;
   background: $darkblue;
   color: $white;
@@ -71,13 +72,15 @@ section#posts {
   background: $darkblue;
   div.post {
     @include defaults;
-    @include transition(all,0.25s,ease,0);
-    float:left;
+    @include transition(all,0.25s,cubic-bezier(0.25, 0.46, 0.45, 0.94),0);
+    box-sizing: border-box;
+    display: block;
+    float: left;
     width: 50%;
     height:200px;
     overflow: hidden;
     background: $white;
-    
+
     a { text-decoration: none; }
     
     &.withImage {
@@ -97,8 +100,6 @@ section#posts {
         div.post-info {
           top: 0;
           background: rgba(25,53,73,0.8);
-          h3 {
-          }
         }
       }  
     }
