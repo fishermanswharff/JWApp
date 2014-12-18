@@ -5,31 +5,56 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     restrict: 'EA',
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
-      var currentPanel, navClicked, distanceToMove, newPhotoPosition, newCaption,photoWidth;
+      
+      var currentPanel, navClicked, distanceToMove, newPhotoPosition, newCaption, photoWidth, images;
+      
       var init = function(){
         // build the image gallery;
+        // get the photowidth
         photoWidth = element.find('div.slider-container').width();
-        $('.slider-photos img').each(function(index){
+        images = $('.slider-photos img');
+
+        // loop through the images, dynamically set css based on photo width 
+        $(images).each(function(index){
           var photoPosition = index * photoWidth;
           $(this).css('left', photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+photoWidth+'px');
         });
-        // $('.slider-photos').css('left','-'+photoWidth+'px');
+
+        $('.slider-photos img:last-child').clone().insertBefore('.slider-photos img:first-child');
+        $('.slider-photos img:nth-child(2)').clone().insertAfter('.slider-photos img:last-child');
+        $('.slider-photos').css('left','-'+photoWidth+'px');
+        
+        currentPanel = $(images).index(images[1]);
         $('.slider-photos').fadeIn(1500);
+
       };
+      
+      $(element).on('click','a',function(e){
+        distanceToMove = photoWidth*(-1);
+        
+        if($(this).attr('class') === 'slider-nav prev'){
+          if(currentPanel == 1){
+
+          }
+          trace('previous nav clicked');
+        } else if ($(this).attr('class') === 'slider-nav next'){
+          if(currentPanel >= images.length){
+            newPhotoPosition = '0px';
+            currentPanel = 0;
+          } else {
+            newPhotoPosition = ((currentPanel+1)*distanceToMove)-photoWidth + 'px'; 
+            currentPanel++;  
+          }
+          $('.slider-photos').animate({left: newPhotoPosition},1000);
+          trace(currentPanel);
+        }
+      });
 
       $timeout(function(){
         init();
       }, 100);
 
-      $(element).on('click','a',function(e){
-        if($(this).attr('class') === 'slider-nav prev'){
-          trace('previous nav clicked');  
-        } else if ($(this).attr('class') === 'slider-nav next'){
-          trace('next nav clicked');  
-        }
-      });
-      
     }
   };
 }]);
