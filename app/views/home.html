@@ -12,6 +12,7 @@
         <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
         <figcaption ng-bind-html="post.title"></figcaption>
       </figure>
+      <figure ng-if="post.images.length === 0" class="black-carbon"></figure>
       <div class="post-info">
         <h3 class="post-header" ng-bind-html="post.title"></h3>
         <!-- <div class="post-body" ng-bind-html="post.body | truncate"></div> -->
