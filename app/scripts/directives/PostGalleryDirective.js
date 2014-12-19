@@ -17,6 +17,13 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
         $('.slider-photos').fadeIn(1500);
         Gallery.images = element.find('.slider-photos img');
         Gallery.positionImages();
+        Gallery.addEventListeners();
+      };
+
+      Gallery.addEventListeners = function(){
+        $(element).on('click','a',function(e){
+          Gallery.clickHandler(e);
+        });
       };
 
       Gallery.positionImages = function(){
@@ -27,9 +34,6 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
           $(images[i]).css('width',width+'px').css('left',photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+width+'px');
         }
-        $(element).on('click','a',function(e){
-          Gallery.clickHandler(e);
-        });
       };
 
       Gallery.setCurrentIndex = function(index){
@@ -49,7 +53,13 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
           default:
             break;
         }
+        Gallery.updateView();
         trace(Gallery.currentIndex);
+      };
+
+      Gallery.updateView = function(){
+        // TweenLite.to(Gallery.imgContainer,.5,{left: Gallery.currentIndex * Gallery.containerWidth});
+        // Gallery.images[Gallery.currentIndex])
       };
       
 
