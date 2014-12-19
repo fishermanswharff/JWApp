@@ -6,6 +6,34 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
       
+      var Gallery = {
+        imgContainer: element.find('.slider-photos'),
+        images: [],
+        currentIndex: 0,
+        containerWidth: element.find('.slider-container').width(),
+      };
+      
+      Gallery.init = function(){
+        $('.slider-photos').fadeIn(1500);
+        Gallery.images = element.find('.slider-photos img');
+        Gallery.positionImages();
+      };
+
+      Gallery.positionImages = function(){
+        var images = Gallery.images;
+        var width = Gallery.containerWidth;
+        for(var i = 0; i < images.length; i++){
+          var photoPosition = i * width;
+          $(images[i]).css('width',width+'px').css('left',photoPosition+'px');
+          $('.slider-photos').css('width',photoPosition+width+'px');
+        }
+      };
+      
+      $timeout(function(){
+        Gallery.init();
+      },100);
+      
+      /*
       var currentPanel,totalPanels,navClicked,distanceToMove,newPhotoPosition,newCaption,photoWidth,images;
       var init = function(){
         totalPanels = $('.slider-photos img').length;
@@ -64,6 +92,7 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
         init();
         clickHandler();
       }, 100);
+      */
     }
   };
 }]);
