@@ -28,7 +28,14 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
           $('.slider-photos').css('width',photoPosition+width+'px');
         }
       };
-      
+
+      Gallery.setIndex = function(index){
+        Gallery.currentIndex = index;
+        if(Gallery.currentIndex > Gallery.images.length) Gallery.currentIndex = 0;
+        else if (Gallery.currentIndex < 0) Gallery.currentIndex = Gallery.images.length - 1;
+      };
+
+
       $timeout(function(){
         Gallery.init();
       },100);
