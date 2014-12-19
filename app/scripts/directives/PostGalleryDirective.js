@@ -14,7 +14,7 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
       };
       
       Gallery.init = function(){
-        $('.slider-photos').fadeIn(1500);
+        TweenLite.to(element.find('.slider-photos'),100,{alpha: 100});
         Gallery.images = element.find('.slider-photos img');
         Gallery.positionImages();
         Gallery.addEventListeners();
