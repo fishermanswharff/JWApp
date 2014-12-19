@@ -58,7 +58,7 @@ section.post {
       top: 0;
       left: 0;
       display: none;
-      img.post-image { height: auto; }
+      img.post-image { height: auto; position: absolute; }
     }
     div.slider-captions {
       div.caption-content {}
