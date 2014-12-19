@@ -1,5 +1,4 @@
 # Todo
-* Image gallery for post view
 * Resume View
 * Image production for projects
 * Seed AWS with images
@@ -44,12 +43,7 @@
 # AWS Uploader:
 multiple image uploads
 put this form view into a directive
-Refactor the AWSFactory
 get some UI going for feedback on success/error
-
-# Home Page
-
-animate the icons in the blurb on scroll up??
 
 # Post View
 
@@ -68,8 +62,6 @@ pull over from jw-red
 #Project pages
 Use the 'lookbook' pdf to view
   Stages web design/development
-
-# Responsive Styles
 
 
 # Responsive Behavior
