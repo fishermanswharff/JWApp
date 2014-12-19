@@ -27,14 +27,31 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
           $(images[i]).css('width',width+'px').css('left',photoPosition+'px');
           $('.slider-photos').css('width',photoPosition+width+'px');
         }
+        $(element).on('click','a',function(e){
+          Gallery.clickHandler(e);
+        });
       };
 
-      Gallery.setIndex = function(index){
+      Gallery.setCurrentIndex = function(index){
         Gallery.currentIndex = index;
         if(Gallery.currentIndex > Gallery.images.length) Gallery.currentIndex = 0;
         else if (Gallery.currentIndex < 0) Gallery.currentIndex = Gallery.images.length - 1;
       };
 
+      Gallery.clickHandler = function(e){
+        switch($(e.currentTarget).attr('class')) {
+          case 'slider-nav prev':
+            Gallery.setCurrentIndex(Gallery.currentIndex - 1);
+            break;
+          case 'slider-nav next':
+            Gallery.setCurrentIndex(Gallery.currentIndex + 1);
+            break;
+          default:
+            break;
+        }
+        trace(Gallery.currentIndex);
+      };
+      
 
       $timeout(function(){
         Gallery.init();
