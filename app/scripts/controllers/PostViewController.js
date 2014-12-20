@@ -1,5 +1,4 @@
 /*global $:false */
-/*global _:false */
 'use strict';
 angular.module('MainController')
   .controller('PostViewController',['$scope','$sce','$q','$http','$route','$routeParams','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
