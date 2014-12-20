@@ -40,10 +40,6 @@ input[type="submit"] {
   }
 }
 
-input#homeFilter {
-  color: $darkblue;
-}
-
 label {
   font-family: $body-font;
   display: block;
@@ -195,6 +191,8 @@ form.create-user-form {
     input[type="submit"],
     button
      {
+      display: block;
+      width: 100%;
       background: none;
       color: $lightgreen;
       border: 1px solid $lightgreen;
@@ -209,6 +207,12 @@ form.create-user-form {
       &[disabled="disabled"] {
         cursor: not-allowed;
         opacity: 0.2;
+      }
+
+      &.submitted {
+        background: url(../images/icons/ajax-loader.gif) no-repeat;
+        background-position: 60% center;
+        opacity: 1;
       }
     }
   }
