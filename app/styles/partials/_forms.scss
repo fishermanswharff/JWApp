@@ -208,12 +208,6 @@ form.create-user-form {
         cursor: not-allowed;
         opacity: 0.2;
       }
-
-      &.submitted {
-        background: url(../images/icons/ajax-loader.gif) no-repeat;
-        background-position: 60% center;
-        opacity: 1;
-      }
     }
   }
 }

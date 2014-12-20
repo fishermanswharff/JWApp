@@ -2,7 +2,7 @@
   <header>
     <h2>Get in touch. </h2>
   </header>
-  <div class="container">
+  <div class="container clearfix">
     <form class="grid_16 contact-form" ng-submit="submitContact(message)" name="contactForm" novalidate>
       <div class="form-group">
         <input type="text" name="name" ng-model="message.name" required>
@@ -22,4 +22,5 @@
       </div>
     </form>
   </div>
+  <div class="preloader"></div>
 </section>
