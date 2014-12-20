@@ -2,8 +2,34 @@ code, kbd, pre, samp {
   font-family: $mono-spaced-font;
 }
 pre {
-  padding: 20px;
+  padding: 8px 10px 20px;
+  background: $darkblue;
+  color: $white;
+  border: 2px solid $black-30;
+  border-radius: 4px;
 }
+
+code {
+  span.met {
+    color: $yellow;
+  }
+  span.com {
+    font-style: italic;
+    color: $lightblue;
+  }
+  span.plain {
+    color: $black-10;
+  }
+
+  &.inline {
+    background: #eee;
+    font-size: .9em;
+    padding: 4px 6px;
+  }
+}
+
+
+
 /*
 desert scheme ported from vim to google prettify 
 pre.prettyprint { display: block; background-color: #333 }

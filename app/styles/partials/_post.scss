@@ -23,7 +23,7 @@ section.post {
     z-index: $z-featured-image;
   }
   div.post-content {
-    padding: 200px 0 100px;;
+    padding: 200px 0 0;
     position: relative;
     h1 {
       background: $white;
@@ -49,9 +49,9 @@ section.post {
   div.slider-container {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 600px;
     width: 100%;
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto 50px;
 
     div.slider-photos {

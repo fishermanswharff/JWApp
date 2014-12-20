@@ -74,8 +74,9 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
 
       $timeout(function(){
         Gallery.init();
+        Gallery.setCurrentIndex(1);
         Gallery.updateView();
-      },100);
+      },1000);
     }
   };
 }]);
