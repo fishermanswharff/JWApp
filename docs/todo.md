@@ -1,5 +1,4 @@
 # Todo
-* progress loaders for async javascript calls
 * multiple image uploader for aws images
 * Resume View
 * Image production for projects
