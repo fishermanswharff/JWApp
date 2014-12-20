@@ -216,17 +216,6 @@ section.contact {
       color: $lightgreen;
     }
   }
-
-  div.preloader {
-    width: 100%;
-    height: 64px;
-    display: none;
-    &.submitted {
-      display: block;
-      background: url(../images/icons/ajax-loader.gif) no-repeat;
-      background-position: center center;
-    }
-  }
 }
 
 

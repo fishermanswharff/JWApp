@@ -47,9 +47,8 @@ get some UI going for feedback on success/error
 
 # Post View
 
-* prettyprint directive to style embedded html
+* prettyprint directive to style embedded html code and pre tags
 * figure out numbered rows for &lt;pre&gt; and &lt;code&gt; in views
-* code styles based on cobalt theme (are these styles somewhere?)
 * images for posts at 3 sizes:
   * these will be images[0]—large, images[1]—medium, & images[2]—thumb of the post.images array
 * image converter script? am i the image converter? photoshop batches is the * image converter.
