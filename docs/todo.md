@@ -1,10 +1,10 @@
 # Todo
+* progress loaders for async javascript calls
 * Resume View
 * Image production for projects
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
-* progress loaders for async javascript calls
 * styles for &lt;pre&gt; & &lt;code&gt;
 
 # Write some posts on your projects
