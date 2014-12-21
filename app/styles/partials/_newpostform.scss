@@ -1,15 +1,15 @@
 section.post-new {
-  background-color: $black-10;
+  background-color: $darkblue;
   padding-top: 60px;
-  background-color: $black-10;
+  color: $white;
   div {
-    h1 {}
-    form{
+    h1 { color: $white; }
+    /* form{
       div.form-group {
         label {}
         input { width: 100%; }
         textarea { width: 100%; min-height: 400px; }
       }
-    }
+    } */
   }
 }

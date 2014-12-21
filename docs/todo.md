@@ -5,6 +5,7 @@
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
+* design form creation page
 
 # Write some posts on your projects
 * Gator project:

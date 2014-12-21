@@ -52,16 +52,14 @@ div.form-control {
   margin: 10px auto;
 }
 
+
+
 section.post-edit div form div.form-group input[type="checkbox"], 
 section.post-edit div form div.form-group label {
     display: inline-block;
     width: auto;
 }
 
-div.checkbox-group { 
-  display: inline-block; 
-  label { display: inline-block; margin: 5px 0 5px 15px; }
-}
 
 input[type="text"]#homeFilter {
   box-sizing: border-box;
@@ -112,9 +110,13 @@ input[type="text"]#homeFilter {
   }
 }
 
+
+
+
 form.contact-form,
 form.login-form,
-form.create-user-form {
+form.create-user-form,
+form#new-post-form {
   form:invalid{ border:none; }
   form:valid{ border:none; }
   h5 { color: $lightgreen; }
@@ -188,6 +190,19 @@ form.create-user-form {
       }
     }
 
+    textarea#post-body-textarea {
+      box-sizing: border-box;
+      background: $darkblue;
+      border: none;
+      width: 100%;
+      min-height: 300px;
+      border: 1px solid $lightgreen;
+      border-radius: 4px;
+      overflow: auto;
+      margin-top: 30px;
+      padding: 5px;
+    }
+
     input[type="submit"],
     button
      {
@@ -209,5 +224,30 @@ form.create-user-form {
         opacity: 0.2;
       }
     }
+    // checkbox group goes here
+    div.checkbox-group { 
+      display: inline-block;
+      margin: 5px 0 5px 15px;
+      label { 
+        @include defaults;
+        opacity: 1;
+        position: static;
+        width: auto;
+        height: 25px;
+        display: inline;
+        font-size: inherit;
+
+        input[type="checkbox"] {
+          display: inline;
+          width: auto;
+          height: auto;
+        }
+      }
+    }
   }
 }
+div.checkbox-group {
+  display: inline-block;
+  margin: 5px 0 5px 15px;
+}
+
