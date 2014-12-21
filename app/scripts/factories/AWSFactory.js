@@ -33,7 +33,7 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   var postImageData = function(imageFile){
-    $http.post(AmazonBucket, buildFormData(imageFile), {
+    return $http.post(AmazonBucket, buildFormData(imageFile), {
       transformRequest: angular.identity,
       headers: {
         'Content-Type': undefined,
