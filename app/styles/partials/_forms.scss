@@ -52,14 +52,11 @@ div.form-control {
   margin: 10px auto;
 }
 
-
-
 section.post-edit div form div.form-group input[type="checkbox"], 
 section.post-edit div form div.form-group label {
     display: inline-block;
     width: auto;
 }
-
 
 input[type="text"]#homeFilter {
   box-sizing: border-box;
@@ -110,13 +107,10 @@ input[type="text"]#homeFilter {
   }
 }
 
-
-
-
 form.contact-form,
 form.login-form,
 form.create-user-form,
-form#new-post-form {
+form#post-form {
   form:invalid{ border:none; }
   form:valid{ border:none; }
   h5 { color: $lightgreen; }
@@ -203,14 +197,14 @@ form#new-post-form {
       margin-top: 30px;
       padding: 5px;
       font-family: $header-font;
-      font-size: $xlarge-font-size;
+      font-size: $large-font-size;
     }
 
     input[type="submit"],
     button
      {
       display: block;
-      width: 100%;
+      width: 250px;
       background: none;
       color: $lightgreen;
       border: 1px solid $lightgreen;

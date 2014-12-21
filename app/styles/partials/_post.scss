@@ -93,14 +93,9 @@ section.post {
 
 section.post-edit {
   padding-top: 60px;
-  background-color: $black-10;
+  background-color: $darkblue;
+  color: $white;
   div {
     h1 {}
-    form{
-      div.form-group {
-        label {}
-        textarea { width: 100%; min-height: 400px; font-family: $mono-spaced-font; }
-      }
-    }
   }
 }

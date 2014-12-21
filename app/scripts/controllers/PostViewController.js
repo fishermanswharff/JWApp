@@ -21,6 +21,7 @@ angular.module('MainController')
 
   $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
     $q.all(assignScope(response), parseCategories()).then(function(){
+      $scope.post = response;
       trace('done getting post');
     });
   }).error(function(data, status, headers, config){
@@ -72,12 +73,17 @@ angular.module('MainController')
   };
 
   $scope.upsertPost = function(post){
+    $('.preloader').addClass('submitted');
+    $('button[type="submit"]').attr('disabled',true);
     var params = { post: post };
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
-        $q.all(updateImages(response.id),updateCategories(response.id)).then(function(){
-          $route.reload();
+        $q.all(updateImages(response.id),updateCategories(response.id)).then(function(response){
+          $scope.post = response;
+          $('.preloader').removeClass('submitted');
+          $('button[type="submit"]').attr('disabled',false);
           $scope.message = 'Good job motherfucker, you edited your blog post.';
+          $route.reload();
         });
       });
     }

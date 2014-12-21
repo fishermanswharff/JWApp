@@ -36,7 +36,7 @@
       AMAZON SIGNKEY POST
 ——————————————————————————————————————————
  -->
-<p class='lead'>In order to upload files to an AWS s3 server, you have to have the right credentials and you have to pass these credentials into a multipart form. Creating the credentials is not trivial.</p>
+<p class='lead'>In order to upload files to an AWS s3 server, you need the proper credentials and you have to pass these credentials into a multipart form with your file/data. Creating the credentials is not trivial.</p>
 <p class="lead">We make this a class method so when the endpoint receives the GET request, we can call <code class="inline">Amazon.get_s3_upload_key</code> and render the returned hash into json by the controller. The hash generated will consist of 4 objects:</p>
 <ol>
   <li>Your access key (obtained through AWS),</li>
@@ -111,6 +111,15 @@
     end
   end
 </code></pre>
+<p class="lead">And finally, the Rails controller that calls the model:</p>
+<pre><code>
+  <span class='method'>class</span> <span class='str'>AmazonController</span> <span class='plain'>&lt; ApplicationController</span>
+    <span class='method'>def</span> <span class='str'>sign_key</span>
+      <span class='plain'>response</span> <span class='str'>=</span> <span class='cla'>Amazon</span><span class='plain'>.get_s3_upload_key</span>
+      <span class='plain'>render</span> <span class='sym'>json</span><span class='plain'>: response,</span> <span class='sym'>status</span><span class='plain'>:</span> <span class='sym'>200</span>
+    <span class='method'>end</span>
+  <span class='method'>end</span>
+</code></pre>
 
 
 <!-- 
@@ -135,31 +144,3 @@
 <pre><code>
 </code></pre>
 
-
-<pre><code>
-class Amazon
-  def self.get_s3_upload_key
-    @key = "uploads/#{SecureRandom.uuid}"
-    @policy = Base64.encode64(
-      "{'expiration': '#{30.minutes.from_now.utc.strftime('%Y-%m-%dT%H:%M:%S.000Z')}',
-      'conditions': [
-        {'bucket': '#{ENV['S3_BUCKET_NAME']}'},
-        ['starts-with', '$key', '#{@key}'],
-        {'acl': 'public-read'},
-        ['starts-with', '$Content-Type', 'image/jpeg'],
-        ['content-length-range', 0, 10485760],
-      ]}").gsub(/\n|\r/, '')
-    @signature = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha1'), ENV['AWS_SECRET_ACCESS_KEY'], @policy)).gsub(/\n| |\r/, '')
-    return {access_key: ENV['AWS_ACCESS_KEY_ID'], key: @key, policy: @policy, signature: @signature}
-  end
-end
-</code></pre>
-
-<pre><code>
-class AmazonController < ApplicationController
-  def sign_key
-    response = Amazon.get_s3_upload_key
-    render json: response, status: 200
-  end
-end
-</code></pre>
