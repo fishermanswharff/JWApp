@@ -3,16 +3,27 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
 
   var signKeyResults, postID;
 
+  var fetchKey = function(){
+    return $q(function(resolve,reject){
+      $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
+        resolve(response);
+      }).error(function(data,status,headers,config){
+        trace(data, status, headers, config, 'failed to get a signkey from api');
+      });
+    });
+  };
+
   var sendToAmazon = function(imageFile, postId){
     postID = postId;
-    return $http.get(ServerUrl + 'amazon/sign_key').success(function(response){
+    var key = fetchKey();
+    key.then(function(response){
       signKeyResults = response;
       if(postID){
-        $q.all(postRails(makePayload(postId), postId)).then(function(){
-          postImageData(imageFile);
+        postRails(makePayload(postID),postId).then(function(response){
+          return postImageData(imageFile);
         });
       } else {
-        postImageData(imageFile);
+        return postImageData(imageFile);
       }
     });
   };
@@ -28,8 +39,13 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   var postRails = function(params,postId){
-    var promises = [];
-    promises.push($http.post(ServerUrl+'posts/'+postId+'/images', params));
+    return $q(function(resolve,reject){
+      $http.post(ServerUrl+'posts/'+postId+'/images', params).success(function(response){
+        resolve(response);
+      }).error(function(data, status, headers, config){
+        reject(data);
+      });
+    })
   };
 
   var postImageData = function(imageFile){
@@ -43,7 +59,6 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
       $q.all(function(){
         if(postID) {
           $location.path('/posts/'+postID);
-          trace(response);
         }
       });
     }).error(function(data, status, headers, config){
@@ -64,6 +79,7 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   return {
+    fetchKey: fetchKey,
     sendToAmazon: sendToAmazon
   };
 }]);

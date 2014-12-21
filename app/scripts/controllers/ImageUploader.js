@@ -7,9 +7,7 @@ angular.module('MainController').controller('ImageUploader',['$scope','$http','A
     for(var i = 0, length = fileInputs.length; i < length; i++){
       var imageFile = fileInputs[i].files[0];
       if (imageFile){
-        AWSFactory.sendToAmazon(imageFile).then(function(response){
-          trace(response);
-        });
+        AWSFactory.sendToAmazon(imageFile);
       }
     }
   };

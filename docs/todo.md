@@ -1,4 +1,6 @@
 # Todo
+* category creation in post form
+* rewrite design blurb.
 * multiple image uploader for aws images
 * Resume View
 * Image production for projects
@@ -43,6 +45,7 @@
 * TraceService
 
 # AWS Uploader:
+refactor the AWS Factory to return the response from Amazon
 multiple image uploads
 put this form view into a directive
 get some UI going for feedback on success/error

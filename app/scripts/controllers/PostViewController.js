@@ -46,14 +46,10 @@ angular.module('MainController')
       var isChecked = item.checked;
       var wasChecked = typeof _.find($scope.post.categories,{id: item.id}) !== 'undefined';
       if(isChecked && !wasChecked){
-        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id).success(function(response){
-          $scope.post = response;
-        }));
+        promises.push($http.put(ServerUrl+'posts/'+postId+'/categories/' + item.id));
       }
       if(!isChecked && wasChecked){
-        promises.push($http.delete(ServerUrl+'posts/'+postId+'/categories/'+item.id).success(function(response){
-          $scope.post = response;
-        }));
+        promises.push($http.delete(ServerUrl+'posts/'+postId+'/categories/'+item.id));
       }
       if(isChecked && wasChecked){}
     });
@@ -79,7 +75,7 @@ angular.module('MainController')
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
         $q.all(updateImages(response.id),updateCategories(response.id)).then(function(response){
-          $scope.post = response;
+          // $scope.post = response;
           $('.preloader').removeClass('submitted');
           $('button[type="submit"]').attr('disabled',false);
           $scope.message = 'Good job motherfucker, you edited your blog post.';
