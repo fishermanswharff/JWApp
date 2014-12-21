@@ -5,7 +5,6 @@
 * Seed AWS with images
 * Seed Rails with real posts
 * tests for aws factory
-* styles for &lt;pre&gt; & &lt;code&gt;
 
 # Write some posts on your projects
 * Gator project:

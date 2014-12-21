@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <post-gallery></post-gallery>
+  <post-gallery ng-if="post.images.length > 1"></post-gallery>
 </section>
 <section ng-if="isLoggedIn()" class="post-edit clearfix">
   <div class="container">
