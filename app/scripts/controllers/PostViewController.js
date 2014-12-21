@@ -79,7 +79,7 @@ angular.module('MainController')
           $('.preloader').removeClass('submitted');
           $('button[type="submit"]').attr('disabled',false);
           $scope.message = 'Good job motherfucker, you edited your blog post.';
-          $route.reload();
+          // $route.reload();
         });
       });
     }

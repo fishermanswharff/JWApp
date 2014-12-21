@@ -1,3 +1,4 @@
+'use strict';
 angular.module('MainDirective').directive('postform',function(){
   return {
     restrict: 'EA',

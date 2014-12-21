@@ -45,7 +45,6 @@
 * TraceService
 
 # AWS Uploader:
-refactor the AWS Factory to return the response from Amazon
 multiple image uploads
 put this form view into a directive
 get some UI going for feedback on success/error

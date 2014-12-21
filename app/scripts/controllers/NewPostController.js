@@ -31,9 +31,14 @@ angular.module('MainController')
   };
 
   $scope.upsertPost = function(post){
+    $('.preloader').addClass('submitted');
+    $('button[type="submit"]').attr('disabled',true);
     var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
-      $q.all(updateImages(response.id), updateCategories(response.id)).then(function(){
+      $q.all(updateImages(response.id), updateCategories(response.id)).then(function(response){
+        // debugger;
+        $('.preloader').removeClass('submitted');
+        $('button[type="submit"]').attr('disabled',false);
         $location.path('/posts/'+response.id);
       });
     });

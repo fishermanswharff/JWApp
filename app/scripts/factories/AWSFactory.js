@@ -79,7 +79,6 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
   };
 
   return {
-    fetchKey: fetchKey,
     sendToAmazon: sendToAmazon
   };
 }]);
