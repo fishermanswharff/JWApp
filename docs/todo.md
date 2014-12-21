@@ -3,7 +3,9 @@
 * Resume View
 * Image production for projects
 * Seed AWS with images
-* Seed Rails with real posts
+* Fill out post on Kauai
+* Post on Gator v.1 (title: Feeding the monster)
+* Post on Stages Learning Web design project
 * tests for aws factory
 * design form creation page
 

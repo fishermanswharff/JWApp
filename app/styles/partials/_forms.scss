@@ -1,3 +1,4 @@
+input, select, textarea, button{font-family:$header-font;}
 input { 
   @include transition(all, 0.25s, ease, 0); 
 }
@@ -47,9 +48,6 @@ label {
 
 div.form-group {
   margin: 0 0 10px;
-}
-div.form-control {
-  margin: 10px auto;
 }
 
 section.post-edit div form div.form-group input[type="checkbox"], 
@@ -204,6 +202,8 @@ form#post-form {
     input[type="submit"],
     button
      {
+      margin: 0;
+      box-sizing: border-box;
       display: block;
       width: 250px;
       background: none;
@@ -222,7 +222,6 @@ form#post-form {
         opacity: 0.2;
       }
     }
-    // checkbox group goes here
     div.checkbox-group { 
       display: inline-block;
       margin: 5px 0 5px 15px;
