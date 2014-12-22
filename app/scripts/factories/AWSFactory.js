@@ -57,22 +57,6 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
     });
   };
 
- /* var postImageData = function(imageFile){
-    return $q(function(resolve,reject){
-      $http.post(AmazonBucket, buildFormData(imageFile), {
-        transformRequest: angular.identity,
-        headers: {
-          'Content-Type': undefined,
-          'Authorization':'',
-        }
-      }).success(function(response){
-        resolve(response);
-      }).error(function(data, status, headers, config){
-        reject(data,status,headers,config);
-      });
-    });
-  };*/
-
   var buildFormData = function(imageFile){
     var formdata = new FormData();
     formdata.append('key',signKeyResults.key);

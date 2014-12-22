@@ -137,6 +137,69 @@
 <!-- END SWISS POST -->
 
 
+<p class='lead'>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+<p class='lead'>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+<p class='lead'>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+<p class='lead'>Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+<pre class="">
+  require 'rails_helper'
+  require 'spec_helper'
+
+  describe 'Images API Endpoint' do
+
+    before(:all) do
+      Post.delete_all
+      Image.delete_all
+      User.delete_all
+      @user = User.create({
+        first_name:"Jason",
+        last_name:"Wharff",
+        username:"jasonwharff",
+        role:"admin",
+        email:"fishermanswharff@mac.com",
+        password_digest:"$2a$10$qA2kdO7MOlWkAUIUQWhNtuzlIZScAs69QrTHxn13BM9i6jUUuLbfS",
+        token:"9cbaf8c82925426c869ecfc4b610c8a6",
+      })
+      @post = FactoryGirl.create(:post)
+      @images = FactoryGirl.create_list(:image,25)
+      @images.map { |image| @post.images << image }
+    end
+
+    describe '#index' do
+      it 'should return all of the images' do
+        expect(@images.length).to eq 25
+      end
+    end
+
+    describe '#create' do
+      it 'should add the image to the post''s images ' do
+        post "/posts/#{@post.id}/images",
+          { image: 
+            { url: 'https://s3.amazonaws.com/dubya-blog-bucket/uploads/eb00f33c-b80e-4e72-ada4-36bdc24f551b',
+              post_id: @post.id
+             }
+          }.to_json,
+          { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'HTTP_AUTHORIZATION' => '9cbaf8c82925426c869ecfc4b610c8a6' }
+        expect(response).to be_success
+        expect(response.content_type).to be Mime::JSON
+      end
+    end
+
+    describe '#update' do
+
+    end
+
+    describe '#destroy' do
+      it 'should  delete the image out of the post' do
+        image = @images.last
+        delete "/posts/#{@post.id}/images/#{image.id}"
+        expect(response.status).to eq 202
+        postcontent = json(response.body)
+        expect(postcontent['images'].length).to eq 24
+      end
+    end
+  end
+</pre>
 
 
 <pre><code>
