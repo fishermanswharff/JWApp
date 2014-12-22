@@ -105,6 +105,7 @@ input[type="text"]#homeFilter {
   }
 }
 
+form.jw-form,
 form.contact-form,
 form.login-form,
 form.create-user-form,
@@ -205,7 +206,8 @@ form#post-form {
       margin: 0;
       box-sizing: border-box;
       display: block;
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       background: none;
       color: $lightgreen;
       border: 1px solid $lightgreen;

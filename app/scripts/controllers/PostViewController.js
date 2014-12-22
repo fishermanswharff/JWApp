@@ -75,11 +75,13 @@ angular.module('MainController')
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
         $q.all(updateImages(response.id),updateCategories(response.id)).then(function(response){
+          
           // $scope.post = response;
-          $('.preloader').removeClass('submitted');
-          $('button[type="submit"]').attr('disabled',false);
-          $scope.message = 'Good job motherfucker, you edited your blog post.';
           // $route.reload();
+        }).finally(function(){
+          $('button[type="submit"]').attr('disabled',false);
+          $('.preloader').removeClass('submitted');
+          $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });
     }

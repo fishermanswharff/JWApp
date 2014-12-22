@@ -35,13 +35,23 @@ angular.module('MainController')
     $('button[type="submit"]').attr('disabled',true);
     var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
-      $q.all(updateImages(response.id), updateCategories(response.id)).then(function(response){
-        // debugger;
+      var obj = response;
+      $q.all(updateImages(response.id), updateCategories(response.id)).finally(function(){
         $('.preloader').removeClass('submitted');
         $('button[type="submit"]').attr('disabled',false);
-        $location.path('/posts/'+response.id);
+        $location.path('/posts/'+obj.id);
       });
     });
+  };
+
+  $scope.upsertCategory = function(category){
+    var params = {category: category};
+    $http.post(ServerUrl + 'categories', params).success(function(response){
+      CategoryFactory.fetch();
+      $('form[name="categoryForm"]').each(function(){
+        this.reset();
+      });
+    }).error();
   };
 
   $scope.isLoggedIn = function(){

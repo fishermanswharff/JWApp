@@ -13,16 +13,18 @@ nav#nav-toggle {
     li {
       @include defaults;
       display: inline-block;
-      margin: 0 20px;
+      margin: 0 5px;
       &.nav-left { float: left; }
       &.nav-right { float: right; }
       &.text-only { padding-top: 20px; }
       a { 
         color: $white;
+        font-family: $header-font;
+        font-weight: 300;
 
         &.logout {
           font-family: $header-font;
-          font-weight: 800;
+          // font-weight: 800;
           cursor: pointer;
         }
         &.home-icon {
@@ -95,7 +97,7 @@ nav#nav-toggle {
         &.new-post {
           position: relative;
           font-family: $header-font;
-          font-weight: 800;
+          // font-weight: 800;
           cursor: pointer;
         }
       }
