@@ -15,15 +15,24 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
 
   var sendToAmazon = function(imageFile, postId){
     postID = postId;
-    var key = fetchKey();
-    key.then(function(response){
+    return fetchKey().then(function(response){
       signKeyResults = response;
       if(postID){
         postRails(makePayload(postID),postId).then(function(response){
-          return postImageData(imageFile);
+          return $http.post(AmazonBucket, buildFormData(imageFile), {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined, 'Authorization':'' }
+          }).then(function(response){
+            return response;
+          });
         });
       } else {
-        return postImageData(imageFile);
+        return $http.post(AmazonBucket, buildFormData(imageFile), {
+          transformRequest: angular.identity,
+          headers: { 'Content-Type': undefined, 'Authorization':'' }
+        }).then(function(response){
+          return response;
+        });
       }
     });
   };
@@ -45,26 +54,24 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
       }).error(function(data, status, headers, config){
         reject(data);
       });
-    })
-  };
-
-  var postImageData = function(imageFile){
-    return $http.post(AmazonBucket, buildFormData(imageFile), {
-      transformRequest: angular.identity,
-      headers: {
-        'Content-Type': undefined,
-        'Authorization':'',
-      }
-    }).success(function(response){
-      $q.all(function(){
-        if(postID) {
-          $location.path('/posts/'+postID);
-        }
-      });
-    }).error(function(data, status, headers, config){
-      trace(data, status, headers, config, 'failed posting to AWS');
     });
   };
+
+ /* var postImageData = function(imageFile){
+    return $q(function(resolve,reject){
+      $http.post(AmazonBucket, buildFormData(imageFile), {
+        transformRequest: angular.identity,
+        headers: {
+          'Content-Type': undefined,
+          'Authorization':'',
+        }
+      }).success(function(response){
+        resolve(response);
+      }).error(function(data, status, headers, config){
+        reject(data,status,headers,config);
+      });
+    });
+  };*/
 
   var buildFormData = function(imageFile){
     var formdata = new FormData();
