@@ -1,5 +1,7 @@
 # Todo
-* rewrite design blurb.
+* look into $promise progress method
+* PrettyPrint directive goddamnit
+* update $scope on async callback from amazon
 * multiple image uploader for aws images
 * Resume View
 * Image production for projects
@@ -45,7 +47,7 @@
 # AWS Uploader:
 multiple image uploads
 put this form view into a directive
-get some UI going for feedback on success/error
+  - when the file input has a file, clone and empty file input
 
 # Post View
 
