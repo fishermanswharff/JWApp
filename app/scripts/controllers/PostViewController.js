@@ -51,7 +51,7 @@ angular.module('MainController')
       if(!isChecked && wasChecked){
         promises.push($http.delete(ServerUrl+'posts/'+postId+'/categories/'+item.id));
       }
-      if(isChecked && wasChecked){}
+      // if(isChecked && wasChecked){}
     });
     return promises;
   };

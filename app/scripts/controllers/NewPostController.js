@@ -47,7 +47,7 @@ angular.module('MainController')
   $scope.upsertCategory = function(category){
     var params = {category: category};
     $http.post(ServerUrl + 'categories', params).success(function(response){
-      CategoryFactory.fetch();
+      $scope.categories.push(response);
       $('form[name="categoryForm"]').each(function(){
         this.reset();
       });
