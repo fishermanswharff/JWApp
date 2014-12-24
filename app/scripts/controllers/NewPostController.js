@@ -33,13 +33,20 @@ angular.module('MainController')
   $scope.upsertPost = function(post){
     $('.preloader').addClass('submitted');
     $('button[type="submit"]').attr('disabled',true);
+
     var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
       var obj = response;
-      $q.all(updateImages(response.id), updateCategories(response.id)).finally(function(){
-        $('.preloader').removeClass('submitted');
-        $('button[type="submit"]').attr('disabled',false);
-        $location.path('/posts/'+obj.id);
+      $q.all([updateImages(obj.id), updateCategories(obj.id)])
+      .then(function(responses){
+        // $('.preloader').removeClass('submitted');
+        // $('button[type="submit"]').attr('disabled',false);
+        trace(responses[0],responses[1], 'successCallback');
+        // $location.path('/posts/'+obj.id);
+      }, function(responses){
+        trace(responses[0],responses[1], 'error callback!!');
+      }, function(responses){
+        trace(responses[0],responses[1], 'notifyCallback');
       });
     });
   };
