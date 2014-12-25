@@ -1,7 +1,9 @@
 'use strict';
-angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','ServerUrl','AmazonBucket','trace',function($http,$q,$location,ServerUrl,AmazonBucket,trace){
+angular.module('jwwebApp').factory('AWSFactory',['$rootScope','$http','$q','$location','ServerUrl','AmazonBucket','trace',function($rootScope,$http,$q,$location,ServerUrl,AmazonBucket,trace){
 
   var signKeyResults, postID;
+  var awsResponse = $rootScope.new();
+  
 
   var fetchKey = function(){
     return $q(function(resolve,reject){
@@ -22,7 +24,8 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
           return $http.post(AmazonBucket, buildFormData(imageFile), {
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined, 'Authorization':'' }
-          }).then(function(response){
+          }).success(function(response){
+            trace(response);
             return response;
           });
         });
@@ -31,6 +34,7 @@ angular.module('jwwebApp').factory('AWSFactory',['$http','$q','$location','Serve
           transformRequest: angular.identity,
           headers: { 'Content-Type': undefined, 'Authorization':'' }
         }).then(function(response){
+          trace(response);
           return response;
         });
       }

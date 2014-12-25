@@ -1,11 +1,11 @@
 /*global $:false */
-/*global _:false */
 'use strict';
 angular.module('MainController')
 .controller('NewPostController',['$scope','$q','$http','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
   function($scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
+  $scope.awsSuccess = '';
 
   var updateCategories = function(postId){
     var promises = [];
