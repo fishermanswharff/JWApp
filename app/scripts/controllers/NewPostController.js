@@ -40,22 +40,9 @@ angular.module('MainController')
       .then(function(responses){
         $rootScope.$watch('awsResponse',function(newValue,oldValue){
           if(newValue && newValue.status === 204) {
-            // trace(newValue,'successfully posted to AWS');
             $location.path('/posts/'+obj.id);
           }
         });
-        // $('.preloader').removeClass('submitted');
-        // $('button[type="submit"]').attr('disabled',false);
-        // trace(responses[0],responses[1], 'successCallback');
-        // $location.path('/posts/'+obj.id);
-      }, function(responses){
-        // trace(responses[0],responses[1], 'error callback!!');
-      }, function(responses){
-        // trace(responses[0],responses[1], 'notifyCallback');
-      }).finally(function(callback){
-        // trace(callback, 'finally callback');
-      }, function(notifyCallback){
-        // trace(notifyCallback, 'finally notify callback');
       });
     });
   };
