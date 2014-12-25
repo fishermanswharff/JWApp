@@ -47,6 +47,10 @@ angular.module('MainController')
         trace(responses[0],responses[1], 'error callback!!');
       }, function(responses){
         trace(responses[0],responses[1], 'notifyCallback');
+      }).finally(function(callback){
+        trace(callback, 'finally callback');
+      }, function(notifyCallback){
+        trace(notifyCallback, 'finally notify callback');
       });
     });
   };
