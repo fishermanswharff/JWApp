@@ -1,11 +1,10 @@
 /*global $:false */
 'use strict';
 angular.module('MainController')
-.controller('NewPostController',['$scope','$q','$http','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
-  function($scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
+.controller('NewPostController',['$rootScope','$scope','$q','$http','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
+  function($rootScope,$scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
-  $scope.awsSuccess = '';
 
   var updateCategories = function(postId){
     var promises = [];
@@ -39,18 +38,24 @@ angular.module('MainController')
       var obj = response;
       $q.all([updateImages(obj.id), updateCategories(obj.id)])
       .then(function(responses){
+        $rootScope.$watch('awsResponse',function(newValue,oldValue){
+          if(newValue && newValue.status === 204) {
+            // trace(newValue,'successfully posted to AWS');
+            $location.path('/posts/'+obj.id);
+          }
+        });
         // $('.preloader').removeClass('submitted');
         // $('button[type="submit"]').attr('disabled',false);
-        trace(responses[0],responses[1], 'successCallback');
+        // trace(responses[0],responses[1], 'successCallback');
         // $location.path('/posts/'+obj.id);
       }, function(responses){
-        trace(responses[0],responses[1], 'error callback!!');
+        // trace(responses[0],responses[1], 'error callback!!');
       }, function(responses){
-        trace(responses[0],responses[1], 'notifyCallback');
+        // trace(responses[0],responses[1], 'notifyCallback');
       }).finally(function(callback){
-        trace(callback, 'finally callback');
+        // trace(callback, 'finally callback');
       }, function(notifyCallback){
-        trace(notifyCallback, 'finally notify callback');
+        // trace(notifyCallback, 'finally notify callback');
       });
     });
   };

@@ -2,8 +2,6 @@
 angular.module('jwwebApp').factory('AWSFactory',['$rootScope','$http','$q','$location','ServerUrl','AmazonBucket','trace',function($rootScope,$http,$q,$location,ServerUrl,AmazonBucket,trace){
 
   var signKeyResults, postID;
-  var awsResponse = $rootScope.new();
-  
 
   var fetchKey = function(){
     return $q(function(resolve,reject){
@@ -21,20 +19,20 @@ angular.module('jwwebApp').factory('AWSFactory',['$rootScope','$http','$q','$loc
       signKeyResults = response;
       if(postID){
         postRails(makePayload(postID),postId).then(function(response){
-          return $http.post(AmazonBucket, buildFormData(imageFile), {
+          $http.post(AmazonBucket, buildFormData(imageFile), {
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined, 'Authorization':'' }
-          }).success(function(response){
-            trace(response);
+          }).then(function(response){
+            $rootScope.awsResponse = response;
             return response;
           });
         });
       } else {
-        return $http.post(AmazonBucket, buildFormData(imageFile), {
+        $http.post(AmazonBucket, buildFormData(imageFile), {
           transformRequest: angular.identity,
           headers: { 'Content-Type': undefined, 'Authorization':'' }
         }).then(function(response){
-          trace(response);
+          $rootScope.awsResponse = response;
           return response;
         });
       }
