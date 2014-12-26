@@ -32,17 +32,19 @@ angular.module('MainController')
   $scope.upsertPost = function(post){
     $('.preloader').addClass('submitted');
     $('button[type="submit"]').attr('disabled',true);
-
     var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
       var obj = response;
-      $q.all([updateImages(obj.id), updateCategories(obj.id)])
-      .then(function(responses){
-        $rootScope.$watch('awsResponse',function(newValue,oldValue){
-          if(newValue && newValue.status === 204) {
-            $location.path('/posts/'+obj.id);
-          }
-        });
+      $q.all([updateImages(obj.id), updateCategories(obj.id)]).then(function(responses){
+        if(responses[0].length === 0){
+          $location.path('/posts/'+obj.id);
+        } else {
+          $rootScope.$watch('awsResponse',function(newValue,oldValue){
+            if(newValue && newValue.status === 204) {
+              $location.path('/posts/'+obj.id);
+            }
+          });  
+        }
       });
     });
   };

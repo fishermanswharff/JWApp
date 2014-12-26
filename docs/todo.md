@@ -1,7 +1,6 @@
 # Todo
 * look into $promise progress method
 * PrettyPrint directive goddamnit
-* update $scope on async callback from amazon
 * multiple image uploader for aws images
 * Resume View
 * Image production for projects
