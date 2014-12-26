@@ -26,6 +26,10 @@ angular.module('jwwebApp')
         templateUrl: 'views/image-uploader.html',
         controller: 'ImageUploader'
       })
+      .when('/resume',{
+        templateUrl: 'views/resume.html',
+        controller: 'ResumeController'
+      })
       .otherwise({
         redirectTo: '/'
       });
