@@ -1,6 +1,6 @@
 /*global $:false */
 'use strict';
-angular.module('MainController').controller('ImageUploader',['$scope','$http','AWSFactory','AuthFactory','trace',function($scope,$http,AWSFactory,AuthFactory,trace){
+angular.module('MainController').controller('ImageUploader',['$rootScope','$scope','$http','AWSFactory','AuthFactory','trace',function($rootScope,$scope,$http,AWSFactory,AuthFactory,trace){
 
   $scope.upsertImage = function(){
     $('.ajax-preloader').addClass('submitted');
@@ -9,8 +9,12 @@ angular.module('MainController').controller('ImageUploader',['$scope','$http','A
       var imageFile = fileInputs[i].files[0];
       if (imageFile){
         AWSFactory.sendToAmazon(imageFile).then(function(response){
-          trace(response);
-          $('.ajax-preloader').removeClass('submitted');
+          $rootScope.$watch('awsResponse',function(newValue,oldValue){
+            if(newValue && newValue.status === 204) {
+              $('.ajax-preloader').removeClass('submitted');
+              $('button[type="submit"]').attr('disabled',false);
+            }
+          });
           $('form#imageUpload').each(function(){
             this.reset();
           });
