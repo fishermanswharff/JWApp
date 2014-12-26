@@ -29,3 +29,24 @@ div.preloader {
     background-position: center center;
   }
 }
+
+div.ajax-preloader {
+  z-index: $z-ajax-preloader;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: $white;
+  background: rgba(255,255,255,0.9);
+  &.submitted {
+    display: block;
+    div.animation{
+      margin: 33% auto;
+      background: url(../images/icons/ajax-loader.gif) no-repeat;
+      width: 64px;
+      height: 64px;
+    }
+  }
+}

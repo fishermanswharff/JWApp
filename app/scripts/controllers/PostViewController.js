@@ -2,6 +2,7 @@
 'use strict';
 angular.module('MainController')
   .controller('PostViewController',[
+    '$rootScope',
     '$scope',
     '$sce',
     '$q',
@@ -14,7 +15,7 @@ angular.module('MainController')
     'CategoryFactory',
     'ServerUrl',
     'trace',
-    function($scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AWSFactory,CategoryFactory,ServerUrl,trace){
+    function($rootScope,$scope,$sce,$q,$http,$route,$routeParams,$location,AuthFactory,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
   $scope.post = {};
@@ -69,18 +70,26 @@ angular.module('MainController')
   };
 
   $scope.upsertPost = function(post){
-    $('.preloader').addClass('submitted');
+    $('.ajax-preloader').addClass('submitted');
     $('button[type="submit"]').attr('disabled',true);
     var params = { post: post };
     if(post.id){
       $http.put(ServerUrl + 'posts/' + post.id, params).success(function(response){
-        $q.all(updateImages(response.id),updateCategories(response.id)).then(function(response){
-          
-          // $scope.post = response;
-          // $route.reload();
+        $q.all([updateImages($scope.post.id), updateCategories($scope.post.id)]).then(function(responses){
+          if(responses[0].length > 0){
+            $rootScope.$watch('awsResponse',function(newValue,oldValue){
+              if(newValue && newValue.status === 204) {
+                $('.ajax-preloader').removeClass('submitted');
+                $('button[type="submit"]').attr('disabled',false);
+                $route.reload();
+              }
+            });
+          } else {
+            $('.ajax-preloader').removeClass('submitted');
+            $('button[type="submit"]').attr('disabled',false);
+          }
         }).finally(function(){
-          $('button[type="submit"]').attr('disabled',false);
-          $('.preloader').removeClass('submitted');
+          $scope.post = response;
           $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });
