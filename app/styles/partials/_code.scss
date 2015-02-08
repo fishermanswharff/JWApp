@@ -2,7 +2,6 @@ code, kbd, pre, samp {
   font-family: $mono-spaced-font;
 }
 pre {
-  padding: 8px 10px 20px;
   background: $darkblue;
   color: $white;
   border: 2px solid $black-30;
@@ -11,37 +10,48 @@ pre {
 }
 
 code {
-  span.str {
+  span.str, span.typ {
     color: $yellow;
   }
   span.com {
     font-style: italic;
     color: $lightblue;
   }
-  span.plain {
+  span.plain, span.pun, span.pln {
     color: $codewhite;
   }
   span.var {
     color: $black-20;
   }
-  span.cla {
+  span.cla,
+  span.pln {
     color: $lightyellow;
   }
-  span.sym {
+  span.sym, span.lit {
     color: $pink;
   }
-  span.method {
+  span.method,
+  span.kwd {
     color: $orange;
   }
 
   &.inline {
-    background: #eee;
-    font-size: .9em;
+    background: $darkblue;
+    color: $codewhite;
+    font-size: .7em;
     padding: 4px 6px;
   }
+
 }
 
-/* 
+li.L0, li.L1, li.L2, li.L3,
+li.L5, li.L6, li.L7, li.L8
+{ list-style-type: decimal !important }
+
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { background: none; }
+
+/*
 $darkblue: #193549;
 $lightblue: #0088ff;
 $yellow: #3ad900;
@@ -50,4 +60,4 @@ $orange: #ff9d00;
 $lightgreen: #80ffbb;
 $pink: #ff628c;
 $codewhite: #e1efff;
- */
+*/

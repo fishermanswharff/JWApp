@@ -5,14 +5,14 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     restrict: 'EA',
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
-      
+
       var Gallery = {
         imgContainer: element.find('.slider-photos'),
         images: [],
         currentIndex: 0,
         containerWidth: element.find('.slider-container').width(),
       };
-      
+
       Gallery.init = function(){
         TweenLite.to(element.find('.slider-photos'),0.5,{opacity: '1'});
         Gallery.images = element.find('.slider-photos img');

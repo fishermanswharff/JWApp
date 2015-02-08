@@ -30,4 +30,7 @@ angular.module('jwwebApp',[
     PostsFactory.fetch();
     CategoryFactory.fetch();
   });
+  $rootScope.$on('$routeChangeSuccess',function(event,next){
+    // debugger;
+  });
 });
