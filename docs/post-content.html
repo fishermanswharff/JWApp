@@ -1,50 +1,68 @@
 <!--
-——————————————————————————————————————————
-        Code testing for prettify
-——————————————————————————————————————————
+——————————————————————————————————————————————————————————————————————————
+        Implementing multiple oAuth providers in a stateless api
+——————————————————————————————————————————————————————————————————————————
  -->
 
-<pre class="prettyprint linenums lang-rb"><code class="language-ruby">class TravisController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
-  # this is a comment
-  def nomnom
-    if not valid_request?
-      puts "Invalid payload request for repository #{repo_slug}"
-    else
-      payload = JSON.parse(params[:payload])
-      if payload['type'] == 'pull_request'
-        parent = Repo.where(name: payload["repository"]["name"])[0]
-        payload["parent"] = parent
-        PullRequest.create!({repo_id: parent[:id], committer_name: payload['committer_name'], travis_identifier: payload['id'], name: env['HTTP_TRAVIS_REPO_SLUG'], build_status: payload['status'], status_message: payload['status_message'], build_url: payload['build_url'], commit_message: payload['message'], pull_request_number: payload['pull_request_number']})
-      end
-    end
-    render json: payload, status: 201
-  end
 
-  private
-  def valid_request?
-    digest = Digest::SHA2.new.update("#{env['HTTP_TRAVIS_REPO_SLUG']}#{ENV['TRAVIS_CI_TOKEN']}")
-    digest.to_s == authorization
-  end
 
-  def authorization
-    env['HTTP_AUTHORIZATION']
-  end
+<!--
+——————————————————————————————————————————
+        Grading Wizard Api
+——————————————————————————————————————————
+ -->
+Grading Wizard Api
+  - reason for existence?
+  - approach
+  - problems
+  - solutions
+  - fun code
 
-  def repo_slug
-    env['HTTP_TRAVIS_REPO_SLUG']
-  end
-end
+<h2>Using TDD, Open-Source, Continuous Integration, and Rails JSON Apis in the Classroom</h2>
+<div class="post-body-inline-images clearfix">
+  <div class="post-body-image-container">
+    <img src="https://cms-assets.tutsplus.com/uploads/users/71/courses/450/preview_image/rspec.png" alt="rspec" />
+  </div>
+  <div class="post-body-image-container">
+    <img src="http://jasmine.github.io/images/jasmine_vertical.svg" alt="Jasmine TDD Logo" />
+  </div>
+  <div class="post-body-image-container">
+    <img src="https://travis-ci.com/img/travis-mascot-200px.png" alt="Travis CI Logo"/>
+  </div>
+  <div class="post-body-image-container">
+    <img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="octocat" />
+  </div>
+</div>
+<p class="lead"><b>25 Web Development Immersive Students:</b> 1-2 labs/repos per day, quizzes, projects<br><b>1 TA:</b> armed with RSpec, Jasmine, Travis CI and Github.</p>
+<p class="lead">This app has one purpose: to receive Travis CI webhook notifications on automated builds (that run rspec tests on ruby/rails repos/apps, and jasmine tests on javascript repos/apps), compile the results from repositories, and produce aggregated results of the builds and forks.</p>
+<p>The grading wizard api fetches all of the public repos from the public account of the Boston General Assembly organization. You can find it on <a href="https://github.com/fishermanswharff/GradingWizardApi">github here</a>.</p>
 
+<h2>Configuring the .travis.yml file</h2>
+<p>Lets say we’re teaching a lesson on Ruby classes. I would write several rspec tests to assess comprehension and syntax, and commit to a github repo. The studens then fork this repo, and write code to make the tests pass. They then submit a pull request to submit their work, mirroring open-source collaboration in the real world. That repo needs to have a <code>.travis.yml</code> file in the root directory, and you need to turn that repo on in Travis in order to implement a continuous integration.</p>
+<pre class="prettyprint linenums lang-ruby"><code class="language-ruby"># .travis.yml
+language: ruby
+rvm:
+- 2.2.0
+script: bundle exec rspec spec
+notifications:
+  webhooks: http://gradingwizard.herokuapp.com/travisreports
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test' -U postgres
+- bin/rake db:migrate RAILS_ENV=test
+addons:
+  postgresql: '9.3'
 </code></pre>
+<p>Pretty simple, right? The first line declares our language to Travis CI. The next two lines tell Travis which version of ruby to use. <code>script: bundle exec rspec spec</code> tells Travis CI to use rspec tests instead of the built-in, rails-default Test::Unit. The notifications line is the magic, which tells Travis CI to send the results of each build to that url. The rest of the lines are all database setup for Travis CI’s testing environment (we use postgresql for relational dbs). Now, any repo that has this <code>.travis.yml</code> file will get built by Travis CI and send my api a post request to the specified url (http://gradingwizard.herokuapp.com/travisreports).</p>
 
 
 
-<!-- 
+<!--
 ——————————————————————————————————————————
       AMAZON SIGNKEY POST
 ——————————————————————————————————————————
  -->
+
 <p class='lead'>In order to upload files to an AWS s3 server, you need the proper credentials and you have to pass these credentials into a multipart form with your file/data. Creating the credentials is not trivial.</p>
 <p class="lead">We make this a class method so when the endpoint receives the GET request, we can call <code class="inline">Amazon.get_s3_upload_key</code> and render the returned hash into json by the controller. The hash generated will consist of 4 objects:</p>
 <ol>

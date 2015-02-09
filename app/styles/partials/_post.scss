@@ -39,11 +39,22 @@ section.post {
       min-height: 210px;
       padding: 20px;
       box-sizing: border-box;
-
-      img.inline-image {
-        max-width: 250px;
-         &.left-align { margin: 0 10px 10px 0; float: left; }
-         &.right-align { margin: 0 0 10px 10px; float: right; }
+      div.post-body-inline-images {
+        width: 100%;
+        div.post-body-image-container{
+          width: 23%;
+          margin: 0 1%;
+          float: left;
+          svg { width: 100%; }
+        }
+      }
+      img {
+        width: 100%;
+        height: auto;
+        &.inline-image {
+          &.left-align { margin: 0 10px 10px 0; float: left; }
+          &.right-align { margin: 0 0 10px 10px; float: right; }
+        }
       }
     }
   }
