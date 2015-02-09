@@ -53,7 +53,7 @@ before_script:
 addons:
   postgresql: '9.3'
 </code></pre>
-<p>Pretty simple, right? The first line declares our language to Travis CI. The next two lines tell Travis which version of ruby to use. <code>script: bundle exec rspec spec</code> tells Travis CI to use rspec tests instead of the built-in, rails-default Test::Unit. The notifications line is the magic, which tells Travis CI to send the results of each build to that url. The rest of the lines are all database setup for Travis CI’s testing environment (we use postgresql for relational dbs). Now, any repo that has this <code>.travis.yml</code> file will get built by Travis CI and send my api a post request to the specified url (http://gradingwizard.herokuapp.com/travisreports).</p>
+<p>Pretty simple, right? The first line declares our language to Travis CI. The next two lines tell Travis which version of ruby to use. <code>script: bundle exec rspec spec</code> tells Travis CI to use rspec tests instead of the built-in, rails-default Test::Unit. The notifications line is the magic, which tells Travis CI to send the results of each build to that url. The rest of the lines are all database setup for Travis CI’s testing environment (we use postgresql for relational dbs). Now, any repo that has this <code>.travis.yml</code> file will get built by Travis CI and send my api a post request to the specified url.</p>
 
 
 
