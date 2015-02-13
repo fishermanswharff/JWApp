@@ -30,6 +30,10 @@ angular.module('jwwebApp')
         templateUrl: 'views/resume.html',
         controller: 'ResumeController'
       })
+      .when('/categories',{
+        templateUrl: '/views/categories.html',
+        controller: 'CategoriesController'
+      })
       .otherwise({
         redirectTo: '/'
       });

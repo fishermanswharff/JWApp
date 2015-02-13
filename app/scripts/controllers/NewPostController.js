@@ -45,7 +45,7 @@ angular.module('MainController')
               $('.ajax-preloader').removeClass('submitted');
               $location.path('/posts/'+obj.id);
             }
-          });  
+          });
         }
       });
     });
@@ -66,10 +66,5 @@ angular.module('MainController')
   };
 
   trace();
-  /*
-  var clearForm = function(){
-    
-  };
-  */
-  
+
 }]);

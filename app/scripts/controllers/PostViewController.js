@@ -35,6 +35,7 @@ angular.module('MainController')
 
   var parseCategories = function(){
     _.forEach($scope.categories, function(item) {
+      debugger;
       if ($scope.hasCategory(item)) {
         item.checked = true;
       }
@@ -52,7 +53,6 @@ angular.module('MainController')
       if(!isChecked && wasChecked){
         promises.push($http.delete(ServerUrl+'posts/'+postId+'/categories/'+item.id));
       }
-      // if(isChecked && wasChecked){}
     });
     return promises;
   };
@@ -116,5 +116,4 @@ angular.module('MainController')
     });
   };
 
-  
 }]);

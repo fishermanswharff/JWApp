@@ -1,3 +1,13 @@
+<!-- 
+——————————————————————————————————————————————————————————————————————————
+                            try a thing
+——————————————————————————————————————————————————————————————————————————
+ -->
+
+<h2>A little practice in After Effects</h2>
+<p class="lead">Last year I spent a considerable amount of time following some sick animators on Dribbble. I was looking to incorporate animations into some of my work, and found a perfect opportunity. Navitome was looking to build a new marketing website to coincide with the launch of their product.</p>
+<img style="float:right; max-width:500px; margin-left:10px;" src="https://s3.amazonaws.com/dubya-blog-bucket/uploads/5ef5b45e-c9e5-4514-a3fc-399b1719507d">
+
 <!--
 ——————————————————————————————————————————————————————————————————————————
         Implementing multiple oAuth providers in a stateless api
@@ -18,7 +28,8 @@ Grading Wizard Api
   - solutions
   - fun code
 
-<h2>Using TDD, Open-Source, Continuous Integration, and Rails JSON Apis in the Classroom</h2>
+<h2>Using TDD, Open-Source, Continuous Integration, and Rails JSON Apis to Streamline Assessments and Code Review in the Classroom</h2>
+<p class="lead">How do you automate the testing and grading for 25 students learning web development? <a href="https://github.com/fishermanswharff/GradingWizardApi">The Grading Wizard Api</a></p>
 <div class="post-body-inline-images clearfix">
   <div class="post-body-image-container">
     <img src="https://cms-assets.tutsplus.com/uploads/users/71/courses/450/preview_image/rspec.png" alt="rspec" />
@@ -34,13 +45,12 @@ Grading Wizard Api
   </div>
 </div>
 <p class="lead"><b>25 Web Development Immersive Students:</b> 1-2 labs/repos per day, quizzes, projects<br><b>1 TA:</b> armed with RSpec, Jasmine, Travis CI and Github.</p>
-<p class="lead">This app has one purpose: to receive Travis CI webhook notifications on automated builds (that run rspec tests on ruby/rails repos/apps, and jasmine tests on javascript repos/apps), compile the results from repositories, and produce aggregated results of the builds and forks.</p>
-<p>The grading wizard api fetches all of the public repos from the public account of the Boston General Assembly organization. You can find it on <a href="https://github.com/fishermanswharff/GradingWizardApi">github here</a>.</p>
+<p class="lead">This app has one purpose: to receive Travis CI webhook notifications on automated builds (that run rspec tests on ruby/rails repos/apps, and jasmine tests on javascript repos/apps), compile the results from repositories, and produce aggregated results of the builds and forks. <b>Once this app receives Travis CI build result payloads, I have the entire class’ tests and grades at my fingertips.</b></p>
+<p>Before this api can associate Travis CI builds with a repo, it first fetches all of the public repos from the public account of the Boston General Assembly organization.</p>
+<p>Lets say we’re teaching a lesson on Ruby classes. I would write several rspec tests to assess comprehension and syntax, and commit to a github repo. The studens then fork this repo, and write code to make the tests pass. They then submit a pull request to submit their work, mirroring open-source collaboration in the real world. That repo needs to have a <code>.travis.yml</code> file in the root directory, and you need to turn that repo on in Travis in order to implement a continuous integration. The <code>.travis.yml</code> file contains information that tells Travis CI how to build your repo and its contents.</p>
 
-<h2>Configuring the .travis.yml file</h2>
-<p>Lets say we’re teaching a lesson on Ruby classes. I would write several rspec tests to assess comprehension and syntax, and commit to a github repo. The studens then fork this repo, and write code to make the tests pass. They then submit a pull request to submit their work, mirroring open-source collaboration in the real world. That repo needs to have a <code>.travis.yml</code> file in the root directory, and you need to turn that repo on in Travis in order to implement a continuous integration.</p>
-<pre class="prettyprint linenums lang-ruby"><code class="language-ruby"># .travis.yml
-language: ruby
+<h2>Configuring the .travis.yml file for a Rails repo</h2>
+<pre class="prettyprint linenums lang-ruby"><code class="language-ruby">language: ruby
 rvm:
 - 2.2.0
 script: bundle exec rspec spec
@@ -53,9 +63,139 @@ before_script:
 addons:
   postgresql: '9.3'
 </code></pre>
-<p>Pretty simple, right? The first line declares our language to Travis CI. The next two lines tell Travis which version of ruby to use. <code>script: bundle exec rspec spec</code> tells Travis CI to use rspec tests instead of the built-in, rails-default Test::Unit. The notifications line is the magic, which tells Travis CI to send the results of each build to that url. The rest of the lines are all database setup for Travis CI’s testing environment (we use postgresql for relational dbs). Now, any repo that has this <code>.travis.yml</code> file will get built by Travis CI and send my api a post request to the specified url.</p>
 
+<h2>Configuring the .travis.yml file for a Javascript repo</h2>
+<pre class="prettyprint linenums lang-ruby"><code class="language-ruby">language: node_js
+node_js:
+- '0.10'
+before_install: gem install compass
+before_script:
+- 'npm install -g bower grunt-cli'
+- 'bower install'
+notifications:
+  webhooks: http://gradingwizard.herokuapp.com/travisreports
+</code></pre>
+<p>Pretty simple, right? The first line declares our language to Travis CI. The next two lines tell Travis which versions of said language to use. The notifications line is the magic, which tells Travis CI to send the results of each build to that url. Now, any repo that has one of these <code>.travis.yml</code> files will get built by Travis CI and send my api a post request to the specified url. The params hash that gets <code>POST</code>’ed looks something like this:</p>
+<pre class="prettyprint lang-json"><code class="language-json">{
+  "payload"=>"{
+    "id":50151416,
+    "repository":{
+      "id":3788313,
+      "name":"wdi_2_assessment_rails_routes",
+      "owner_name":"ga-wdi-boston","url":null},
+      "number":"30",
+      "config":{
+        "language":"ruby",
+        "rvm":["2.2.0"],
+        "script":"bundle exec rspec spec",
+        "notifications":{"webhooks":"http://gradingwizard.herokuapp.com/travisreports"},
+        "before_script":["cp config/database.yml.travis config/database.yml","psql -c 'create database travis_ci_test' -U postgres","bin/rake db:migrate RAILS_ENV=test"],
+        "addons":{"postgresql":"9.3"},
+        ".result":"configured",
+        "os":"linux"
+      },
+      "status":1,
+      "result":1,
+      "status_message":"Errored",
+      "result_message":"Errored",
+      "started_at":"2015-02-10T03:47:52Z",
+      "finished_at":"2015-02-10T03:49:39Z",
+      "duration":107,
+      "build_url":"https://travis-ci.org/ga-wdi-boston/wdi_2_assessment_rails_routes/builds/50151416",
+      "commit_id":14394206,
+      "commit":"4baa44c8d748d3d748d1098fca7a69af52fa5f99",
+      "base_commit":null,
+      "head_commit":null,
+      "branch":"master",
+      "message":"mergingnnMerge branch 'master' of github.com:ga-wdi-boston/wdi_2_assessment_rails_routes",
+      "compare_url":"https://github.com/ga-wdi-boston/wdi_2_assessment_rails_routes/compare/603896f05baf...4baa44c8d748",
+      "committed_at":"2015-02-10T03:19:50Z",
+      "author_name":"fishermanswharff",
+      "author_email":"fishermanswharff@github.com",
+      "committer_name":"fishermanswharff",
+      "committer_email":"fishermanswharff@github.com",
+      "matrix":[
+        {
+          "id":50151417,
+          "repository_id":3788313,
+          "parent_id":50151416,
+          "number":"30.1",
+          "state":"finished",
+          "config":{
+            "language":"ruby",
+            "rvm":"2.2.0",
+            "script":"bundle exec rspec spec",
+            "notifications":{"webhooks":"http://gradingwizard.herokuapp.com/travisreports"},
+            "before_script":["cp config/database.yml.travis config/database.yml","psql -c 'create database travis_ci_test' -U postgres","bin/rake db:migrate RAILS_ENV=test"],
+            "addons":{"postgresql":"9.3"},
+            ".result":"configured",
+            "os":"linux"
+          },
+          "status":1,
+          "result":1,
+          "commit":"4baa44c8d748d3d748d1098fca7a69af52fa5f99",
+          "branch":"master",
+          "message":"mergingnnMerge branch 'master' of github.com:ga-wdi-boston/wdi_2_assessment_rails_routes",
+          "compare_url":"https://github.com/ga-wdi-boston/wdi_2_assessment_rails_routes/compare/603896f05baf...4baa44c8d748",
+          "committed_at":"2015-02-10T03:19:50Z",
+          "author_name":"fishermanswharff",
+          "author_email":"fishermanswharff@github.com",
+          "committer_name":"fishermanswharff",
+          "committer_email":"fishermanswharff@github.com",
+          "allow_failure":false,
+          "finished_at":"2015-02-10T03:49:39Z"
+        }
+      ],
+    "type":"push",
+    "state":"errored",
+    "pull_request":false,
+    "pull_request_number":null,
+    "pull_request_title":null,
+    "tag":null
+  }"
+}
+</code></pre>
 
+<p>So this payload tells me everything I need to know about the build and how it associates to a github repo. Here's my Rails controller to handle the post request:</p>
+<pre class="prettyprint linenums lang-ruby"><code class="language-ruby">class TravisController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
+
+  def nomnom
+    if not valid_request?
+      puts "Invalid payload request for repository #{repo_slug}"
+    else
+      payload = JSON.parse(params[:payload])
+      if payload['type'] == 'pull_request'
+        parent = Repo.where(name: payload["repository"]["name"])[0]
+        payload["parent"] = parent
+        PullRequest.create!({repo_id: parent[:id], committer_name: payload['committer_name'], travis_identifier: payload['id'], name: env['HTTP_TRAVIS_REPO_SLUG'], build_status: payload['status'], status_message: payload['status_message'], build_url: payload['build_url'], commit_message: payload['message'], pull_request_number: payload['pull_request_number']})
+      end
+    end
+    render json: payload, status: 201
+  end
+
+  private
+  def valid_request?
+    digest = Digest::SHA2.new.update("#{env['HTTP_TRAVIS_REPO_SLUG']}#{ENV['TRAVIS_CI_TOKEN']}")
+    digest.to_s == authorization
+  end
+
+  def authorization
+    env['HTTP_AUTHORIZATION']
+  end
+
+  def repo_slug
+    env['HTTP_TRAVIS_REPO_SLUG']
+  end
+end
+</code></pre>
+
+<p class="lead">This controller will save a payload only after a couple conditions are met: </p>
+<ol>
+  <li>If it's a valid request. Line 5 calls the private method <code>valid_request?</code> which returns a boolean. Note that <code>valid_request?</code> hashes the <code>HTTP_TRAVIS_REPO_SLUG</code> with the <code>TRAVIS_CI_TOKEN</code></li>
+  <li>If it's a pull request. Our students submit pull requests to turn in their quizzes, homework, labs, etc. When Travis receives a github webook that a pull request has been submitted, it will build that pull request.</li>
+</ol>
+<p>Now that I have an API that collects this data I can start to aggregate the results of these builds and produce some real data.</p>
 
 <!--
 ——————————————————————————————————————————
@@ -64,7 +204,7 @@ addons:
  -->
 
 <p class='lead'>In order to upload files to an AWS s3 server, you need the proper credentials and you have to pass these credentials into a multipart form with your file/data. Creating the credentials is not trivial.</p>
-<p class="lead">We make this a class method so when the endpoint receives the GET request, we can call <code class="inline">Amazon.get_s3_upload_key</code> and render the returned hash into json by the controller. The hash generated will consist of 4 objects:</p>
+<p class="lead">We make this a class method so when the endpoint receives the GET request, we can call <code>Amazon.get_s3_upload_key</code> and render the returned hash into json by the controller. The hash generated will consist of 4 objects:</p>
 <ol>
   <li>Your access key (obtained through AWS),</li>
   <li>A secure, random key that will be the url of the s3 object,</li>
