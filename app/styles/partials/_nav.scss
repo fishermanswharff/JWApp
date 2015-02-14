@@ -18,13 +18,13 @@ nav#nav-toggle {
       &.nav-right { float: right; }
       &.text-only { padding-top: 20px; }
       a {
-        color: $white;
+        color: $codewhite;
         font-family: $header-font;
         font-weight: 300;
 
         &.logout {
           font-family: $header-font;
-          // font-weight: 800;
+          /* font-weight: 800; */
           cursor: pointer;
         }
         &.home-icon {
@@ -33,12 +33,12 @@ nav#nav-toggle {
           height: 32px;
           margin-top: 15px;
           svg#code-brush {
-            fill: $white;
+            fill: $codewhite;
             width: 32px;
           }
         }
         &.menu-icon{
-          color: $white;
+          color: $codewhite;
           float: right;
           margin-right: 30px;
           display:block;
@@ -48,7 +48,7 @@ nav#nav-toggle {
           &:before,
           &:after,
           .menu-icon__text {
-            background: $white;
+            background: $codewhite;
             content: '';
             display:block;
             height:4px;

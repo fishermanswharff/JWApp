@@ -26,39 +26,39 @@ angular.module('jwwebApp').controller('ResumeController',['$scope',function($sco
     'software':{
       'Sublime Text': {
         'level': 'I can create custom ant builds, keyboard shortcut master, customized icon artwork',
-        'icon':'images/sublimetext.png'
+        'icon':'images/icons/sublimetext.png'
       },
       'Flash Builder': {
         'level': 'I know my way around',
-        'icon':'images/flash-builder.png'
+        'icon':'images/icons/flash-builder.png'
       },
       'Flash': {
         'level':'I can use Actionscript 3 to animate particle effects',
-        'icon':'images/flash.png'
+        'icon':'images/icons/flash.png'
       },
       'After Effects': {
         'level':'I can animate on the timeline, I know my way around',
-        'icon':'images/after-effects.png'
+        'icon':'images/icons/after-effects.png'
       },
       'InDesign': {
         'level':'Power User: Integrated InCopy workflow for publishing workflow',
-        'icon':'images/indesign.png'
+        'icon':'images/icons/indesign.png'
       },
       'Illustrator': {
         'level':'Expert Level: I’ve drawn my own letterforms in Illustrator',
-        'icon':'images/illustrator.png'
+        'icon':'images/icons/illustrator.png'
       },
       'Photoshop': {
         'level':'Power User: I batch like a boss',
-        'icon':'images/photoshop.png'
+        'icon':'images/icons/photoshop.png'
       },
       'Balsamiq': {
         'level':'I know my way around',
-        'icon':'images/balsamiq.png'
+        'icon':'images/icons/balsamiq.png'
       },
       'Wordpress': {
         'level':'I do it for money',
-        'icon':'images/wordpress.png'
+        'icon':'images/icons/wordpress.png'
       }
     }
   };
@@ -106,30 +106,30 @@ angular.module('jwwebApp').controller('ResumeController',['$scope',function($sco
     }
   };
 
-  $scope.contact = {
+  $scope.contacts = {
     'Email': {
       'url': 'mailto:fishermanswharff@mac.com',
-      'icon': 'images/email.svg'
+      'icon': 'images/icons/email.svg'
     },
     'Github': {
       'url': 'https://github.com/fishermanswharff',
-      'icon': 'images/github.svg'
+      'icon': 'images/icons/github.svg'
     },
     'Twitter': {
       'url': 'https://twitter.com/jasonwharff',
-      'icon': 'images/twitter.svg'
+      'icon': 'images/icons/twitter.svg'
     },
     'LinkedIn': {
       'url': 'https://www.linkedin.com/in/jasonwharff',
-      'icon': 'images/linkedin.svg'
+      'icon': 'images/icons/linkedin.svg'
     },
     'Instagram': {
       'url': 'http://instagram.com/jasonwharff',
-      'icon': 'images/instagram.svg'
+      'icon': 'images/icons/instagram.svg'
     },
     'Tumblr': {
       'url': 'http://blog.jasonwharff.com',
-      'icon': 'images/tumblr.svg'
+      'icon': 'images/icons/tumblr.svg'
     }
   };
 
