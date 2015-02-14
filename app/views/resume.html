@@ -1,3 +1,17 @@
-<section class="resume">
-  <header><h1>Jason Wharff's Resume</h1></header>
+<section class="resume clearfix">
+  <header>
+    <h1>Jason Wharff's Resume</h1>
+  </header>
+  <div class="container">
+    <div class="skills">
+      <h2>Technical Skills:</h2>
+      <p ng-repeat="(key,value) in skills.technical">
+        <span class="skill">{{key}}: <span class="skill-level" ng-repeat="(key,value) in value">{{value}}</span></span>
+      </p>
+      <h2>Software Skills:</h2>
+      <p ng-repeat="(key,value) in skills.software">
+        <span class="skill">{{key}}: </span><span class="skill-level" ng-repeat="(key,value) in value">{{value}}</span>
+      </p>
+    </div>
+  </div>
 </section>

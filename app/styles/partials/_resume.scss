@@ -1,0 +1,22 @@
+section.resume {
+  background: $white;
+  padding-top: 50px;
+  color: $darkblue;
+  header {
+    @extend .container;
+    h1 {
+      @extend .grid_16;
+    }
+  }
+  div.skills {
+    @extend .grid_16;
+    p {
+      font-size: $xlarge-font-size;
+      span {
+        &.skill { font-weight: $body-bold; }
+        &.skill-level { font-weight: $body-light; }
+      }
+    }
+  }
+  h1,h2,h3,h4,h5,h6 { font-weight: $header-light; color: $darkblue; }
+}

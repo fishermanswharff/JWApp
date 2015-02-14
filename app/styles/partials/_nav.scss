@@ -5,7 +5,7 @@ nav#nav-toggle {
   z-index: $z-nav-icon;
   padding-left: 10px;
   width: 100%;
-  
+
   ul {
     @include defaults;
     list-style:none;
@@ -17,7 +17,7 @@ nav#nav-toggle {
       &.nav-left { float: left; }
       &.nav-right { float: right; }
       &.text-only { padding-top: 20px; }
-      a { 
+      a {
         color: $white;
         font-family: $header-font;
         font-weight: 300;
@@ -103,7 +103,7 @@ nav#nav-toggle {
       }
     }
   }
-  
+
   .indent { margin: 13px auto; }
 
 }
