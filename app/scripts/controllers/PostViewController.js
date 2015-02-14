@@ -20,14 +20,16 @@ angular.module('MainController')
   $scope.categories = CategoryFactory.categories;
   $scope.post = {};
 
-  $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
-    $q.all(assignScope(response), parseCategories()).then(function(){
+  var getPost = function(){
+    $http.get(ServerUrl + 'posts/' + $routeParams.postId.toString()).success(function(response){
       $scope.post = response;
-      trace('done getting post');
+      $q.all(assignScope(response), parseCategories()).then(function(){
+        $scope.post = response;
+      });
+    }).error(function(data, status, headers, config){
+      trace(data,status,headers,config,'you are so stupid');
     });
-  }).error(function(data, status, headers, config){
-    trace(data,status,headers,config,'you are so stupid');
-  });
+  }
 
   var assignScope = function(object){
     $scope.post = object;
@@ -35,9 +37,8 @@ angular.module('MainController')
 
   var parseCategories = function(){
     _.forEach($scope.categories, function(item) {
-      debugger;
       if ($scope.hasCategory(item)) {
-        item.checked = true;
+        return item.checked = true;
       }
     });
   };
@@ -89,7 +90,8 @@ angular.module('MainController')
             $('button[type="submit"]').attr('disabled',false);
           }
         }).finally(function(){
-          $scope.post = response;
+          // $scope.post = response;
+          getPost();
           $scope.message = 'Good job motherfucker, you edited your blog post.';
         });
       });
@@ -115,5 +117,7 @@ angular.module('MainController')
       $location.path('/');
     });
   };
+
+  getPost();
 
 }]);

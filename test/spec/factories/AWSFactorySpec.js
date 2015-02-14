@@ -15,6 +15,7 @@ describe('AWSFactory', function (){
 
   it('should have a sendToAmazon function', function () {
     expect(AWSFactory.sendToAmazon).toEqual(jasmine.any(Function));
+    expect(angular.isFunction(AWSFactory.sendToAmazon)).toBe(true);
   });
 
   it('should result of AWSFactory.prepareKey to be JSON', function (){

@@ -9,7 +9,7 @@
   <div class="form-group clearfix">
     <div class="checkbox-group" ng-repeat="category in categories">
       <label for="{{category.name}}">
-        <input type="checkbox" ng-model="category.checked" name="category.id">
+        <input type="checkbox" ng-checked="hasCategory(category)" ng-model="category.checked" name="category.id">
       </label> {{category.name}}
     </div>
   </div>
