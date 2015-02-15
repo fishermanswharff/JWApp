@@ -8,11 +8,11 @@
   </div>
   <div ng-repeat="post in posts | limitTo:11 | postsFilter:search" ng-class="{withImage: hasImage(post)}" class="post">
     <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
-      <figure ng-if="post.images.length > 0">
-        <img src="{{post.images[0].url}}" alt="{{post.id}}-image">
+      <figure ng-if="post.thumbnail">
+        <img src="{{post.thumbnail.url}}" alt="{{post.id}}-image">
         <figcaption ng-bind-html="post.title"></figcaption>
       </figure>
-      <figure ng-if="post.images.length === 0" class="black-carbon"></figure>
+      <figure ng-if="post.thumbnail === null" class="black-carbon"></figure>
       <div class="post-info">
         <h3 class="post-header" ng-bind-html="post.title"></h3>
         <!-- <div class="post-body" ng-bind-html="post.body | truncate"></div> -->

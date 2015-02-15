@@ -1,4 +1,4 @@
-section.post {
+article.post {
   position: relative;
   padding-top: 50px;
   height: auto;
@@ -39,6 +39,22 @@ section.post {
       min-height: 210px;
       padding: 20px;
       box-sizing: border-box;
+
+      figure {
+        @include defaults;
+        &.inline {
+          margin: 10px;
+          &.small { max-width: 144px; }
+          &.medium { max-width: 300px; }
+          &.large { max-width: 500px; }
+          &.left { float: left; }
+          &.right { float: right; }
+        }
+        figcaption {
+          font-size: $base-font-size;
+          font-style: italic;
+        }
+      }
 
       p > code {
         background: #eee;

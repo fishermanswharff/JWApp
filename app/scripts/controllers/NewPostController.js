@@ -7,6 +7,7 @@ angular.module('MainController')
   $scope.categories = CategoryFactory.categories;
 
   var updateCategories = function(postId){
+    trace('hello from update categories function');
     var promises = [];
     _.forEach($scope.categories,function(item){
       var isChecked = item.checked;
@@ -18,6 +19,7 @@ angular.module('MainController')
   };
 
   var updateImages = function(postId){
+    trace('hello from update images function');
     var promises = [];
     var fileInputs = $('#imageUpload > input[type="file"]');
     for (var i = 0, length = fileInputs.length; i < length; i++) {
@@ -29,14 +31,39 @@ angular.module('MainController')
     return promises;
   };
 
+  var updateThumbnail = function(postId){
+    trace('hello from update thumbnail function');
+    var promises = [];
+    var fileInputs = $('#thumbnailUpload > input[type="file"]');
+    for(var i = 0, length = fileInputs.length; i < length; i++){
+      var imageFile = fileInputs[i].files[0];
+      if(imageFile){
+        promises.push(AWSFactory.sendToAmazon(imageFile,postId,false,true));
+      }
+    }
+    return promises;
+  };
+
+  var updateFeature = function(postId){
+    var promises = [];
+    var fileInputs = $('#featuredUpload > input[type="file"]');
+    for(var i = 0, length = fileInputs.length; i < length; i++){
+      var imageFile = fileInputs[i].files[0];
+      if(imageFile){
+        promises.push(AWSFactory.sendToAmazon(imageFile,postId,true,false));
+      }
+    }
+    return promises;
+  };
+
   $scope.upsertPost = function(post){
     $('.ajax-preloader').addClass('submitted');
     $('button[type="submit"]').attr('disabled',true);
     var params = { post: post };
     $http.post(ServerUrl + 'posts',params).success(function(response){
       var obj = response;
-      $q.all([updateImages(obj.id), updateCategories(obj.id)]).then(function(responses){
-        if(responses[0].length === 0){
+      $q.all([updateImages(obj.id), updateCategories(obj.id), updateThumbnail(obj.id), updateFeature(obj.id)]).then(function(responses){
+        if(responses[0].length === 0 || responses[2].length === 0 || responses[3].length === 0){
           $('.ajax-preloader').removeClass('submitted');
           $location.path('/posts/'+obj.id);
         } else {

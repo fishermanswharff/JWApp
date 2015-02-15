@@ -1,5 +1,5 @@
-<div ng-if="post.images.length === 0" class="black-carbon"></div>
-<div ng-if="post.images.length > 0" class="featured-image" style="background: url({{post.images[0].url}}) no-repeat center top fixed; background-size:cover;"></div>
+<div ng-if="post.featured_image === null" class="black-carbon"></div>
+<div ng-if="post.featured_image" class="featured-image" style="background: url({{post.featured_image.url}}) no-repeat center top fixed; background-size:cover;"></div>
 <div class="post-content clearfix container">
   <div class="grid_12 clearfix">
     <h1 ng-bind-html="post.title"></h1>

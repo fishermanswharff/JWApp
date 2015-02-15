@@ -13,6 +13,30 @@
       </label> {{category.name}}
     </div>
   </div>
+  <hr>
+  <div id="featuredUpload" class="form-group">
+    <input type="hidden" name="key" value="key">
+    <input type="hidden" name="AWSAccessKeyId" value="access_key">
+    <input type="hidden" name="acl" value="public-read">
+    <input type="hidden" name="policy" value="policy">
+    <input type="hidden" name="signature" value="signature">
+    <input type="hidden" name="Content-Type" value="image/jpeg">
+    Post Featured Image:<br/>
+    <input name="file" type="file">
+  </div>
+  <hr>
+  <hr>
+  <div id="thumbnailUpload" class="form-group">
+    <input type="hidden" name="key" value="key">
+    <input type="hidden" name="AWSAccessKeyId" value="access_key">
+    <input type="hidden" name="acl" value="public-read">
+    <input type="hidden" name="policy" value="policy">
+    <input type="hidden" name="signature" value="signature">
+    <input type="hidden" name="Content-Type" value="image/jpeg">
+    Post thumbnail:<br/>
+    <input name="file" type="file">
+  </div>
+  <hr>
   <div id="imageUpload" class="form-group">
     <input type="hidden" name="key" value="key">
     <input type="hidden" name="AWSAccessKeyId" value="access_key">
@@ -23,12 +47,13 @@
     Post Images:<br/>
     <input name="file" type="file">
   </div>
-  <div id='imageSelect' ng-if="post.images.length > 0">
+
+  <!-- <div id='imageSelect' ng-if="post.images.length > 0">
     <div class="checkbox-group" ng-repeat="image in post.images">
       <label for="image-{{image.id}}">{{image.url}}</label>
       <input type="checkbox" name="image-{{image.id}}">
     </div>
-  </div>
+  </div> -->
   <div class="form-group">
     <!-- <button class="btn btn-default" ng-click="clearForm()">Reset</button> -->
     <button class="btn btn-default" type="submit" ng-disabled="postForm.$invalid">Submit</button>
