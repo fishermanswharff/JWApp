@@ -108,20 +108,44 @@ article.post {
       width: 100%;
 
       a.slider-nav.prev{
+        position: relative;
         float: left;
         margin: 30% 10px;
         font-size: 34px;
         text-decoration: none;
         font-weight: bold;
         color: white;
+        text-indent: -9999px;
+        &:after {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 32px;
+          height: 32px;
+          top: 0;
+          left: 0;
+          background: url(../images/icons/gallery-prev.svg) no-repeat;
+        }
       }
       a.slider-nav.next {
+        position: relative;
         float: right;
         margin: 30% 10px;
         font-size: 34px;
         text-decoration: none;
         font-weight: bold;
         color: white;
+        text-indent: -9999px;
+        &:after {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 32px;
+          height: 32px;
+          top: 0;
+          left: -32px;
+          background: url(../images/icons/gallery-next.svg) no-repeat;
+        }
       }
     }
   }

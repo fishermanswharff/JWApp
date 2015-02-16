@@ -64,7 +64,7 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
         var tl = new TimelineMax({align: 'start'});
         tl.add([
           TweenLite.to(Gallery.images[prevIndex],0.5,{left: "-"+Gallery.containerWidth+'px', opacity: '0'}),
-          TweenLite.to(Gallery.images[Gallery.currentIndex], 0.5, {left: '0px', opacity: '1'}), 
+          TweenLite.to(Gallery.images[Gallery.currentIndex], 0.5, {left: '0px', opacity: '1'}),
           TweenLite.to(Gallery.images[nextIndex],0.5,{left: Gallery.containerWidth+'px', opacity:'0'})], 0);
         Gallery.images.map(function(index){
           index === Gallery.currentIndex ? $(Gallery.images[index]).css('z-index',1) : $(Gallery.images[index]).css('z-index',0);
@@ -74,7 +74,7 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
 
       $timeout(function(){
         Gallery.init();
-        Gallery.setCurrentIndex(1);
+        Gallery.setCurrentIndex(0);
         Gallery.updateView();
       },1000);
     }
