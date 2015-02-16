@@ -24,7 +24,6 @@ nav#nav-toggle {
 
         &.logout {
           font-family: $header-font;
-          /* font-weight: 800; */
           cursor: pointer;
         }
         &.home-icon {
@@ -97,10 +96,24 @@ nav#nav-toggle {
         &.new-post {
           position: relative;
           font-family: $header-font;
-          // font-weight: 800;
           cursor: pointer;
         }
+        &.resume {
+          display: block;
+          position: relative;
+          margin: 10px 30px 0 0;
+          line-height: 0;
+          &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: url(../images/icons/resume.svg) no-repeat;
+          }
+        }
       }
+      &.resume { text-indent: -9999px; }
     }
   }
 
