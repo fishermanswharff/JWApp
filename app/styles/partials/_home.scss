@@ -113,7 +113,7 @@ section#posts {
           top: 0;
           background: rgba(25,53,73,0.8);
         }
-      }  
+      }
     }
 
     figure {
@@ -132,7 +132,7 @@ section#posts {
         // z-index: $z-featured-image;
       }
     }
-    
+
     div.post-info {
       @include transition(all,0.25s,ease,0);
       box-sizing: padding-box;
@@ -146,7 +146,7 @@ section#posts {
       height: 100%;
       text-align: left;
 
-      h3.post-header { 
+      h3.post-header {
         margin: 5px 0;
         font-weight: $header-light;
         font-size: $xxlarge-font-size;
@@ -170,11 +170,11 @@ section#posts {
       }
     }
 
-    &.ng-enter { 
+    &.ng-enter {
       transform: scale(0.7);
       opacity: 0;
     }
-    &.ng-ener.ng-enter-active { 
+    &.ng-ener.ng-enter-active {
       transform: scale(1);
       opacity: 1;
     }
@@ -209,9 +209,9 @@ section.contact {
   background-color: $darkblue;
   padding: 100px 0;
   header {
-    @include defaults; 
-    h2 { 
-      @include defaults; 
+    @include defaults;
+    h2 {
+      @include defaults;
       text-align: center;
       color: $lightgreen;
     }

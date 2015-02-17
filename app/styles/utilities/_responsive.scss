@@ -26,7 +26,19 @@
   section#posts {
     div.post {
       width: 33.333%;
-    }  
+
+      &.withImage {
+        a {
+          figure {
+            img {
+              width: 120%;
+              left: -10%;
+              position: relative;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -44,17 +56,17 @@
   section#posts {
     div.post {
       width: 33.333%;
-    }  
-  } 
+    }
+  }
 }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width : 1024px) {
   section#posts {
     div.post {
       width: 25%;
-    }  
+    }
   }
-  
+
 }
 
 /* Large screens ----------- */
