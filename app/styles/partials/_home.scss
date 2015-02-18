@@ -163,6 +163,9 @@ section#posts {
     }
 
     &.about {
+      overflow: visible;
+      z-index: $z-nav;
+
       div.post-info {
         box-sizing:border-box;
         top: 0;

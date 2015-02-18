@@ -1,6 +1,6 @@
 input, select, textarea, button{font-family:$header-font;}
-input { 
-  @include transition(all, 0.25s, ease, 0); 
+input {
+  @include transition(all, 0.25s, ease, 0);
 }
 input[type="text"],
 input[type="password"],
@@ -31,13 +31,13 @@ input[type="submit"] {
       color: $black;
       background-color: $white;
       padding: 6px 10px 8px;
-      cursor: pointer; 
+      cursor: pointer;
 
       &:hover {
         background-color: $black;
         color: $white;
       }
-    }  
+    }
   }
 }
 
@@ -50,7 +50,7 @@ div.form-group {
   margin: 0 0 10px;
 }
 
-section.post-edit div form div.form-group input[type="checkbox"], 
+section.post-edit div form div.form-group input[type="checkbox"],
 section.post-edit div form div.form-group label {
     display: inline-block;
     width: auto;
@@ -74,7 +74,7 @@ input[type="text"]#homeFilter {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid $lightgreen;
-  
+
   &:focus + label,
   &:valid + label {
     top: 100%;
@@ -152,7 +152,7 @@ form#post-form {
       border: none;
       border-radius: 0;
       border-bottom: 1px solid $lightgreen;
-      
+
       &:focus + label,
       &:valid + label {
         top: 100%;
@@ -224,10 +224,10 @@ form#post-form {
         opacity: 0.2;
       }
     }
-    div.checkbox-group { 
+    div.checkbox-group {
       display: inline-block;
       margin: 5px 0 5px 15px;
-      label { 
+      label {
         @include defaults;
         opacity: 1;
         position: static;
@@ -249,4 +249,43 @@ div.checkbox-group {
   display: inline-block;
   margin: 5px 0 5px 15px;
 }
+
+select[name="categories"] {
+  background: $darkblue;
+  color: $lightyellow;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  font-family: $mono-spaced-font;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
