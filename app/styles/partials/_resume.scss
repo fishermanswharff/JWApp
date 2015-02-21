@@ -7,7 +7,7 @@ section.resume {
     @extend .clearfix;
 
     h1 { @extend .grid_16; }
-    div.contact { 
+    div.contact {
       display: inline-block;
       position: relative;
       height: 50px;
@@ -159,7 +159,7 @@ section.resume {
           &.skills {
             p {
               clear: both;
-              img.software-icon { 
+              img.software-icon {
                 max-width: 48px;
                 float: left;
                 margin: 0 10px 10px 0;
