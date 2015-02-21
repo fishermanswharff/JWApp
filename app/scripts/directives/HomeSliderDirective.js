@@ -15,8 +15,14 @@ angular.module('MainDirective').directive('homeSlider',['trace','$timeout',funct
       var touchSelect = function(){
         $(select).hide();
       };
+      var keyboardInput = function(e){
+        if(e.keyCode == 13){
+          $(select).hide();
+        }
+      };
       input.bind('click',openInput);
       select.bind('click',touchSelect);
+      $(input).keypress(keyboardInput);
     }
   };
 }]);
