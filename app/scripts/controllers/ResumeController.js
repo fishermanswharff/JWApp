@@ -7,7 +7,7 @@ angular.module('jwwebApp').controller('ResumeController',['$scope',function($sco
       'Ruby on Rails': {'level': 'I can build api endpoints'},
       'RSpec': {'level': 'I write rspec tests as a basis for curriculum lessons on building Rails applications' },
       'Postgres': {'level': 'Relational Database—used in most of my rails projects'},
-      'AngularJS': {'level':'I’ve written custom directives'},
+      'AngularJS': {'level':'I’ve written custom directives, filters, factories, full web applications'},
       'Jasmine': {'level': 'I write jasmine tests as a basis for curriculum lessons on Javascript fundamentals'},
       'SQL': {'level':'I know enough to be dangerous'},
       'Javascript': {'level':'Object-oriented javascript used to build this website'},
@@ -65,6 +65,17 @@ angular.module('jwwebApp').controller('ResumeController',['$scope',function($sco
 
   $scope.experience = {
     'professional': {
+      'EverQuote': {
+        'title': 'Ruby on Rail Web Developer',
+        'dates': '2015-present',
+        'description': 'Designer and Developer at auto insurance marketplace. Roles range from leading front end development on new feature builds to mentoring junior developers on the team.',
+        'url': 'http://www.everquote.com'
+      },
+      'General Assembly': {
+        'title': 'Developer in Residence',
+        'dates': 'January-April 2015',
+        'description': ''
+      },
       'Educational Media Solutions': {
         'title': 'Interactive Designer, Junior Developer',
         'dates': '2013–2014',
