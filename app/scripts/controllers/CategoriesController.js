@@ -1,4 +1,4 @@
-/*global $:false */
+/*global $:false*/
 'use strict';
 angular.module('MainController').controller('CategoriesController',['$scope','$http','trace','CategoryFactory','ServerUrl',function($scope,$http,trace,CategoryFactory,ServerUrl){
 

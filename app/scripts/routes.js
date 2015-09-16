@@ -34,6 +34,10 @@ angular.module('jwwebApp')
         templateUrl: '/views/categories.html',
         controller: 'CategoriesController'
       })
+      .when('/flexbox',{
+        templateUrl: '/views/flexbox.html',
+        controller: 'FlexboxController'
+      })
       .otherwise({
         redirectTo: '/'
       });

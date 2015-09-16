@@ -5,7 +5,7 @@
     <h1 ng-bind-html="post.title"></h1>
   </div>
   <div class="body grid_16 clearfix">
-    <div class="post-body grid_12" ng-bind-html="post.body"></div>
+    <div class="post-body grid_12" ng-unsafe-bind-html="post.body"></div>
     <div class="post-sidebar grid_4">
       <p class="date"><strong>Created on: </strong>{{ post.created_at | date }}</p>
       <p ng-if="post.categories.length > 0"><strong>Categories: </strong><br><a class="btn" ng-repeat="category in post.categories">{{category.name}}</a></p>

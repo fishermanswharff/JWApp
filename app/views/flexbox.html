@@ -1,0 +1,20 @@
+<section class="main-flex-content">
+ <div class="main-container">
+  <div id="flexbox-container">
+    <div ng-repeat="post in posts | limitTo:11 | postsFilter:search" ng-class="{withImage: hasImage(post)}" class="post box">
+      <a ng-href="#/posts/{{post.id}}" title="post-{{post.id}}">
+        <figure ng-if="post.thumbnail">
+          <img src="{{post.thumbnail.url}}" alt="{{post.id}}-image">
+          <figcaption ng-bind-html="post.title"></figcaption>
+        </figure>
+        <figure ng-if="post.thumbnail === null" class="black-carbon"></figure>
+        <div class="post-info">
+          <h3 class="post-header" ng-bind-html="post.title"></h3>
+          <!-- <div class="post-body" ng-bind-html="post.body | truncate"></div> -->
+          <p ng-if="post.categories.length > 0"><strong>Categories: </strong><span ng-repeat="category in post.categories">{{category.name}} </span></p>
+        </div>
+      </a>
+    </div>
+  </div>
+ </div>
+</section>
