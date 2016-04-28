@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainDirective').directive('categoryform',function(){
+angular.module('MainDirective').directive('categoryform',[function(){
   return {
     restrict: 'EA',
     templateUrl: '../views/category-form.html',
@@ -7,4 +7,4 @@ angular.module('MainDirective').directive('categoryform',function(){
 
     },
   };
-});
+}]);

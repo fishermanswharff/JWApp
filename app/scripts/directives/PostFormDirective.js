@@ -1,5 +1,5 @@
 'use strict';
-angular.module('MainDirective').directive('postform',function(){
+angular.module('MainDirective').directive('postform',[function(){
   return {
     restrict: 'EA',
     templateUrl: '../views/post-form.html',
@@ -7,4 +7,4 @@ angular.module('MainDirective').directive('postform',function(){
 
     },
   };
-});
+}]);

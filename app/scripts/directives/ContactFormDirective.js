@@ -4,8 +4,6 @@ angular.module('MainDirective').directive('contactForm',['trace','$http','Server
   return {
     restrict: 'EA',
     templateUrl: '../views/contact-form.html',
-    link: function($scope,element,attrs){
-      
-    },
+    link: function($scope,element,attrs){},
   };
 }]);
