@@ -1,5 +1,10 @@
 'use strict';
-angular.module('MainController').controller('NavbarController',['$scope','$http','$window','$location','ServerUrl','AuthFactory','trace','$filter','postsFilterFilter','PostsFactory',function($scope,$http,$window,$location,ServerUrl,AuthFactory,trace,$filter,postsFilter,PostsFactory){
+angular.module('MainController').controller('NavbarController',[
+  '$scope',
+  '$location',
+  'AuthFactory',
+  'trace',
+  function($scope,$location,AuthFactory,trace){
   $scope.accounts = [
     {
       'method': 'Email',

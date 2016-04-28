@@ -1,5 +1,11 @@
 'use strict';
-angular.module('MainController').controller('LoginController',['$scope','$http','$location','AuthFactory','trace',function($scope,$http,$location,AuthFactory,trace){
+angular.module('MainController').controller('LoginController',[
+  '$scope',
+  '$http',
+  '$location',
+  'AuthFactory',
+  'trace',
+  function($scope,$http,$location,AuthFactory,trace){
   $scope.createUser = false;
   $scope.message = '';
   $scope.login = function(credentials){
@@ -8,7 +14,7 @@ angular.module('MainController').controller('LoginController',['$scope','$http',
       trace(response);
     });
   };
-  
+
   $scope.newUser = function(){
     $scope.createUser = true;
   };

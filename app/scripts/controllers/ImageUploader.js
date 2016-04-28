@@ -1,6 +1,13 @@
 /*global $:false */
 'use strict';
-angular.module('MainController').controller('ImageUploader',['$rootScope','$scope','$http','AWSFactory','AuthFactory','trace',function($rootScope,$scope,$http,AWSFactory,AuthFactory,trace){
+angular.module('MainController').controller('ImageUploader',[
+  '$rootScope',
+  '$scope',
+  '$http',
+  'AWSFactory',
+  'AuthFactory',
+  'trace',
+  function($rootScope,$scope,$http,AWSFactory,AuthFactory,trace){
 
   $scope.upsertImage = function(){
     $('.ajax-preloader').addClass('submitted');
