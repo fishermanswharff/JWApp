@@ -74,7 +74,8 @@ angular.module('jwwebApp').controller('ResumeController',['$scope',function($sco
       'General Assembly': {
         'title': 'Developer in Residence',
         'dates': 'January-April 2015',
-        'description': ''
+        'description': 'Responsible for creating test-driven lessons implementing automated build processes for immersive bootcamp focusing on Ruby, Ruby on Rails, and Javascript as well as leading lessons and demonstrations in a variety of programming languages and applications.',
+        'url': 'https://generalassemb.ly/instructors/jason-wharff/4318'
       },
       'Educational Media Solutions': {
         'title': 'Interactive Designer, Junior Developer',
