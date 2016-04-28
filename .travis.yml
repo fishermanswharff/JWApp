@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - '0.10'
-before_install: gem install compass
-before_script:
-  - CODECLIMATE_REPO_TOKEN=3136821d85162d2bf81e784c1e658e956d764de41a70d7aa4169a2b1e60c0c99
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
