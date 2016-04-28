@@ -5,7 +5,6 @@ angular.module('MainDirective').directive('postGallery',['trace','$timeout',func
     restrict: 'EA',
     templateUrl: '../views/post-gallery.html',
     link: function($scope,element,attrs){
-
       var Gallery = {
         imgContainer: element.find('.slider-photos'),
         images: [],

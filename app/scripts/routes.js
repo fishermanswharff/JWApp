@@ -1,6 +1,6 @@
 'use strict';
 angular.module('jwwebApp')
-  .config(['$routeProvider',function ($routeProvider) {
+  .config(['$routeProvider', function($routeProvider) {
       $routeProvider
         .when('/', {
           templateUrl: 'views/home.html',
@@ -38,3 +38,4 @@ angular.module('jwwebApp')
           redirectTo: '/'
         });
     }]);
+
