@@ -1,7 +1,18 @@
 /*global $:false */
 'use strict';
 angular.module('MainController')
-.controller('NewPostController',['$rootScope','$scope','$q','$http','$location','AuthFactory','AmazonBucket','AWSFactory','CategoryFactory','ServerUrl','trace',
+.controller('NewPostController',[
+  '$rootScope',
+  '$scope',
+  '$q',
+  '$http',
+  '$location',
+  'AuthFactory',
+  'AmazonBucket',
+  'AWSFactory',
+  'CategoryFactory',
+  'ServerUrl',
+  'trace',
   function($rootScope,$scope,$q,$http,$location,AuthFactory,AmazonBucket,AWSFactory,CategoryFactory,ServerUrl,trace){
 
   $scope.categories = CategoryFactory.categories;
