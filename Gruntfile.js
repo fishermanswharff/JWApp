@@ -8,26 +8,14 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
-  // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-
-  // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
-  // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
-  // Define the configuration for all the tasks
   grunt.initConfig({
-
-    // Project settings
     yeoman: appConfig,
-
-    // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
         files: ['bower.json'],
@@ -68,7 +56,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
@@ -171,7 +159,6 @@ module.exports = function (grunt) {
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
-
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
@@ -200,7 +187,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
     // Renames files for browser caching purposes
     filerev: {
       dist: {
@@ -212,7 +198,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
@@ -240,7 +225,6 @@ module.exports = function (grunt) {
         assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
       }
     },
-
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
@@ -310,7 +294,7 @@ module.exports = function (grunt) {
 
     // ng-annotate tries to make the code safe for minification automatically
     // by using the Angular long form for dependency injection.
-    ngAnnotate: {
+    /*ngAnnotate: {
       dist: {
         files: [{
           expand: true,
@@ -319,7 +303,7 @@ module.exports = function (grunt) {
           dest: '.tmp/concat/scripts'
         }]
       }
-    },
+    },*/
 
     // Replace Google CDN references
     cdnify: {
@@ -419,7 +403,6 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',

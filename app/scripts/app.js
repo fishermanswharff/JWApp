@@ -1,13 +1,5 @@
 'use strict';
-/*global $:false */
-/**
- * @ngdoc overview
- * @name jwwebApp
- * @description
- * # jwwebApp
- *
- * Main module of the application.
- */
+
 angular.module('jwwebApp',[
   'ngAnimate',
   'ngAria',
